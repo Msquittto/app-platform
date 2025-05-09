@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 表示{@link QianfanKnowledgeRepoServiceImpl}的测试集。
+ * 表示 {@link QianfanKnowledgeRepoServiceImpl} 的测试集。
  *
  * @author 陈潇文
  * @since 2025-05-06

@@ -15,7 +15,7 @@ import modelengine.jade.knowledge.dto.QianfanRetrievalParam;
 import java.util.List;
 
 /**
- * 表示{@link QianfanRetrievalParam}类的测试类实现。
+ * 表示 {@link QianfanRetrievalParam} 类的测试类实现。
  *
  * @author 陈潇文
  * @since 2025-05-08

@@ -11,7 +11,7 @@ import modelengine.fitframework.serialization.annotation.SerializeStrategy;
 import modelengine.jade.knowledge.dto.QianfanKnowledgeListQueryParam;
 
 /**
- * 表示{@link QianfanKnowledgeListQueryParam}类的测试类实现。
+ * 表示 {@link QianfanKnowledgeListQueryParam} 类的测试类实现。
  *
  * @author 陈潇文
  * @since 2025-05-08

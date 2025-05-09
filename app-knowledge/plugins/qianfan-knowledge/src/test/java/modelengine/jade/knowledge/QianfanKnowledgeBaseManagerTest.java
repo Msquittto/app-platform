@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 表示{@link QianfanKnowledgeBaseManager}的测试集。
+ * 表示 {@link QianfanKnowledgeBaseManager} 的测试集。
  *
  * @author 陈潇文
  * @since 2025-05-06
