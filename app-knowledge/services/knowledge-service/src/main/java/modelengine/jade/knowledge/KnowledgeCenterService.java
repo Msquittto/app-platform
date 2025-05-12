@@ -72,13 +72,12 @@ public interface KnowledgeCenterService {
     /**
      * 基于用户名，知识库平台获取api Key。
      *
-     * @param userId 表示用户id的 {@link String}。
-     * @param groupId 表示知识库平台groupId的 {@link String}。
+     * @param knowledgeConfigId 表示知识库配置唯一id的 {@link String}。
      * @param defaultValue 表示api key默认值得 {@link String}。
      * @return 表示api key的 {@link String}。
      */
     @Genericable("knowledge.center.service.getApiKey")
-    String getApiKey(String userId, String groupId, String defaultValue);
+    String getApiKey(String knowledgeConfigId, String defaultValue);
 
     /**
      * 基于用户名，知识库平台获取config唯一id。

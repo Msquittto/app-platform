@@ -168,6 +168,7 @@ public class KnowledgeCenterServiceImplTest {
         String groupId = "group1";
         String apiKey = "key";
         String defaultValue = "default";
+        String knowledgeConfigId = "id";
 
         KnowledgeConfigPo configPo =
                 KnowledgeConfigPo.builder().userId(userId).groupId(groupId).apiKey(apiKey).isDefault(1).build();
@@ -176,21 +177,20 @@ public class KnowledgeCenterServiceImplTest {
                 .thenReturn(Collections.singletonList(configPo));
         Mockito.when(decryptor.decrypt(anyString())).thenReturn(apiKey);
 
-        String result = knowledgeCenterService.getApiKey(userId, groupId, defaultValue);
+        String result = knowledgeCenterService.getApiKey(knowledgeConfigId, defaultValue);
         assertEquals(apiKey, result);
     }
 
     @Test
     @DisplayName("当没有找到API Key时返回默认值")
     void shouldReturnDefaultValueWhenNoApiKeyFound() {
-        String userId = "user1";
-        String groupId = "group1";
         String defaultValue = "default";
+        String knowledgeConfigId = "id";
 
         Mockito.when(knowledgeCenterRepo.listKnowledgeConfigByCondition(ArgumentMatchers.any()))
                 .thenReturn(Collections.emptyList());
 
-        String result = knowledgeCenterService.getApiKey(userId, groupId, defaultValue);
+        String result = knowledgeCenterService.getApiKey(knowledgeConfigId, defaultValue);
         assertEquals(defaultValue, result);
     }
 

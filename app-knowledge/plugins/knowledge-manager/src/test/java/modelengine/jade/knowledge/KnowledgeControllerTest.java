@@ -99,7 +99,7 @@ public class KnowledgeControllerTest {
     void setUp() {
         // 切换线程后，UserContextHolder Mock 失败。
         when(this.authenticationServiceMock.getUserName(any())).thenReturn("Jane");
-        when(this.knowledgeCenterService.getApiKey(anyString(), anyString(), anyString())).thenReturn("");
+        when(this.knowledgeCenterService.getApiKey(anyString(), anyString())).thenReturn("");
     }
 
     @AfterEach

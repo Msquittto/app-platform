@@ -89,10 +89,10 @@ public class KnowledgeController extends AbstractController {
     @GetMapping("/list/repos")
     public PageVo<KnowledgeRepo> getRepoList(HttpClassicServerRequest httpRequest,
             @RequestParam(value = "groupId", required = false) String groupId,
-            @RequestBean @Validated ListRepoQueryParam param) {
+            @RequestBean @Validated ListRepoQueryParam param,
+            @RequestParam(value = "knowledgeConfigId", required = false) String knowledgeConfigId) {
         OperationContext operationContext = this.contextOf(httpRequest, "");
-        String apiKey = this.knowledgeCenterService.getApiKey(operationContext.getOperator(),
-                groupId,
+        String apiKey = this.knowledgeCenterService.getApiKey(knowledgeConfigId,
                 operationContext.getOperator());
         return this.knowledgeServiceRouter.getInvoker(KnowledgeRepoService.class,
                 KnowledgeRepoService.GENERICABLE_LIST_REPOS,

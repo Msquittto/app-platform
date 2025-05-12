@@ -178,12 +178,14 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
 
     @Override
     @Fitable(id = FITABLE_ID)
-    public String getApiKey(String userId, String groupId, String defaultValue) {
+    public String getApiKey(String knowledgeConfigId, String defaultValue) {
+        if (knowledgeConfigId == null) {
+            return defaultValue;
+        }
         KnowledgeConfigQueryCondition cond =
-                KnowledgeConfigQueryCondition.builder().userId(userId).groupId(groupId).isDefault(1).build();
+                KnowledgeConfigQueryCondition.builder().knowledgeConfigId(knowledgeConfigId).build();
         List<KnowledgeConfigPo> result = this.knowledgeCenterRepo.listKnowledgeConfigByCondition(cond);
         if (result.isEmpty()) {
-            log.info("No available api key. [knowledge groupId={}, userId={}]", groupId, userId);
             return defaultValue;
         }
         this.validateConfigNum(result);

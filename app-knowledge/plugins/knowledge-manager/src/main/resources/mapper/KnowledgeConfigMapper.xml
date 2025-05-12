@@ -57,6 +57,9 @@
         <if test="cond.apiKey != null">
             and api_key = #{cond.apiKey}
         </if>
+        <if test="cond.knowledgeConfigId != null">
+            and knowledge_config_id = #{cond.knowledgeConfigId}
+        </if>
         ORDER BY updated_at DESC, created_at DESC
     </select>
 
