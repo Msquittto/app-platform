@@ -6,6 +6,10 @@
 
 package modelengine.jade.knowledge.service;
 
+import modelengine.fel.tool.annotation.Attribute;
+import modelengine.fel.tool.annotation.Group;
+import modelengine.fel.tool.annotation.ToolMethod;
+import modelengine.fit.jane.task.util.Entities;
 import modelengine.fit.security.Decryptor;
 import modelengine.fit.security.Encryptor;
 import modelengine.fitframework.annotation.Component;
@@ -15,9 +19,6 @@ import modelengine.fitframework.log.Logger;
 import modelengine.fitframework.util.CollectionUtils;
 import modelengine.fitframework.util.LongUtils;
 import modelengine.fitframework.util.StringUtils;
-import modelengine.fel.tool.annotation.Attribute;
-import modelengine.fel.tool.annotation.Group;
-import modelengine.fel.tool.annotation.ToolMethod;
 import modelengine.jade.knowledge.KnowledgeCenterService;
 import modelengine.jade.knowledge.code.KnowledgeManagerRetCode;
 import modelengine.jade.knowledge.condition.KnowledgeConfigQueryCondition;
@@ -85,6 +86,7 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
                     .build();
             this.knowledgeCenterRepo.updateOthersIsDefaultFalse(condition);
         }
+        knowledgeConfigDto.setKnowledgeConfigId(Entities.generateId());
         this.knowledgeCenterRepo.insertKnowledgeConfig(this.getKnowledgeConfigPo(knowledgeConfigDto));
     }
 

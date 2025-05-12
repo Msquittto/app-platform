@@ -48,6 +48,11 @@ public class KnowledgeConfigDto {
     private String groupId;
 
     /**
+     * 知识库配置唯一id。
+     */
+    private String knowledgeConfigId;
+
+    /**
      * 是否为默认使用。
      */
     private Boolean isDefault;
