@@ -23,7 +23,8 @@ const KnowledgeContainer = (props) => {
   const { graphOperator, config, updateData, validateList } = props;
   const [knowledge, setKnowledge] = useState([]);
   const [groupConfig, setGroupConfig] = useState({});
-  const [groupId, setGroupId] = useState('default');
+  const [groupId, setGroupId] = useState('');
+  const [knowledgeConfigId, setKnowledgeConfigId] = useState(null);
   const [activePanelKey, setActivePanelKey] = useState(['']);
   const knowledgeRef: any = useRef(null);
   const curKnowledge = useRef(null);
@@ -52,6 +53,7 @@ const KnowledgeContainer = (props) => {
 
   // 获取知识库ID
   const getKnowledgeId = (config) => {
+    // 这里需要增加从config里获取 knowledgeConfigId 获取不到就是null
     const groupConfig = [config[0], 'option'];
     const groupValue = graphOperator.getConfig(groupConfig);
     if (groupValue) {
@@ -69,10 +71,12 @@ const KnowledgeContainer = (props) => {
   }
 
   // 更新groupId
-  const updateGroupId = (val) => {
-    setGroupId(val);
-    if (curGroupValue.current.groupId !== val) {
-      curGroupValue.current.groupId = val;
+  const updateKnowledgeOption = (groupId: String, knowledgeConfigId:String) => {
+    setGroupId(groupId);
+    setKnowledgeConfigId(knowledgeConfigId);
+    if (curGroupValue.current.groupId !== groupId) {
+      curGroupValue.current.groupId = groupId;
+      curGroupValue.current.knowledgeConfigId = knowledgeConfigId;
       graphOperator.update(groupConfig, curGroupValue.current);
       updateData();
     }
@@ -138,6 +142,7 @@ const KnowledgeContainer = (props) => {
           knowledgeRef={knowledgeRef} 
           knowledge={knowledge}
           groupId={groupId}
+          knowledgeConfigId={knowledgeConfigId}
           updateData={updateKnowledge} 
         />
       </Panel>
@@ -146,7 +151,7 @@ const KnowledgeContainer = (props) => {
     <ConnectKnowledge
       modelRef={connectKnowledgeRef}
       groupId={groupId}
-      updateGroupId={updateGroupId}
+      updateKnowledgeOption={updateKnowledgeOption}
     />
   </>
 };
