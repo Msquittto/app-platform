@@ -190,6 +190,18 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
         return this.decryptor.decrypt(result.get(0).getApiKey());
     }
 
+    @Override
+    public String getKnowledgeConfigId(String userId, String groupId) {
+        KnowledgeConfigQueryCondition cond =
+                KnowledgeConfigQueryCondition.builder().userId(userId).groupId(groupId).isDefault(1).build();
+        List<KnowledgeConfigPo> result = this.knowledgeCenterRepo.listKnowledgeConfigByCondition(cond);
+        if (result.isEmpty()) {
+            return null;
+        }
+        this.validateConfigNum(result);
+        return result.get(0).getKnowledgeConfigId();
+    }
+
     private void validateConfigNum(List<KnowledgeConfigPo> result) {
         if (result.size() > 1) {
             throw new KnowledgeException(KnowledgeManagerRetCode.QUERY_CONFIG_LENGTH_MORE_THAN_ONE,

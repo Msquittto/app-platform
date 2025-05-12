@@ -12,16 +12,18 @@
         <result property="createdBy" column="created_by"/>
         <result property="updatedAt" column="updated_at"/>
         <result property="updatedBy" column="updated_by"/>
+        <result property="knowledgeConfigId" column="knowledge_config_id" />
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, name, user_id, group_id, api_key, is_default, created_at, created_by, updated_at, updated_by
+        id, name, user_id, group_id, api_key, is_default, created_at, created_by, updated_at, updated_by, knowledge_config_id
     </sql>
 
     <insert id="insert" parameterType="modelengine.jade.knowledge.po.KnowledgeConfigPo">
         insert into t_app_engine_user_knowledge
-        (name, user_id, group_id, api_key, is_default, created_by, created_at, updated_by, updated_at)
-        values (#{name}, #{userId}, #{groupId}, #{apiKey}, #{isDefault}, #{createdBy}, #{createdAt}, #{updatedBy}, #{updatedAt})
+        (name, user_id, group_id, api_key, is_default, created_by, created_at, updated_by, updated_at, knowledge_config_id)
+        values (#{name}, #{userId}, #{groupId}, #{apiKey}, #{isDefault}, #{createdBy}, #{createdAt}, #{updatedBy},
+        #{updatedAt}, #{knowledgeConfigId})
     </insert>
 
     <update id="update" parameterType="modelengine.jade.knowledge.po.KnowledgeConfigPo">

@@ -79,4 +79,12 @@ public interface KnowledgeCenterService {
      */
     @Genericable("knowledge.center.service.getApiKey")
     String getApiKey(String userId, String groupId, String defaultValue);
+
+    /**
+     * 基于用户名，知识库平台获取config唯一id。
+     * @param userId 表示用户id的 {@link String}。
+     * @param groupId 表示知识库平台groupId的 {@link String}。
+     * @return 表示config唯一 id的 {@link String}。
+     */
+    String getKnowledgeConfigId(String userId, String groupId);
 }

@@ -134,4 +134,17 @@ public class KnowledgeController extends AbstractController {
                 property.filterConfig(),
                 property.rerankConfig());
     }
+
+    /**
+     * 查询用户在知识库集的config配置的唯一id。
+     * @param httpRequest 表示 http 请求的 {@link HttpClassicServerRequest}。
+     * @param groupId 表示调用的知识库服务的唯一标识的 {@link String}。
+     * @return 表示用户在知识库集的config配置的唯一id的 {@link String}。
+     */
+    @GetMapping("/configId")
+    public String getKnowledgeConfigId(HttpClassicServerRequest httpRequest,
+            @RequestParam(value = "groupId", required = false) String groupId) {
+        OperationContext operationContext = this.contextOf(httpRequest, "");
+        return this.knowledgeCenterService.getKnowledgeConfigId(operationContext.getOperator(), groupId);
+    }
 }

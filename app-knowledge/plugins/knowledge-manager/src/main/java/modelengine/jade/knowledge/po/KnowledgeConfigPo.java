@@ -47,6 +47,11 @@ public class KnowledgeConfigPo extends BasePo {
     private int isDefault;
 
     /**
+     * 唯一id。
+     */
+    private String knowledgeConfigId;
+
+    /**
      * 用于构建 {@link KnowledgeConfigPo} 实例的构建器类。
      */
     public static class Builder {
@@ -159,6 +164,16 @@ public class KnowledgeConfigPo extends BasePo {
          */
         public Builder updatedBy(String updatedBy) {
             this.instance.setUpdatedBy(updatedBy);
+            return this;
+        }
+
+        /**
+         * 设置唯一id。
+         * @param knowledgeConfigId 表示唯一id的 {@link String}。
+         * @return {@link Builder} 构建器本身。
+         */
+        public Builder knowledgeConfigId(String knowledgeConfigId) {
+            this.instance.setKnowledgeConfigId(knowledgeConfigId);
             return this;
         }
 
