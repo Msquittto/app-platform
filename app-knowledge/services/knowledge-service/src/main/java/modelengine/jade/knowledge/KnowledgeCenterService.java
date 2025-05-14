@@ -73,7 +73,7 @@ public interface KnowledgeCenterService {
      * 基于用户名，知识库平台获取 api Key。
      *
      * @param knowledgeConfigId 表示知识库配置唯一 id 的 {@link String}。
-     * @param defaultValue 表示 api key 默认值得 {@link String}。
+     * @param defaultValue 表示 api key 默认值的 {@link String}。
      * @return 表示 api key 的 {@link String}。
      */
     @Genericable("knowledge.center.service.getApiKey")

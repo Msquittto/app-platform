@@ -27,17 +27,17 @@ public class KnowledgeConfigPo extends BasePo {
     private String name;
 
     /**
-     * 用户id。
+     * 用户 id。
      */
     private String userId;
 
     /**
-     * 知识库api key。
+     * 知识库 api key。
      */
     private String apiKey;
 
     /**
-     * 知识库平台groupId。
+     * 知识库平台 groupId。
      */
     private String groupId;
 
@@ -47,7 +47,7 @@ public class KnowledgeConfigPo extends BasePo {
     private int isDefault;
 
     /**
-     * 唯一id。
+     * 唯一 id。
      */
     private String knowledgeConfigId;
 
@@ -169,6 +169,7 @@ public class KnowledgeConfigPo extends BasePo {
 
         /**
          * 设置唯一id。
+         *
          * @param knowledgeConfigId 表示唯一id的 {@link String}。
          * @return {@link Builder} 构建器本身。
          */
