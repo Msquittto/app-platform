@@ -92,8 +92,7 @@ public class KnowledgeController extends AbstractController {
             @RequestBean @Validated ListRepoQueryParam param,
             @RequestParam(value = "knowledgeConfigId", required = false) String knowledgeConfigId) {
         OperationContext operationContext = this.contextOf(httpRequest, "");
-        String apiKey = this.knowledgeCenterService.getApiKey(knowledgeConfigId,
-                operationContext.getOperator());
+        String apiKey = this.knowledgeCenterService.getApiKey(knowledgeConfigId, operationContext.getOperator());
         return this.knowledgeServiceRouter.getInvoker(KnowledgeRepoService.class,
                 KnowledgeRepoService.GENERICABLE_LIST_REPOS,
                 groupId).invoke(apiKey, param);
@@ -136,10 +135,11 @@ public class KnowledgeController extends AbstractController {
     }
 
     /**
-     * 查询用户在知识库集的config配置的唯一id。
+     * 查询用户在知识库集的 config 配置的唯一 id。
+     *
      * @param httpRequest 表示 http 请求的 {@link HttpClassicServerRequest}。
      * @param groupId 表示调用的知识库服务的唯一标识的 {@link String}。
-     * @return 表示用户在知识库集的config配置的唯一id的 {@link String}。
+     * @return 表示用户在知识库集的 config 配置的唯一 id 的 {@link String}。
      */
     @GetMapping("/configId")
     public String getKnowledgeConfigId(HttpClassicServerRequest httpRequest,

@@ -53,7 +53,7 @@ public interface KnowledgeCenterService {
     /**
      * 查询用户的知识库配置信息。
      *
-     * @param userId 表示用户id的 {@link String}。
+     * @param userId 表示用户 id 的 {@link String}。
      * @return 表示用户的知识库配置信息列表的 {@link List}{@code <}{@link KnowledgeConfigDto}{@code >}。
      */
     @ToolMethod(name = "list_user_knowledge_config", description = "查询用户的知识库配置信息")
@@ -70,20 +70,21 @@ public interface KnowledgeCenterService {
     List<KnowledgeDto> getSupportKnowledges(@Property(description = "用户id", required = false) String userId);
 
     /**
-     * 基于用户名，知识库平台获取api Key。
+     * 基于用户名，知识库平台获取 api Key。
      *
-     * @param knowledgeConfigId 表示知识库配置唯一id的 {@link String}。
-     * @param defaultValue 表示api key默认值得 {@link String}。
-     * @return 表示api key的 {@link String}。
+     * @param knowledgeConfigId 表示知识库配置唯一 id 的 {@link String}。
+     * @param defaultValue 表示 api key 默认值得 {@link String}。
+     * @return 表示 api key 的 {@link String}。
      */
     @Genericable("knowledge.center.service.getApiKey")
     String getApiKey(String knowledgeConfigId, String defaultValue);
 
     /**
-     * 基于用户名，知识库平台获取config唯一id。
-     * @param userId 表示用户id的 {@link String}。
-     * @param groupId 表示知识库平台groupId的 {@link String}。
-     * @return 表示config唯一 id的 {@link String}。
+     * 基于用户名，知识库平台获取 config 唯一 id。
+     *
+     * @param userId 表示用户 id 的 {@link String}。
+     * @param groupId 表示知识库平台 groupId 的 {@link String}。
+     * @return 表示 config 唯一 id 的 {@link String}。
      */
     @Genericable("knowledge.center.service.getKnowledgeConfigId")
     String getKnowledgeConfigId(String userId, String groupId);
