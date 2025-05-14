@@ -65,8 +65,8 @@ const Stage = (props) => {
   const [skillList, setSkillList] = useState([]);
   const [promptValue, setPromptValue] = useState('');
   const [currentModelInfo, setCurrentModelInfo] = useState({});
-  const [groupId, setGroupId] = useState("");
-  const [knowledgeConfigId, setKnowledgeConfigId] = useState(null);
+  const [groupId, setGroupId] = useState('');
+  const [knowledgeConfigId, setKnowledgeConfigId] = useState('');
   const { CONFIGS } = configMap[process.env.NODE_ENV];
   const { type, appInfo, setFlowInfo } = useContext(FlowContext);
   const testStatus = useAppSelector((state) => state.flowTestStore.testStatus);
@@ -152,11 +152,11 @@ const Stage = (props) => {
       });
       // 知识库模态框
       agent.onKnowledgeBaseSelect((args) => {
-        let { selectedKnowledgeBases, onSelect, groupId, knowledgeConfigId } = args;
+        let { selectedKnowledgeBases, onSelect, groupId, selectedKnowledgeConfigId } = args;
         setGroupId(groupId);
-        setKnowledgeConfigId(knowledgeConfigId);
+        setKnowledgeConfigId(selectedKnowledgeConfigId);
         knowledgeCallback.current = onSelect;
-        modalRef.current.showModal(selectedKnowledgeBases, groupId, knowledgeConfigId);
+        modalRef.current.showModal(selectedKnowledgeBases, groupId, selectedKnowledgeConfigId);
       });
       // 插件模态框
       agent.onPluginSelect((args) => {

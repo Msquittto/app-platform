@@ -11,9 +11,7 @@ const { PLUGIN_URL } = serviceConfig;
 // 获取知识库卡片列表
 const getKnowledgesCard = (params) => {
   return new Promise((resolve, reject) => {
-    get(`${PLUGIN_URL}/knowledge-manager/list/repos?groupId=${params.groupId}
-    &knowledgeConfigId=${params.knowledgeConfigId}&repoName=${params.repoName}
-    &pageSize=${params.pageSize}&pageIndex=${params.pageIndex}`).then((res) => {
+    get(`${PLUGIN_URL}/knowledge-manager/list/repos?groupId=${params.groupId}&knowledgeConfigId=${params.knowledgeConfigId}&repoName=${params.repoName}&pageSize=${params.pageSize}&pageIndex=${params.pageIndex}`).then((res) => {
       resolve(res);
     }, (error) => {
       reject(error);
@@ -43,9 +41,9 @@ const getConnectKnowledgeList = () => {
 }
 
 // 获取知识库集的apiKey的唯一Id
-const getKnowledgeConfigId = (params) => {
+const getKnowledgeConfigId = (groupId) => {
   return new Promise((resolve, reject) => {
-    get(`${PLUGIN_URL}/knowledge-manager/configId?groupId=${params.groupId}`).then((res) => {
+    get(`${PLUGIN_URL}/knowledge-manager/configId?groupId=${groupId}`).then((res) => {
       resolve(res);
     }, (error) => {
       reject(error);

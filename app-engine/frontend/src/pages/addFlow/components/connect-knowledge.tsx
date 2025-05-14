@@ -33,7 +33,7 @@ const ConnectKnowledge = ({ modelRef, groupId, updateKnowledgeOption }) => {
   const [open, setOpen] = useState(false);
   const [connectList, setConnectList] = useState([]);
   const [chosenId, setChosenId] = useState(groupId);
-  const [knowledgeConfigId, setKnowledgeConfigId] = useState(null);
+  const [knowledgeConfigId, setKnowledgeConfigId] = useState('');
 
   useImperativeHandle(modelRef, () => {
     return { openModal: () => setOpen(true) };

@@ -24,7 +24,7 @@ const KnowledgeContainer = (props) => {
   const [knowledge, setKnowledge] = useState([]);
   const [groupConfig, setGroupConfig] = useState({});
   const [groupId, setGroupId] = useState('');
-  const [knowledgeConfigId, setKnowledgeConfigId] = useState(null);
+  const [knowledgeConfigId, setKnowledgeConfigId] = useState('');
   const [activePanelKey, setActivePanelKey] = useState(['']);
   const knowledgeRef: any = useRef(null);
   const curKnowledge = useRef(null);
@@ -53,12 +53,12 @@ const KnowledgeContainer = (props) => {
 
   // 获取知识库ID
   const getKnowledgeId = (config) => {
-    // 这里需要增加从config里获取 knowledgeConfigId 获取不到就是null
     const groupConfig = [config[0], 'option'];
     const groupValue = graphOperator.getConfig(groupConfig);
     if (groupValue) {
-      const { groupId } = groupValue;
+      const { groupId, knowledgeConfigId } = groupValue;
       groupId && setGroupId(groupId);
+      setKnowledgeConfigId(knowledgeConfigId);
       setGroupConfig(groupConfig);
       curGroupValue.current = groupValue;
     }
