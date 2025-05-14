@@ -181,7 +181,7 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
     @Override
     @Fitable(id = FITABLE_ID)
     public String getApiKey(String knowledgeConfigId, String defaultValue) {
-        if (knowledgeConfigId == null) {
+        if (StringUtils.isEmpty(knowledgeConfigId)) {
             return defaultValue;
         }
         KnowledgeConfigQueryCondition cond =
@@ -195,12 +195,13 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
     }
 
     @Override
+    @Fitable(id = FITABLE_ID)
     public String getKnowledgeConfigId(String userId, String groupId) {
         KnowledgeConfigQueryCondition cond =
                 KnowledgeConfigQueryCondition.builder().userId(userId).groupId(groupId).isDefault(1).build();
         List<KnowledgeConfigPo> result = this.knowledgeCenterRepo.listKnowledgeConfigByCondition(cond);
         if (result.isEmpty()) {
-            return null;
+            return "";
         }
         this.validateConfigNum(result);
         return result.get(0).getKnowledgeConfigId();
@@ -237,6 +238,7 @@ public class KnowledgeCenterServiceImpl implements KnowledgeCenterService {
                 .createdAt(LocalDateTime.now())
                 .updatedBy(knowledgeConfigDto.getUserId())
                 .updatedAt(LocalDateTime.now())
+                .knowledgeConfigId(knowledgeConfigDto.getKnowledgeConfigId())
                 .build();
     }
 

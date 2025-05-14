@@ -85,5 +85,6 @@ public interface KnowledgeCenterService {
      * @param groupId 表示知识库平台groupId的 {@link String}。
      * @return 表示config唯一 id的 {@link String}。
      */
+    @Genericable("knowledge.center.service.getKnowledgeConfigId")
     String getKnowledgeConfigId(String userId, String groupId);
 }
