@@ -74,12 +74,10 @@ const KnowledgeContainer = (props) => {
   const updateKnowledgeOption = (groupId: String, knowledgeConfigId:String) => {
     setGroupId(groupId);
     setKnowledgeConfigId(knowledgeConfigId);
-    if (curGroupValue.current.groupId !== groupId) {
-      curGroupValue.current.groupId = groupId;
-      curGroupValue.current.knowledgeConfigId = knowledgeConfigId;
-      graphOperator.update(groupConfig, curGroupValue.current);
-      updateData();
-    }
+    curGroupValue.current.groupId = groupId;
+    curGroupValue.current.knowledgeConfigId = knowledgeConfigId;
+    graphOperator.update(groupConfig, curGroupValue.current);
+    updateData();
   }
 
   // 更新每一条是否存在
