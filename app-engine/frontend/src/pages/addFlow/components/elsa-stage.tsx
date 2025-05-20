@@ -211,7 +211,6 @@ const Stage = (props) => {
       agent.listen('SELECT_KNOWLEDGE_BASE_GROUP', (event) => {
         connectKnowledgeEvent.current = event;
         connectKnowledgeRef.current.openModal();
-        event.onSelect(groupId, knowledgeConfigId);
         setGroupId(event.selectedGroupId);
         setKnowledgeConfigId(event.selectedKnowledgeConfigId);
       });
