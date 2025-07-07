@@ -18,5 +18,6 @@
         <module>http-interceptor</module>
         <module>schema-generator</module>
         <module>schema-validator-everit-h1</module>
+        <module>apikey-auth-default</module>
     </modules>
 </project>
