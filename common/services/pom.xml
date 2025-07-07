@@ -18,5 +18,6 @@
         <module>common-service</module>
         <module>oms-service</module>
         <module>schema-service</module>
+        <module>apikey-service</module>
     </modules>
 </project>
