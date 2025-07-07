@@ -19,5 +19,6 @@
         <module>schema-generator</module>
         <module>schema-validator-everit-h1</module>
         <module>apikey-auth-default</module>
+        <module>apikey-auth-oms</module>
     </modules>
 </project>
