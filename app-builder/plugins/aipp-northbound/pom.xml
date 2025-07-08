@@ -75,6 +75,10 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>modelengine.jade.service</groupId>
+            <artifactId>app-engine-base-service</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
