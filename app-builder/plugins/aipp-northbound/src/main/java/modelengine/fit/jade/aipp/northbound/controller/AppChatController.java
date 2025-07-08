@@ -48,7 +48,7 @@ import java.util.Map;
  * @since 2024-12-12
  */
 @Component
-@RequestMapping(path = "/v1/tenants/{tenantId}/chats", group = "应用对话管理接口")
+@RequestMapping(path = "/v1/api/external/tenants/{tenantId}/chats", group = "应用对话管理接口")
 public class AppChatController extends AbstractController {
     private final AppChatServiceAdapter appChatService;
     private final AippChatServiceAdapter aippChatService;
