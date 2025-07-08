@@ -45,7 +45,7 @@ public class LoginFilter implements HttpServerFilter {
     public LoginFilter(AuthenticationService authenticationService) {
         // 待优化为配置化
         this.matchPatterns = Collections.singletonList("/**");
-        this.mismatchPatterns = Collections.emptyList();
+        this.mismatchPatterns = Collections.singletonList("/v1/api/external/**");
         this.authenticationService = Validation.notNull(authenticationService, "The auth service cannot be null.");
     }
 
