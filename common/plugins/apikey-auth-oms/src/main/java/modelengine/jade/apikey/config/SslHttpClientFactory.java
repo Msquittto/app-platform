@@ -7,6 +7,7 @@
 package modelengine.jade.apikey.config;
 
 import lombok.extern.slf4j.Slf4j;
+import modelengine.fit.security.Decryptor;
 import modelengine.fitframework.annotation.Component;
 import modelengine.fitframework.annotation.Value;
 import modelengine.fitframework.resource.Resource;
@@ -22,6 +23,7 @@ import org.apache.hc.core5.http.config.Registry;
 import org.apache.hc.core5.http.config.RegistryBuilder;
 import org.apache.hc.core5.ssl.SSLContextBuilder;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -45,10 +47,14 @@ public class SslHttpClientFactory {
     private String encryptedPwd;
 
     @Value("${httpClient.ssl.trust-store}")
-    private Resource trustStore;
+    private String trustStore;
 
     @Value("${httpClient.ssl.key-store}")
-    private Resource keyStore;
+    private String keyStore;
+
+    private final Decryptor decryptor;
+
+    public SslHttpClientFactory(Decryptor decryptor) {this.decryptor = decryptor;}
 
     private static SSLContext getSSLContext(Resource keyStore, String keyStorePwd, Resource trust, String trustPwd,
             String keyPwd) {
@@ -92,8 +98,11 @@ public class SslHttpClientFactory {
     }
 
     private BasicHttpClientConnectionManager getInnerBasicConnectionManager() {
-        SSLContext sslContext =
-                getSSLContext(keyStore, this.encryptedPwd, trustStore, this.encryptedPwd, this.encryptedPwd);
+        SSLContext sslContext = getSSLContext(Resource.fromFile(new File(this.keyStore)),
+                decryptor.decrypt(this.encryptedPwd),
+                Resource.fromFile(new File(this.trustStore)),
+                decryptor.decrypt(this.encryptedPwd),
+                decryptor.decrypt(this.encryptedPwd));
         return getBasicConnectionManager(sslContext);
     }
 }

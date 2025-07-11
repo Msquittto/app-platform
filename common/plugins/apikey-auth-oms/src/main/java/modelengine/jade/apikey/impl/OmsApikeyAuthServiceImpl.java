@@ -45,7 +45,11 @@ public class OmsApikeyAuthServiceImpl implements ApikeyAuthService {
     @Value("${oms.apikey.url}")
     private String verifyApiKeyUrl;
 
-    private SslHttpClientFactory sslHttpClientFactory;
+    private final SslHttpClientFactory sslHttpClientFactory;
+
+    public OmsApikeyAuthServiceImpl(SslHttpClientFactory sslHttpClientFactory) {
+        this.sslHttpClientFactory = sslHttpClientFactory;
+    }
 
     @Override
     public Boolean authApikeyInfo(String apikey) {

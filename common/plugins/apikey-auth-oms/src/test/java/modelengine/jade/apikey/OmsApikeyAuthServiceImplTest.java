@@ -37,7 +37,7 @@ public class OmsApikeyAuthServiceImplTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        service = new OmsApikeyAuthServiceImpl();
+        service = new OmsApikeyAuthServiceImpl(this.sslHttpClientFactory);
         sslHttpClientFactory = mock(SslHttpClientFactory.class);
         httpClient = mock(CloseableHttpClient.class);
         httpResponse = mock(CloseableHttpResponse.class);
