@@ -59,7 +59,7 @@ public class AppBuilderAppControllerTest {
     @DisplayName("当查询用户应用列表时，返回正确结果。")
     void shouldReturnOkWhenGetAppList() {
         AppQueryParams cond =
-                AppQueryParams.builder().name("name").state("state").type("type").offset(1).limit(2).build();
+                AppQueryParams.builder().name("name").state("state").type("type").offset(1L).limit(2).build();
         Mockito.when(request.headers()).thenReturn(new DefaultMessageHeaders());
         Mockito.when(request.cookies()).thenReturn(new DefaultCookieCollection());
         Mockito.when(request.remoteAddress()).thenReturn(Address.builder().hostAddress("127.0.0.1").port(6666).build());

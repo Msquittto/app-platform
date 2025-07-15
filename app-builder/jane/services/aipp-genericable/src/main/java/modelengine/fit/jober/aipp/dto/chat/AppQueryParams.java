@@ -26,9 +26,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppQueryParams {
-    @RequestQuery(name = "appIds", required = false)
+    @RequestQuery(name = "ids", required = false)
     @Property(description = "查询的id列表")
-    private List<String> appIds;
+    private List<String> ids;
 
     @RequestQuery(name = "name", required = false)
     @Property(description = "查询的名字")
@@ -44,11 +44,11 @@ public class AppQueryParams {
 
     @RequestQuery(value = "offset", defaultValue = "0", required = false)
     @Property(description = "偏移量")
-    private int offset;
+    private Long offset;
 
     @RequestQuery(name = "limit", defaultValue = "10", required = false)
     @Property(description = "每页查询条数")
-    private int limit;
+    private Integer limit;
 
     @RequestQuery(name = "type", defaultValue = "app", required = false)
     @Property(description = "查询类型")
