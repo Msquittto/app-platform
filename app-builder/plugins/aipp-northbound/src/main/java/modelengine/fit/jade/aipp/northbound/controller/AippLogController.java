@@ -26,7 +26,7 @@ import java.util.List;
  * @since 2025-07-08
  */
 @Component
-@RequestMapping(path = "/v1/api/external/tenants/{tenant_id}/log", group = "aipp实例log管理北向接口")
+@RequestMapping(path = "/app/v1/api/tenants/{tenant_id}/log", group = "aipp实例log管理北向接口")
 public class AippLogController extends AbstractController {
     private final AippLogServiceAdapter aippLogServiceAdapter;
 

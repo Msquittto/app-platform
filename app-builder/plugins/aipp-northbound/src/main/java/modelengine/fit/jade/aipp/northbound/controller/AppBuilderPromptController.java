@@ -31,7 +31,7 @@ import java.util.List;
  * @since 2024-12-12
  */
 @Component
-@RequestMapping(path = "/v1/api/external/tenants/{tenantId}/apps/{appId}/prompt", group = "灵感大全管理接口")
+@RequestMapping(path = "/app/v1/api/tenants/{tenantId}/apps/{appId}/prompt", group = "灵感大全管理接口")
 public class AppBuilderPromptController extends AbstractController {
     private final AppBuilderPromptServiceAdapter service;
 
