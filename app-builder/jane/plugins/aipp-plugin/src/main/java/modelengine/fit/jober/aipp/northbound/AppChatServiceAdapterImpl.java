@@ -28,6 +28,11 @@ import java.util.Map;
 public class AppChatServiceAdapterImpl implements AppChatServiceAdapter {
     private final AppChatService appChatService;
 
+    /**
+     * 用历史会话服务接口 {@link AppChatService} 构造 {@link AppChatServiceAdapterImpl}。
+     *
+     * @param appChatService 表示历史会话服务接口的 {@link AppChatService}。
+     */
     public AppChatServiceAdapterImpl(AppChatService appChatService) {
         this.appChatService = notNull(appChatService, "The app chat service must not be null.");
     }

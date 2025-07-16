@@ -42,6 +42,11 @@ public class NorthFilter implements HttpServerFilter {
     private final List<String> mismatchPatterns;
     private final ApikeyAuthService apikeyAuthService;
 
+    /**
+     * 用 apikey 鉴权服务 {@link ApikeyAuthService} 构造 {@link NorthFilter}。
+     *
+     * @param apikeyAuthService 表示 apikey 鉴权服务的 {@link ApikeyAuthService}。
+     */
     public NorthFilter(ApikeyAuthService apikeyAuthService) {
         this.matchPatterns = Collections.singletonList("/v1/api/external/**");
         this.mismatchPatterns = Collections.emptyList();

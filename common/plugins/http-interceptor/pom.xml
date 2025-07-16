@@ -35,10 +35,14 @@
             <groupId>modelengine.fit.jade.service</groupId>
             <artifactId>jade-common-service</artifactId>
         </dependency>
-
         <dependency>
             <groupId>modelengine.fit.jade.service</groupId>
             <artifactId>authentication-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>modelengine.fit.jade.service</groupId>
+            <artifactId>apikey-service</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <!-- Common -->
@@ -70,12 +74,6 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>modelengine.fit.jade.service</groupId>
-            <artifactId>apikey-service</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

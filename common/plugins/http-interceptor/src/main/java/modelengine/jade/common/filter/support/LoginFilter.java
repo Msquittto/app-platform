@@ -38,7 +38,7 @@ public class LoginFilter implements HttpServerFilter {
     private static final Logger log = Logger.get(LoginFilter.class);
 
     /**
-     * 根据配置创建过滤器的实例。
+     * 用用户认证服务 {@link AuthenticationService} 构造{@link LoginFilter}。
      *
      * @param authenticationService 表示用户认证服务的 {@link AuthenticationService}。
      */

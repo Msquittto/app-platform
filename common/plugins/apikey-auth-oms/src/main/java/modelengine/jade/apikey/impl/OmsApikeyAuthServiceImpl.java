@@ -47,6 +47,11 @@ public class OmsApikeyAuthServiceImpl implements ApikeyAuthService {
 
     private final SslHttpClientFactory sslHttpClientFactory;
 
+    /**
+     * 用证书配置的 http 客户端 {@link SslHttpClientFactory} 构造 {@link OmsApikeyAuthServiceImpl}。
+     *
+     * @param sslHttpClientFactory 表示证书配置的 http 客户端的 {@link SslHttpClientFactory}。
+     */
     public OmsApikeyAuthServiceImpl(SslHttpClientFactory sslHttpClientFactory) {
         this.sslHttpClientFactory = sslHttpClientFactory;
     }

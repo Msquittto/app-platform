@@ -32,6 +32,11 @@ import java.util.stream.Collectors;
 public class AppBuilderAppServiceAdapterImpl implements AppBuilderAppServiceAdapter {
     private final AppBuilderAppService appBuilderAppService;
 
+    /**
+     * 用应用创建服务接口{@link AppBuilderAppService} 构造 {@link AppBuilderAppServiceAdapterImpl}。
+     *
+     * @param appBuilderAppService 表示应用创建服务接口的 {@link AppBuilderAppService}。
+     */
     public AppBuilderAppServiceAdapterImpl(AppBuilderAppService appBuilderAppService) {
         this.appBuilderAppService = notNull(appBuilderAppService, "The app builder app service cannot be null.");
     }

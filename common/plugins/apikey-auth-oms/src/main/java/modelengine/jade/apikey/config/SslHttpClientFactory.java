@@ -35,7 +35,7 @@ import java.security.UnrecoverableKeyException;
 import javax.net.ssl.SSLContext;
 
 /**
- * 支持证书配置的 http 客户端
+ * 支持证书配置的 http 客户端。
  *
  * @author 李智超
  * @since 2024/7/30
@@ -54,7 +54,14 @@ public class SslHttpClientFactory {
 
     private final Decryptor decryptor;
 
-    public SslHttpClientFactory(Decryptor decryptor) {this.decryptor = decryptor;}
+    /**
+     * 用解密服务 {@link Decryptor} 构造 {@link SslHttpClientFactory}。
+     *
+     * @param decryptor 表示解密服务的 {@link Decryptor}。
+     */
+    public SslHttpClientFactory(Decryptor decryptor) {
+        this.decryptor = decryptor;
+    }
 
     private static SSLContext getSSLContext(Resource keyStore, String keyStorePwd, Resource trust, String trustPwd,
             String keyPwd) {
@@ -88,9 +95,9 @@ public class SslHttpClientFactory {
     }
 
     /**
-     * 获取支持证书的 http 客户端
+     * 获取支持证书的 http 客户端。
      *
-     * @return 支持证书的 http 客户端
+     * @return 表示支持证书的 http 客户端的 {@link CloseableHttpClient}。
      */
     public CloseableHttpClient getHttpClient() {
         BasicHttpClientConnectionManager connManager = getInnerBasicConnectionManager();

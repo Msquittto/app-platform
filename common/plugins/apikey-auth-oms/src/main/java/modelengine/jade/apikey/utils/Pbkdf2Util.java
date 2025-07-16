@@ -16,7 +16,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 /**
- * PBKDF2算法
+ * PBKDF2 算法。
  *
  * @author 李智超
  * @since 2024-12-09
@@ -30,12 +30,12 @@ public class Pbkdf2Util {
     /**
      * 计算摘要。
      *
-     * @param hashAlgorithm 哈希算法
-     * @param password 口令
-     * @param salt 盐值
-     * @param iterations 迭代次数，
-     * @param keyLength 生成密文长度
-     * @return byte[] 密文
+     * @param hashAlgorithm 表示哈希算法的 {@link String}。
+     * @param password 表示口令的 {@link char[]}。
+     * @param salt 表示盐值的 {@link String}。
+     * @param iterations 表示迭代次数的 {@link int}。
+     * @param keyLength 表示生成密文长度的 {@link int}。
+     * @return 表示密文的 {@link byte[]}。
      * @throws NoSuchAlgorithmException 表示没有算法的异常。
      * @throws InvalidKeySpecException 表示非法 key 的异常。
      */
@@ -48,13 +48,13 @@ public class Pbkdf2Util {
     }
 
     /**
-     * 华为公司建议口令单项哈希算法
-     * 要求迭代次数至少10000次，有性能约束的产品最少1000次，输出秘钥的长度最少256比特(32字节)，其中盐值和迭代次数不需要加密保存
+     * 建议口令单项哈希算法。
+     * 要求迭代次数至少10000次，有性能约束的产品最少1000次，输出秘钥的长度最少256比特(32字节)，其中盐值和迭代次数不需要加密保存。
      *
-     * @param password 用户输入口令
-     * @param salt 盐值，要求最少8字节，推荐16字节及以上，安全随机数
-     * @return byte[] 密文
-     * @throws SecurityException SecurityException
+     * @param password 表示用户输入口令的 {@link String}。
+     * @param salt 表示盐值的 {@link String}。
+     * @return 表示密文的 {@link byte[]}。
+     * @throws SecurityException 表示安全异常。
      */
     public static byte[] pbkdf2ForPass(String password, String salt) throws SecurityException {
         // 默认采用PBKDF2WithHmacSHA256算法，迭代次数10000次，输出密文的字节长度256。
@@ -66,11 +66,11 @@ public class Pbkdf2Util {
     }
 
     /**
-     * 华为公司建议PBKDF2算法字符串密文保存格式: AlgID_Salt_IterCount_CipherData
+     * 建议 PBKDF2 算法字符串密文保存格式: AlgID_Salt_IterCount_CipherData。
      *
-     * @param password 用户输入口令
-     * @param salt 盐值，要求最少8字节，推荐16字节及以上，安全随机数
-     * @return String 密文
+     * @param password 示用户输入口令的 {@link String}。
+     * @param salt 表示盐值的 {@link String}。
+     * @return 表示密文的 {@link String}。
      */
     public static String pbkdf2ForPassStandard(String password, String salt) {
         byte[] digest = pbkdf2ForPass(password, salt);
