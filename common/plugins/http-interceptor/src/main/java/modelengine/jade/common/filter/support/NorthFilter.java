@@ -48,7 +48,7 @@ public class NorthFilter implements HttpServerFilter {
      * @param apikeyAuthService 表示 apikey 鉴权服务的 {@link ApikeyAuthService}。
      */
     public NorthFilter(ApikeyAuthService apikeyAuthService) {
-        this.matchPatterns = Collections.singletonList("/v1/api/external/**");
+        this.matchPatterns = Collections.singletonList("/app/v1/api/**");
         this.mismatchPatterns = Collections.emptyList();
         this.apikeyAuthService = Validation.notNull(apikeyAuthService, "The auth service cannot be null.");
     }
