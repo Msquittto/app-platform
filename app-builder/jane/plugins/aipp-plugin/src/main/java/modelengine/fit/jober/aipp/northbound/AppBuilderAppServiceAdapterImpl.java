@@ -38,14 +38,14 @@ public class AppBuilderAppServiceAdapterImpl implements AppBuilderAppServiceAdap
 
     @Override
     public RangedResultSet<AppMetadata> list(AppQueryParams params, OperationContext context) {
-        AppQueryCondition appQueryCondition = BeanUtils.copyProperties(params, AppQueryCondition.class);
+        AppQueryCondition appQueryCondition = this.convertParams(params);
         if (params.getType() == null) {
             params.setType("app");
         }
         appQueryCondition.setTenantId(context.getTenantId());
         appQueryCondition.setType(params.getType());
-        Rsp<RangedResultSet<AppBuilderAppMetadataDto>> rsp = this.appBuilderAppService.list(appQueryCondition,
-                context, params.getOffset(), params.getLimit());
+        Rsp<RangedResultSet<AppBuilderAppMetadataDto>> rsp =
+                this.appBuilderAppService.list(appQueryCondition, context, params.getOffset(), params.getLimit());
         return this.appMetadataDtoConvertToAdapter(rsp.getData());
     }
 
@@ -54,5 +54,20 @@ public class AppBuilderAppServiceAdapterImpl implements AppBuilderAppServiceAdap
                 .stream()
                 .map(appBuilderAppMetadataDto -> BeanUtils.copyProperties(appBuilderAppMetadataDto, AppMetadata.class))
                 .collect(Collectors.toList()), dto.getRange());
+    }
+
+    private AppQueryCondition convertParams(AppQueryParams params) {
+        if (params == null) {
+            return null;
+        }
+        return AppQueryCondition.builder()
+                .ids(params.getIds())
+                .name(params.getName())
+                .state(params.getState())
+                .excludeNames(params.getExcludeNames())
+                .offset(Long.valueOf(params.getOffset()))
+                .limit(params.getLimit())
+                .type(params.getType())
+                .build();
     }
 }

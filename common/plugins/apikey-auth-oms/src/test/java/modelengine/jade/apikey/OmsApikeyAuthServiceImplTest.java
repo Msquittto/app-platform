@@ -67,7 +67,8 @@ public class OmsApikeyAuthServiceImplTest {
             when(sslHttpClientFactory.getHttpClient()).thenReturn(httpClient);
             when(httpClient.execute(any())).thenReturn(httpResponse);
 
-            ResultVo resultVo = ResultVo.builder().data(true).build();
+            ResultVo<Boolean> resultVo = new ResultVo<>();
+            resultVo.setData(true);
             StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(resultVo));
             when(httpResponse.getEntity()).thenReturn(entity);
 
@@ -84,7 +85,8 @@ public class OmsApikeyAuthServiceImplTest {
             when(sslHttpClientFactory.getHttpClient()).thenReturn(httpClient);
             when(httpClient.execute(any())).thenReturn(httpResponse);
 
-            ResultVo resultVo = ResultVo.builder().data(false).build();
+            ResultVo<Boolean> resultVo = new ResultVo<>();
+            resultVo.setData(false);
             StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(resultVo));
             when(httpResponse.getEntity()).thenReturn(entity);
 

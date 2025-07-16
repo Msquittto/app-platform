@@ -19,12 +19,12 @@ import java.util.List;
  */
 public interface AippLogServiceAdapter {
     /**
-     * 查询指定chatId的最近5次实例记录
+     * 查询指定 chatId 的最近 5 次实例记录。
      *
      * @param chatId 表示会话 id 的 {@link String}。
      * @param context 表示登录信息的 {@link OperationContext}。
      * @param appId 表示应用 id 的 {@link String}。
-     * @return 表示log数据的 {@link List}{@code <}{@link AippInstLogData}{@code >}。
+     * @return 表示 log 数据的 {@link List}{@code <}{@link AippInstLogData}{@code >}。
      */
     List<AippInstLogData> queryChatRecentChatLog(String chatId, String appId, OperationContext context);
 }

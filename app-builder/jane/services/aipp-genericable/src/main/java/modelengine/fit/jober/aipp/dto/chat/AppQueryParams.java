@@ -44,11 +44,11 @@ public class AppQueryParams {
 
     @RequestQuery(value = "offset", defaultValue = "0", required = false)
     @Property(description = "偏移量")
-    private Long offset;
+    private int offset;
 
     @RequestQuery(name = "limit", defaultValue = "10", required = false)
     @Property(description = "每页查询条数")
-    private Integer limit;
+    private int limit;
 
     @RequestQuery(name = "type", defaultValue = "app", required = false)
     @Property(description = "查询类型")

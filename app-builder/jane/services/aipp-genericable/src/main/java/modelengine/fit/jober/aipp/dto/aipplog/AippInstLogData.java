@@ -17,15 +17,14 @@ import java.util.List;
 /**
  * aipp 实例历史记录数据。
  *
- * @author 刘信宏
- * @since 2024-01-08
+ * @author 陈潇文
+ * @since 2025-07-16
  */
 @AllArgsConstructor
 @Data
 @Builder
 @NoArgsConstructor
 public class AippInstLogData {
-
     private String aippId;
     private String version;
     private String instanceId;

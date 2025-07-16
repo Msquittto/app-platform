@@ -26,11 +26,13 @@ public class AippLogServiceAdapterImpl implements AippLogServiceAdapter {
     private final AippLogService aippLogService;
 
     /**
-     * 构造函数
+     * 用 aipp 实例历史记录服务接口的 {@link AippLogService} 构造 {@link AippLogServiceAdapterImpl}。
      *
      * @param aippLogService 表示 aipp 实例历史记录服务接口的 {@link AippLogService}。
      */
-    public AippLogServiceAdapterImpl(AippLogService aippLogService) {this.aippLogService = aippLogService;}
+    public AippLogServiceAdapterImpl(AippLogService aippLogService) {
+        this.aippLogService = aippLogService;
+    }
 
     @Override
     public List<AippInstLogData> queryChatRecentChatLog(String chatId, String appId, OperationContext context) {

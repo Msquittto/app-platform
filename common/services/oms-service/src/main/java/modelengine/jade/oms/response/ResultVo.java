@@ -6,15 +6,12 @@
 
 package modelengine.jade.oms.response;
 
-import lombok.Builder;
-
 /**
  * OMS 返回对象。
  *
  * @author 鲁为
  * @since 2024-11-19
  */
-@Builder
 public class ResultVo<T> {
     private static final String SUCCESS_CODE = "0";
     private static final String SUCCESS_MSG = "Success";

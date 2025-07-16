@@ -29,15 +29,21 @@ import modelengine.jade.app.engine.base.service.UsrFeedbackService;
 public class UsrFeedbackController extends AbstractController {
     private final UsrFeedbackService usrFeedbackService;
 
+    /**
+     * 用身份校验器 {@link Authenticator} 和 Aipp 用户反馈功能接口 {@link UsrFeedbackService} 构造 {@link UsrFeedbackController}。
+     *
+     * @param authenticator 表示身份校验器的 {@link Authenticator}。
+     * @param usrFeedbackService 表示 Aipp 用户反馈功能接口的 {@link UsrFeedbackService}。
+     */
     public UsrFeedbackController(Authenticator authenticator, UsrFeedbackService usrFeedbackService) {
         super(authenticator);
         this.usrFeedbackService = usrFeedbackService;
     }
 
     /**
-     * 创建用户反馈记录
+     * 创建用户反馈记录。
      *
-     * @param usrFeedbackDto 用户反馈消息体
+     * @param usrFeedbackDto 表示用户反馈消息体的 {@link UsrFeedbackDto}。
      */
     @PostMapping("/feedback")
     public void createUsrFeedback(@RequestBody UsrFeedbackDto usrFeedbackDto) {
@@ -45,10 +51,10 @@ public class UsrFeedbackController extends AbstractController {
     }
 
     /**
-     * 更新用户反馈信息
+     * 更新用户反馈信息。
      *
-     * @param usrFeedbackDto 用户反馈消息体
-     * @param instanceId 对话实例Id
+     * @param usrFeedbackDto 表示用户反馈消息体的 {@link UsrFeedbackDto}。
+     * @param instanceId 表示对话实例 Id 的 {@link String}。
      */
     @PatchMapping("/feedback/{instanceId}")
     public void updateUsrFeedback(@PathVariable("instanceId") String instanceId,
@@ -57,10 +63,10 @@ public class UsrFeedbackController extends AbstractController {
     }
 
     /**
-     * 通过LogId获取对话信息列表
+     * 通过 LogId 获取对话信息列表。
      *
-     * @param instanceId 对话实例Id
-     * @return 对话信息
+     * @param instanceId 表示对话实例 Id 的 {@link String}。
+     * @return 表示对话信息的 {@link UsrFeedbackDto}。
      */
     @GetMapping("/feedback/{instanceId}")
     public UsrFeedbackDto getAllAnswerByInstanceId(@PathVariable("instanceId") String instanceId) {

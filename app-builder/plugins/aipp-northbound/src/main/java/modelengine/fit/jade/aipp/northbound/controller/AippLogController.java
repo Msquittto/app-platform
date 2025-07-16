@@ -20,7 +20,7 @@ import modelengine.fitframework.annotation.Component;
 import java.util.List;
 
 /**
- * aipp 实例 log 管理接口。
+ * aipp 实例日志管理接口。
  *
  * @author 陈潇文
  * @since 2025-07-08
@@ -31,7 +31,7 @@ public class AippLogController extends AbstractController {
     private final AippLogServiceAdapter aippLogServiceAdapter;
 
     /**
-     * 构造函数。
+     * 用身份校验器 {@link Authenticator} 和  aipp 实例历史记录适配器类 {@link AippLogServiceAdapter} 构造 {@link AippLogController}。
      *
      * @param authenticator 表示身份校验器的 {@link Authenticator}。
      * @param aippLogServiceAdapter 表示 aipp 实例历史记录适配器类的 {@link AippLogServiceAdapter}。
@@ -42,13 +42,13 @@ public class AippLogController extends AbstractController {
     }
 
     /**
-     * 根据chatId查询历史记录
+     * 根据 chatId 查询历史记录。
      *
      * @param httpRequest 表示 Http 请求体的 {@link HttpClassicServerRequest}。
      * @param tenantId 表示租户 id 的 {@link String}。
      * @param chatId 表示会话 id 的 {@link String}。
      * @param appId 表示应用 id 的 {@link String}。
-     * @return 表示会话历史记录的 {@link Rsp}{@code <}{@link List}{@code <}{@link AippInstLogData}{@code >}{@code >}。
+     * @return 表示会话历史记录的 {@link Rsp}{@code <}{@link List}{@code <}{@link AippInstLogData}{@code >>}。
      */
     @GetMapping(path = "/app/{app_id}/chat/{chat_id}", description = "指定chatId查询实例历史记录（查询最近10个实例）")
     public Rsp<List<AippInstLogData>> queryChatRecentChatLog(HttpClassicServerRequest httpRequest,

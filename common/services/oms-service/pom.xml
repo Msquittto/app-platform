@@ -25,10 +25,6 @@
             <groupId>org.fitframework.service</groupId>
             <artifactId>fit-http-protocol</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

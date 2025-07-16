@@ -82,10 +82,10 @@ public class OmsApikeyAuthServiceImpl implements ApikeyAuthService {
             return objectMapper.readValue(responseBody, ResultVo.class);
         } catch (IOException e) {
             log.error("I/O exception occurred during POST request: {}", e.getMessage(), e);
-            return ResultVo.builder().data(false).build();
+            return this.createFailedResultVo();
         } catch (ParseException e) {
             log.error("Can't parse verify result. Cause: {}", e.getMessage(), e);
-            return ResultVo.builder().data(false).build();
+            return this.createFailedResultVo();
         }
     }
 
@@ -95,5 +95,11 @@ public class OmsApikeyAuthServiceImpl implements ApikeyAuthService {
             return false;
         }
         return API_KEY_PATTERN.matcher(apiKey).matches();
+    }
+
+    private ResultVo<Boolean> createFailedResultVo() {
+        ResultVo<Boolean> resultVo = new ResultVo<>();
+        resultVo.setData(false);
+        return resultVo;
     }
 }

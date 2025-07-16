@@ -57,6 +57,10 @@
             <groupId>modelengine.fit.jade.service</groupId>
             <artifactId>voice-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>modelengine.jade.service</groupId>
+            <artifactId>app-engine-base-service</artifactId>
+        </dependency>
 
         <!-- Test -->
         <dependency>
@@ -74,10 +78,6 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>modelengine.jade.service</groupId>
-            <artifactId>app-engine-base-service</artifactId>
         </dependency>
     </dependencies>
 
