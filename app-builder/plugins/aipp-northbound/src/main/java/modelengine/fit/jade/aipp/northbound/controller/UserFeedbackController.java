@@ -25,17 +25,17 @@ import modelengine.jade.app.engine.base.service.UsrFeedbackService;
  * @since 2025-07-18
  */
 @Component
-@RequestMapping(path = "/api/app/v1/aipp/usr")
-public class UsrFeedbackController extends AbstractController {
+@RequestMapping(path = "/api/app/v1/aipp/user")
+public class UserFeedbackController extends AbstractController {
     private final UsrFeedbackService usrFeedbackService;
 
     /**
-     * 用身份校验器 {@link Authenticator} 和 Aipp 用户反馈功能接口 {@link UsrFeedbackService} 构造 {@link UsrFeedbackController}。
+     * 用身份校验器 {@link Authenticator} 和 Aipp 用户反馈功能接口 {@link UsrFeedbackService} 构造 {@link UserFeedbackController}。
      *
      * @param authenticator 表示身份校验器的 {@link Authenticator}。
      * @param usrFeedbackService 表示 Aipp 用户反馈功能接口的 {@link UsrFeedbackService}。
      */
-    public UsrFeedbackController(Authenticator authenticator, UsrFeedbackService usrFeedbackService) {
+    public UserFeedbackController(Authenticator authenticator, UsrFeedbackService usrFeedbackService) {
         super(authenticator);
         this.usrFeedbackService = usrFeedbackService;
     }

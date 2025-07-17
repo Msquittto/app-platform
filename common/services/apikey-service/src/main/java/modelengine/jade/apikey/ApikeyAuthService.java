@@ -17,7 +17,7 @@ public interface ApikeyAuthService {
      * api key 鉴权。
      *
      * @param apikey 表示 api key 的 {@link String}。
-     * @return boolean 表示鉴权是否成功的 {@link boolean}。
+     * @return boolean 表示鉴权是否成功的 {@code boolean}。
      */
     boolean authApikeyInfo(String apikey);
 }
