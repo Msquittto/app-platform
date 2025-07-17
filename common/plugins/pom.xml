@@ -14,12 +14,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>apikey-auth-default</module>
         <module>authentication-default</module>
         <module>http-interceptor</module>
         <module>schema-generator</module>
         <module>schema-validator-everit-h1</module>
-        <module>apikey-auth-default</module>
-        <module>apikey-auth-oms</module>
     </modules>
 
     <build>

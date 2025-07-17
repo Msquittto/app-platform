@@ -26,12 +26,12 @@ import java.util.List;
  * @since 2025-07-08
  */
 @Component
-@RequestMapping(path = "/app/v1/api/tenants/{tenant_id}/log", group = "aipp实例log管理北向接口")
+@RequestMapping(path = "/api/app/v1/tenants/{tenant_id}/log", group = "aipp 实例日志管理北向接口")
 public class AippLogController extends AbstractController {
     private final AippLogServiceAdapter aippLogServiceAdapter;
 
     /**
-     * 用身份校验器 {@link Authenticator} 和  aipp 实例历史记录适配器类 {@link AippLogServiceAdapter} 构造 {@link AippLogController}。
+     * 用身份校验器 {@link Authenticator} 和 aipp 实例历史记录适配器类 {@link AippLogServiceAdapter} 构造 {@link AippLogController}。
      *
      * @param authenticator 表示身份校验器的 {@link Authenticator}。
      * @param aippLogServiceAdapter 表示 aipp 实例历史记录适配器类的 {@link AippLogServiceAdapter}。

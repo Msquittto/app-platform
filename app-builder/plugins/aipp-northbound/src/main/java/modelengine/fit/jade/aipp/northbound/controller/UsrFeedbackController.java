@@ -25,7 +25,7 @@ import modelengine.jade.app.engine.base.service.UsrFeedbackService;
  * @since 2025-07-18
  */
 @Component
-@RequestMapping(path = "/app/v1/api/aipp/usr")
+@RequestMapping(path = "/api/app/v1/aipp/usr")
 public class UsrFeedbackController extends AbstractController {
     private final UsrFeedbackService usrFeedbackService;
 

@@ -38,8 +38,6 @@ public class NorthFilter implements HttpServerFilter {
     private static final int ME_SK_START_POS = 13;
     private static final int ME_SK_END_POS = 21;
 
-    private final List<String> matchPatterns;
-    private final List<String> mismatchPatterns;
     private final ApikeyAuthService apikeyAuthService;
 
     /**
@@ -48,8 +46,6 @@ public class NorthFilter implements HttpServerFilter {
      * @param apikeyAuthService 表示 apikey 鉴权服务的 {@link ApikeyAuthService}。
      */
     public NorthFilter(ApikeyAuthService apikeyAuthService) {
-        this.matchPatterns = Collections.singletonList("/app/v1/api/**");
-        this.mismatchPatterns = Collections.emptyList();
         this.apikeyAuthService = Validation.notNull(apikeyAuthService, "The auth service cannot be null.");
     }
 
@@ -65,12 +61,12 @@ public class NorthFilter implements HttpServerFilter {
 
     @Override
     public List<String> matchPatterns() {
-        return this.matchPatterns;
+        return Collections.singletonList("/api/app/v1/**");
     }
 
     @Override
     public List<String> mismatchPatterns() {
-        return this.mismatchPatterns;
+        return Collections.emptyList();
     }
 
     @Override

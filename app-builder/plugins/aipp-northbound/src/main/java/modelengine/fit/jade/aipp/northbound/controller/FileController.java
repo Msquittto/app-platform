@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
  * @since 2024-12-16
  */
 @Component
-@RequestMapping(path = "/app/v1/api/tenants/{tenantId}/file", group = "文件上传接口")
+@RequestMapping(path = "/api/app/v1/tenants/{tenantId}/file", group = "文件上传接口")
 public class FileController extends AbstractController {
     private final FileServiceAdapter fileService;
 

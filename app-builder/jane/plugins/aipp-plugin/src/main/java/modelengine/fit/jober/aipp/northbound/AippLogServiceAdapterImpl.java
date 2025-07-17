@@ -46,10 +46,8 @@ public class AippLogServiceAdapterImpl implements AippLogServiceAdapter {
                         .appName(dto.getAppName())
                         .appIcon(dto.getAppIcon())
                         .createAt(dto.getCreateAt())
-                        .question(dto.getQuestion() == null ? null : this.convertBody(dto.getQuestion()))
-                        .instanceLogBodies(dto.getInstanceLogBodies() == null
-                                ? null
-                                : dto.getInstanceLogBodies().stream().map(this::convertBody).toList())
+                        .question(this.convertQuestion(dto.getQuestion()))
+                        .instanceLogBodies(this.convertLogBodies(dto.getInstanceLogBodies()))
                         .build())
                 .toList();
     }
@@ -65,5 +63,20 @@ public class AippLogServiceAdapterImpl implements AippLogServiceAdapter {
                 .createAt(dtoBody.getCreateAt())
                 .createUserAccount(dtoBody.getCreateUserAccount())
                 .build();
+    }
+
+    private AippInstLogData.AippInstLogBody convertQuestion(AippInstLogDataDto.AippInstanceLogBody question) {
+        if (question == null) {
+            return null;
+        }
+        return this.convertBody(question);
+    }
+
+    private List<AippInstLogData.AippInstLogBody> convertLogBodies(
+            List<AippInstLogDataDto.AippInstanceLogBody> logBodies) {
+        if (logBodies == null) {
+            return null;
+        }
+        return logBodies.stream().map(this::convertBody).toList();
     }
 }

@@ -71,7 +71,7 @@ public class AppBuilderAppServiceAdapterImplTest {
 
     @Test
     @DisplayName("测试查询应用列表")
-    void ShouldOkWhenTestQueryAppList() {
+    void shouldOkWhenTestQueryAppList() {
         AppQueryParams params = AppQueryParams.builder()
                 .ids(Arrays.asList("id1", "id2"))
                 .excludeNames(Arrays.asList("name1", "name2"))

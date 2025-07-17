@@ -18,7 +18,7 @@ import modelengine.jade.apikey.ApikeyAuthService;
 @Component
 public class DefaultApikeyAuthServiceImpl implements ApikeyAuthService {
     @Override
-    public Boolean authApikeyInfo(String apikey) {
+    public boolean authApikeyInfo(String apikey) {
         return true;
     }
 }
