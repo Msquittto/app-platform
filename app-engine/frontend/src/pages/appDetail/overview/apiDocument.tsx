@@ -46,7 +46,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   const documentRef = useRef<any>(null);
   let httpStr = 'http://' || 'https://';
   let websocketUrl = [
-    '<font color=#d0cdcd>/v1/tenants/{tenantId}/chats/apps/{appId}</font>',
+    '<font color=#d0cdcd>/api/app/v1/tenants/{tenantId}/chats/apps/{appId}</font>',
     '<font color=#d0cdcd>/ws</font>',
   ];
   let data: any = [];
@@ -214,7 +214,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
 
   // 处理SSE的children以及codes数据
   const processSseData = (obj: any, methods: any, resRefField : string, reqRefField: string) => {
-    const getRequestInfo = getRequest(methods.parameters, methods.operationId);
+    const getRequestInfo = getRequest(methods.parameters || [], methods.operationId);
     obj.children.push({ title: 'Request', children: getRequestInfo });
     if (methods.requestBody) {
       let requestDescription = `${obj.method} ${methods.operationId.split(' ')[1]}`;
@@ -232,11 +232,11 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
       let responses = methods.responses[statusCode].content[application].schema.$ref;
       resRefField  = responses.substring(responses.lastIndexOf('/') + 1);
       errorCodeInfo.push(statusCode);
-      const res = processSseCodes(resRefField );
+      const res = processSseCodes(resRefField);
       const getResponseCode = obj.title === `${t('newSession')}API`? resCodes : obj.title === `${t('reconversation')}API` ? resCodes : res;
       obj.codes.push({ title: 'Response', code: getResponseCode });
     }
-    const getRes = processSseRequestAndResponse(resRefField );
+    const getRes = processSseRequestAndResponse(resRefField);
     const getDatas = [...wssRes, ...getRes];
     const getArr = obj.title === `${t('newSession')}API` ? getDatas : obj.title === `${t('reconversation')}API` ? getDatas : getRes;
     obj.children.push({ title: 'Response', children: [processStatusCodes(errorCodeInfo)] });

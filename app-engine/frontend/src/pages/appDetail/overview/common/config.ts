@@ -469,7 +469,7 @@ export const apiListData = {
             type: 'boolean',
           },
           dimensionId: {
-            description: 'id信息',
+            description: '产品的id信息',
             examples: [''],
             type: 'string',
           },
@@ -482,7 +482,7 @@ export const apiListData = {
             $ref: '#/components/schemas/java.util.Map_of_java.lang.String_and_java.lang.Object',
           },
           dimension: {
-            description: '信息',
+            description: '产品的信息',
             examples: [''],
             type: 'string',
           },
@@ -682,11 +682,168 @@ export const apiListData = {
             },
           },
         },
+      'modelengine.fit.jane.common.response.Rsp_of_java.util.List_of_modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData': {
+        type: 'object',
+        properties: {
+          msg: {
+            description: '状态信息',
+            examples: [
+              'success'
+            ],
+            type: 'string'
+          },
+          OK_CODE: {
+            format: 'int32',
+            type: 'integer'
+          },
+          OK_MSG: {
+            type: 'string'
+          },
+          code: {
+            format: 'int32',
+            description: '状态码',
+            examples: [
+              '0'
+            ],
+            type: 'integer'
+          },
+          data: {
+            description: '数据',
+            type: 'array',
+            items: {
+              $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData'
+            }
+          }
+        }
+      },
+      'modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData': {
+        type: 'object',
+        properties: {
+          instanceLogBodies: {
+            type: 'array',
+            items: {
+              $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData$AippInstLogBody'
+            }
+          },
+          aippId: {
+            type: 'string'
+          },
+          appIcon: {
+            type: 'string'
+          },
+          instanceId: {
+            type: 'string'
+          },
+          question: {
+            $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData$AippInstLogBody'
+          },
+          appName: {
+            type: 'string'
+          },
+          version: {
+            type: 'string'
+          },
+          createAt: {
+            format: 'date-time',
+            type: 'string'
+          },
+          status: {
+            type: 'string'
+          }
+        }
+      },
+      'modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData$AippInstLogBody': {
+        type: 'object',
+        properties: {
+          logType: {
+            type: 'string'
+          },
+          createUserAccount: {
+            type: 'string'
+          },
+          logData: {
+            type: 'string'
+          },
+          logId: {
+            format: 'int64',
+            type: 'integer'
+          },
+          createAt: {
+            format: 'date-time',
+            type: 'string'
+          }
+        }
+      },
+      'modelengine.jade.app.engine.base.dto.UsrFeedbackDto': {
+        type: 'object',
+        properties: {
+          instanceId: {
+            description: '实例id',
+            examples: [
+              ''
+            ],
+            type: 'string'
+          },
+          usrFeedback: {
+            format: 'int32',
+            description: '用户反馈 -1 未反馈 0 点赞 1 点踩',
+            examples: [
+              ''
+            ],
+            type: 'integer'
+          },
+          usrFeedbackText: {
+            description: '用户反馈文本',
+            examples: [
+              ''
+            ],
+            type: 'string'
+          },
+          id: {
+            format: 'int64',
+            description: '反馈记录 id',
+            examples: [
+              ''
+            ],
+            type: 'integer'
+          }
+        }
+      },
+      'modelengine.fit.jane.common.response.Rsp_of_modelengine.jade.app.engine.base.dto.UsrFeedbackDto': {
+        type: 'object',
+        properties: {
+          msg: {
+            description: '状态信息',
+            examples: [
+              'success'
+            ],
+            type: 'string'
+          },
+          OK_CODE: {
+            format: 'int32',
+            type: 'integer'
+          },
+          OK_MSG: {
+            type: 'string'
+          },
+          code: {
+            format: 'int32',
+            description: '状态码',
+            examples: [
+              '0'
+            ],
+            type: 'integer'
+          },
+          data: {
+            $ref: '#/components/schemas/modelengine.jade.app.engine.base.dto.UsrFeedbackDto'
+          }
+        }
+      },
     },
   },
   openapi: '3.1.0',
   paths: {
-    '/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}': {
+    '/api/app/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}': {
       post: {
         summary: '重新对话API',
         requestBody: {
@@ -700,11 +857,11 @@ export const apiListData = {
             },
           },
         },
-        operationId: 'POST /v1/tenants/{tenantId}/chats/instances/{currentInstanceId}',
+        operationId: 'POST /api/app/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}',
         description:
           '该接口可以重新发起指定会话，需要指定需要重新发起会话的实例id，同时可添加附加信息',
         responses: {
-          '205': {
+          '200': {
             description: '',
             content: {
               'application/json': {
@@ -742,10 +899,10 @@ export const apiListData = {
         tags: ['应用对话管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/apps/{appId}/config': {
+    '/api/app/v1/tenants/{tenantId}/apps/{appId}/config': {
       get: {
         summary: '查询应用配置详情',
-        operationId: 'GET /v1/tenants/{tenantId}/apps/{appId}/config',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/config',
         description: '该接口可以通过待查询应用的唯一标识符来查询指定应用的配置详情。',
         responses: {
           '200': {
@@ -786,10 +943,10 @@ export const apiListData = {
         tags: ['应用信息管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/file': {
+    '/api/app/v1/tenants/{tenantId}/file': {
       post: {
         summary: '上传文件',
-        operationId: 'POST /v1/tenants/{tenantId}/file',
+        operationId: 'POST /api/app/v1/tenants/{tenantId}/file',
         description: '该接口可以往指定应用上传文件。',
         responses: {
           '201': {
@@ -826,7 +983,7 @@ export const apiListData = {
         tags: ['文件上传接口'],
       },
     },
-    '/v1/tenants/{tenantId}/chats/apps/{appId}': {
+    '/api/app/v1/tenants/{tenantId}/chats/apps/{appId}': {
       post: {
         summary: '新开会话API',
         requestBody: {
@@ -840,7 +997,7 @@ export const apiListData = {
             },
           },
         },
-        operationId: 'POST /v1/tenants/{tenantId}/chats/apps/{appId}',
+        operationId: 'POST /api/app/v1/tenants/{tenantId}/chats/apps/{appId}',
         description:
           '该接口向大模型发送一个问题信息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。',
         responses: {
@@ -882,11 +1039,11 @@ export const apiListData = {
         tags: ['应用对话管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations': {
+    '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations': {
       get: {
         summary: '获取灵感',
         operationId:
-          'GET /v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations',
+          'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations',
         description: '该接口可以获取指定应用的某一灵感类别下的所有灵感。',
         responses: {
           '200': {
@@ -938,10 +1095,10 @@ export const apiListData = {
         tags: ['灵感大全管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/translation/audio': {
+    '/api/app/v1/tenants/{tenantId}/translation/audio': {
       get: {
         summary: '文字转语音',
-        operationId: 'GET /v1/tenants/{tenantId}/translation/audio',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/translation/audio',
         description: '该接口可以将输入的文本转换为指定音色的语音。',
         responses: {
           '200': {
@@ -983,10 +1140,10 @@ export const apiListData = {
         tags: ['语音文字互转接口'],
       },
     },
-    '/v1/tenants/{tenantId}/translation/text': {
+    '/api/app/v1/tenants/{tenantId}/translation/text': {
       get: {
         summary: '语音转文字',
-        operationId: 'GET /v1/tenants/{tenantId}/translation/text',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/translation/text',
         description: '该接口可以将输入的语音文件转换为文字。',
         responses: {
           '200': {
@@ -1027,10 +1184,10 @@ export const apiListData = {
         tags: ['语音文字互转接口'],
       },
     },
-    '/v1/tenants/{tenantId}/chats': {
+    '/api/app/v1/tenants/{tenantId}/chats': {
       get: {
         summary: '查询会话历史',
-        operationId: 'GET /v1/tenants/{tenantId}/chats',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/chats',
         description: '该接口用于查询指定租户的会话历史，并通过指定条件进行筛选。',
         responses: {
           '200': {
@@ -1159,10 +1316,10 @@ export const apiListData = {
         tags: ['应用对话管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/apps/{appId}/prompt/categories': {
+    '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories': {
       get: {
         summary: '获取灵感类别',
-        operationId: 'GET /v1/tenants/{tenantId}/apps/{appId}/prompt/categories',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories',
         description: '该接口可以通过应用的唯一标识符获取该应用下的所有灵感类别。',
         responses: {
           '200': {
@@ -1203,10 +1360,10 @@ export const apiListData = {
         tags: ['灵感大全管理接口'],
       },
     },
-    '/v1/tenants/{tenantId}/apps': {
+    '/api/app/v1/tenants/{tenantId}/apps': {
       get: {
         summary: '查询用户应用列表',
-        operationId: 'GET /v1/tenants/{tenantId}/apps',
+        operationId: 'GET /api/app/v1/tenants/{tenantId}/apps',
         description: '该接口可以使用指定条件筛选用户应用列表，如应用id、查询的应用名字和状态等.',
         responses: {
           '200': {
@@ -1243,7 +1400,7 @@ export const apiListData = {
             },
             in: 'query',
             deprecated: false,
-            name: 'appIds',
+            name: 'ids',
             description: '查询的id列表',
             required: false,
           },
@@ -1323,6 +1480,164 @@ export const apiListData = {
         tags: ['应用信息管理接口'],
       },
     },
+    '/api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}': {
+      get: {
+        summary: '查询会话历史记录',
+        operationId: 'GET /api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}',
+        description: '指定chatId查询实例历史记录（查询最近10个实例）。',
+        responses: {
+          '200': {
+            description: '',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/modelengine.fit.jane.common.response.Rsp_of_java.util.List_of_modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData'
+                }
+              }
+            }
+          }
+        },
+        parameters: [
+          {
+            schema: {
+              'type': 'string'
+            },
+            name: 'tenant_id',
+            in: 'path',
+            required: true,
+            deprecated: false
+          },
+          {
+            schema: {
+              'type': 'string'
+            },
+            name: 'app_id',
+            in: 'path',
+            required: true,
+            deprecated: false
+          },
+          {
+            schema: {
+              'type': 'string'
+            },
+            name: 'chat_id',
+            in: 'path',
+            required: true,
+            deprecated: false
+          }
+        ],
+        tags: [
+          'aipp 实例日志管理北向接口'
+        ]
+      }
+    },
+    '/api/app/v1/aipp/user/feedback': {
+      post: {
+        summary: '创建用户反馈记录',
+        operationId: 'POST /api/app/v1/aipp/user/feedback',
+        description: '该接口用于创建用户对一个对话实例的反馈记录。',
+        responses: {
+          '200': {
+            description: '',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/modelengine.fit.jane.common.response.Rsp_of_java.lang.Void'
+                }
+              }
+            }
+          }
+        },
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/modelengine.jade.app.engine.base.dto.UsrFeedbackDto'
+              }
+            }
+          }
+        },
+        tags: [
+          'modelengine.fit.jade.aipp.northbound.controller.UserFeedbackController'
+        ]
+      }
+    },
+    '/api/app/v1/aipp/user/feedback/{instanceId}': {
+      patch: {
+        summary: '更新用户反馈记录',
+        operationId: 'PATCH /api/app/v1/aipp/user/feedback/{instanceId}',
+        description: '该接口用于更新用户对一个对话实例反馈记录。',
+        responses: {
+          '200': {
+            description: '',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/modelengine.fit.jane.common.response.Rsp_of_java.lang.Void'
+                }
+              }
+            }
+          }
+        },
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/modelengine.jade.app.engine.base.dto.UsrFeedbackDto'
+              }
+            }
+          }
+        },
+        parameters: [
+          {
+            schema: {
+              'type': 'string'
+            },
+            name: 'instanceId',
+            in: 'path',
+            required: true,
+            deprecated: false
+          }
+        ],
+        tags: [
+          'modelengine.fit.jade.aipp.northbound.controller.UserFeedbackController'
+        ]
+      },
+      get: {
+        summary: '查询用户反馈记录',
+        operationId: 'GET /api/app/v1/aipp/user/feedback/{instanceId}',
+        description: '该接口可以通过待查询实例的唯一标识符来查询实例的反馈记录。',
+        responses: {
+          '200': {
+            description: '',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/modelengine.fit.jane.common.response.Rsp_of_modelengine.jade.app.engine.base.dto.UsrFeedbackDto'
+                }
+              }
+            }
+          }
+        },
+        parameters: [
+          {
+            schema: {
+              'type': 'string'
+            },
+            name: 'instanceId',
+            in: 'path',
+            required: true,
+            deprecated: false
+          }
+        ],
+        tags: [
+          'modelengine.fit.jade.aipp.northbound.controller.UserFeedbackController'
+        ]
+      }
+    },
+
   },
   info: {
     summary: '该文档由 FIT for Java 进行构建',
@@ -1467,6 +1782,12 @@ export const apiListData = {
     {
       name: 'app对话管理接口',
     },
+    {
+      name: 'aipp实例日志管理北向接口',
+    },
+    {
+      name: 'modelengine.fit.jade.aipp.northbound.controller.UserFeedbackController'
+    }
   ],
 };
 
@@ -2007,16 +2328,19 @@ export const resWssData = [
 ];
 
 export const urlMap = {
-  chatsApps: '/v1/tenants/{tenantId}/chats/apps/{appId}',
-  chats: '/v1/tenants/{tenantId}/chats',
-  instances: '/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}',
-  categories: '/v1/tenants/{tenantId}/apps/{appId}/prompt/categories',
-  inspirations: '/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations',
-  translationAudio: '/v1/tenants/{tenantId}/translation/audio',
-  file: '/v1/tenants/{tenantId}/file',
-  translationText: '/v1/tenants/{tenantId}/translation/text',
-  apps: '/v1/tenants/{tenantId}/apps',
-  appsConfig: '/v1/tenants/{tenantId}/apps/{appId}/config',
+  chatsApps: '/api/app/v1/tenants/{tenantId}/chats/apps/{appId}',
+  chats: '/api/app/v1/tenants/{tenantId}/chats',
+  instances: '/api/app/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}',
+  categories: '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories',
+  inspirations: '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations',
+  // translationAudio: '/api/app/v1/tenants/{tenantId}/translation/audio',
+  file: '/api/app/v1/tenants/{tenantId}/file',
+  // translationText: '/api/app/v1/tenants/{tenantId}/translation/text',
+  apps: '/api/app/v1/tenants/{tenantId}/apps',
+  appsConfig: '/api/app/v1/tenants/{tenantId}/apps/{appId}/config',
+  chatLogs: '/api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}',
+  createFeedback: '/api/app/v1/aipp/user/feedback',
+  updateFeedback: '/api/app/v1/aipp/user/feedback/{instanceId}',
 };
 
 export const HTTPMap = {
