@@ -13,7 +13,6 @@ import { useTranslation } from 'react-i18next';
 import Empty from '@/components/empty/empty-item';
 import IframeModal from './iframe-modal';
 import DocumentDrawer from './apiDocument';
-import DocumentOmsDrawer from './apiOmsDocument';
 import SecretKeyIcon from '@/assets/images/ai/secret_key.png';
 import DocumentIcon from '@/assets/images/ai/document.png';
 
@@ -117,17 +116,11 @@ const PublicCard = ({ type, url, detail, auth = false }) => {
           <Empty iconType='url' text={t('notReleasedYetTip')} />
         </div>
       )}
-      { process.env.PACKAGE_MODE === 'spa' ? 
-      <DocumentOmsDrawer
-        drawerOpen={drawerOpen}
-        url={setPreviewUrl(url)}
-        setDrawerOpen={setDrawerOpen}
-      /> : 
       <DocumentDrawer
         drawerOpen={drawerOpen}
         url={setPreviewUrl(url)}
         setDrawerOpen={setDrawerOpen}
-      /> }
+      />
       <IframeModal deleteOpen={deleteOpen} setDeleteOpen={setDeleteOpen} url={setPreviewUrl(url)} />
     </div>
   );

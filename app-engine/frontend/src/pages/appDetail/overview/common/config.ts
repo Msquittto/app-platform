@@ -2786,8 +2786,11 @@ export const urlMap = {
   chatLogs: '/api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}',
   createFeedback: '/api/app/v1/aipp/user/feedback',
   updateFeedback: '/api/app/v1/aipp/user/feedback/{instanceId}',
-  chatsOld: '/agent/v1/api/{tenant_id}/app_chat'
 };
+
+export const oldUrlMap = {
+  chatsOld: '/agent/v1/api/{tenant_id}/app_chat'
+}
 
 export const HTTPMap = {
   http: 'http',

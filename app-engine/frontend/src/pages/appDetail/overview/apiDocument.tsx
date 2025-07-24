@@ -27,6 +27,7 @@ import {
   resOldWssData,
   resOldSseData,
   oldSseAPIData,
+  oldUrlMap
 } from '../overview/common/config';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/api.scss';
@@ -195,7 +196,11 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   const processSSEData = () => {
     let resRefField = '';
     let reqRefField = '';
-    const urlList = Object.values(urlMap);
+    let urls = urlMap;
+    if (process.env.PACKAGE_MODE === 'spa') {
+      Object.assign(urls, oldUrlMap);
+    }
+    const urlList = Object.values(urls);
     urlList.forEach((item: any, index: number) => {
       let apiDataPaths = (apiListData.paths as any)[item];
       Object.keys(apiDataPaths).forEach((method: any) => {
