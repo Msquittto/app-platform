@@ -27,7 +27,7 @@ import {
   resOldWssData,
   resOldSseData,
   oldSseAPIData,
-  oldUrlMap
+  oldUrlMap,
 } from '../overview/common/config';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/api.scss';
@@ -725,13 +725,15 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         >
           {t('basic')}URL
         </div>
-        <div
-          id='header-link'
-          className={`nav-item ${currentNav === '#header' ? 'current-nav' : ''}`}
-          onClick={(e) => handleAnchorClick(e, '#header')}
-        >
-          {t('auth')}
-        </div>
+        {process.env.PACKAGE_MODE === 'spa' && (
+          <div
+            id='header-link'
+            className={`nav-item ${currentNav === '#header' ? 'current-nav' : ''}`}
+            onClick={(e) => handleAnchorClick(e, '#header')}
+          >
+            {t('auth')}
+          </div>
+        )}
         <div className='nav-item'>API{t('list')}</div>
         {documentContentData.map((item: any) => {
           return (
@@ -780,12 +782,14 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
             </div>
           </div>
         </div>
-        <div id='header'>
-          <div className='content-title'>{t('auth')}</div>
-          <div
-            dangerouslySetInnerHTML={{ __html: markedProcess(tranlateCode(t('authTips'))) }}
-          ></div>
-        </div>
+        {process.env.PACKAGE_MODE === 'spa' && (
+          <div id='header'>
+            <div className='content-title'>{t('auth')}</div>
+            <div
+              dangerouslySetInnerHTML={{ __html: markedProcess(tranlateCode(t('authTips'))) }}
+            ></div>
+          </div>
+        )}
         <div>
           <div className='content-title'>{t('appInformation')}</div>
           <div>
