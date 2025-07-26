@@ -234,7 +234,7 @@
   "debug": "Debug",
   "plsEnterRequiredItem": "Set mandatory parameters",
   "expandConfig": "Expand config",
-  "collapseConfig":  "Collapse config",
+  "collapseConfig": "Collapse config",
   "flowChangeWarningContent": "The workflow configuration items have been modified. Debug the workflow again. The workflow can be released once it passes the debugging",
   "noMoreTips": "Do not remind me again",
   "plsEnterString": "Enter a string",
@@ -664,7 +664,7 @@
   "toolMarket": "Tool Market",
   "auth": "Authentication",
   "list": "List",
-  "authTips": "The Service API uses `API-Key` for authentication. *** Developers are strongly recommended to store `API-Key` in the backend rather than sharing or storing it on the client to avoid leakage of `API-Key` and resulting in financial loss. *** All `API` requests should include your `API-Key` in the `Authorization` HTTP Header. As shown below:\n<code>Authorization: Bearer {API_KEY}</code>",
+  "authTips": "The Service API uses `API-Key` for authentication. ***Developers are strongly recommended to store `API-Key` in the backend rather than sharing or storing it on the client to avoid leakage of `API-Key` and resulting in financial loss.*** All `API` requests should include your `API-Key` in the `Authorization` HTTP Header. As shown below:\n<code>Authorization: Bearer {API_KEY}</code>",
   "errorCodes": "Appendix: Error Codes",
   "newSession": "New Session",
   "reconversation": "Restart the conversation",
@@ -961,5 +961,724 @@
   "currentDraft": "Current Draft",
   "loading": "Loading",
   "noMore": "You've reached the end",
-  "latest": "latest"
+  "latest": "latest",
+  "north": {
+    "api": {
+      "chat": {
+        "summary": "New session API",
+        "request": {
+          "description": "Session information, including data required to create a session"
+        },
+        "description": "This interface sends a question to the large model and initiates a conversation. Supports two streaming call methods: SSE and WebSocket.",
+        "parameters": {
+          "tenantId": {
+            "description": "The tenant's unique identifier"
+          },
+          "appId": {
+            "description": "The application's unique identifier"
+          }
+        }
+      },
+      "restartChat": {
+        "summary": "Restart Chat API",
+        "request": {
+          "description": "Additional information required to restart a conversation, such as whether to use multi-round conversations, etc."
+        },
+        "description": "This interface can restart a specified conversation. You need to specify the instance ID of the conversation to be restarted and can add additional information",
+        "parameters": {
+          "tenantId": {
+            "description": "Unique identifier of the tenant"
+          },
+          "currentInstanceId": {
+            "description": "The unique identifier of the instance for which the session needs to be restarted"
+          }
+        }
+      },
+      "appConfig": {
+        "summary": "Query application configuration details",
+        "description": "This interface can be used to query the configuration details of a specified application using the unique identifier of the application to be queried.",
+        "parameters": {
+          "tenantId": {
+            "description": "The unique identifier of the tenant"
+          },
+          "appId": {
+            "description": "The unique identifier of the app to be queried"
+          }
+        }
+      },
+      "uploadFile": {
+        "summary": "Upload file",
+        "description": "This interface can upload files to a specified application."
+      },
+      "getInspiration": {
+        "summary": "Get Inspiration",
+        "description": "This interface can get all inspirations under a specific inspiration category of a specified application.",
+        "parameters": {
+          "tenantId": {
+            "description": "Unique identifier of the tenant"
+          },
+          "appId": {
+            "description": "Unique identifier of the application"
+          },
+          "categoryId": {
+            "description": "Unique identifier of the inspiration category"
+          }
+        }
+      },
+      "getChatHistory": {
+        "summary": "Query session history",
+        "description": "This interface is used to query the session history of a specified tenant and filter it based on specified conditions.",
+        "parameters": {
+          "tenantId": {
+            "description": "The unique identifier of the tenant"
+          },
+          "offset": {
+            "description": "Offset"
+          },
+          "limit": {
+            "description": "Number of records per page"
+          },
+          "appId": {
+            "description": "Unique identifier of the application"
+          },
+          "appState": {
+            "description": "Application status"
+          }
+        }
+      },
+      "deleteChat": {
+        "summary": "Delete Chat API",
+        "description": "This interface is used to delete one or more chats under a specified application.",
+        "parameters": {
+          "tenantId": {
+            "description": "Unique identifier of the tenant"
+          },
+          "app_id": {
+            "description": "The unique identifier of the application"
+          },
+          "chat_id": {
+            "description": "The unique identifier of the chat session to be deleted. If not specified, all chats will be deleted"
+          }
+        }
+      },
+      "getCategory": {
+        "summary": "Get inspiration categories",
+        "description": "This interface can be used to retrieve all inspiration categories under an application using the application's unique identifier.",
+        "parameters": {
+          "tenantId": {
+            "description": "The tenant's unique identifier"
+          },
+          "appId": {
+            "description": "The application's unique identifier"
+          }
+        }
+      },
+      "getAppList": {
+        "summary": "Query user application list",
+        "description": "This interface can be used to filter the user application list based on specified conditions, such as application ID, application name, and status.",
+        "parameters": {
+          "tenantId": {
+            "description": "Unique identifier of the tenant"
+          },
+          "ids": {
+            "description": "List of IDs to query"
+          },
+          "name": {
+            "description": "Name to query"
+          },
+          "state": {
+            "description": "Status of the query"
+          },
+          "excludeNames": {
+            "description": "Names to exclude"
+          },
+          "offset": {
+            "description": "Offset"
+          },
+          "limit": {
+            "description": "Number of records per page"
+          },
+          "type": {
+            "description": "Query type"
+          }
+        }
+      },
+      "getChatHistoryById": {
+        "summary": "Query chat history",
+        "description": "Query instance history by specifying chatId (query the last 10 instances)."
+      },
+      "createFeedback": {
+        "summary": "Create user feedback record",
+        "description": "This interface is used to create user feedback records for a conversation instance."
+      },
+      "updateFeedback": {
+        "summary": "Update user feedback records",
+        "description": "This interface is used to update user feedback records for a conversation instance."
+      },
+      "getFeedback": {
+        "summary": "Query user feedback records",
+        "description": "This interface can query the feedback records of an instance using its unique identifier."
+      },
+      "oldChat": {
+        "summary": "Old version of the conversation interface",
+        "description": "Chat interface for transmitting chat information",
+        "parameters": {
+          "tenant_id": {
+            "description": "Unique identifier for the tenant"
+          }
+        }
+      }
+    },
+    "schema": {
+      "AppMetadata": {
+        "msg": {
+          "description": "Status information"
+        },
+        "code": {
+          "description": "Status code"
+        }
+      },
+      "AppBuilderAppDto": {
+        "baselineCreateAt": {
+          "description": "Creation time"
+        },
+        "configFormProperties": {
+          "description": "Application configuration items"
+        },
+        "publishedUpdateLog": {
+          "description": "aipp published update log"
+        },
+        "appCategory": {
+          "description": "Application category"
+        },
+        "updateAt": {
+          "description": "Update time"
+        },
+        "type": {
+          "description": "Application Type"
+        },
+        "publishedDescription": {
+          "description": "aipp Published Description"
+        },
+        "version": {
+          "description": "Version"
+        },
+        "createAt": {
+          "description": "Creation Time"
+        },
+        "publishUrl": {
+          "description": "aipp Publication Link"
+        },
+        "createBy": {
+          "description": "Creator"
+        },
+        "updateBy": {
+          "description": "Updater"
+        },
+        "name": {
+          "description": "Application Name"
+        },
+        "chatUrl": {
+          "description": "Chat short link address"
+        },
+        "id": {
+          "description": "Application unique identifier"
+        },
+        "state": {
+          "description": "Application status"
+        }
+      },
+      "FileUploadInfo": {
+        "msg": {
+          "description": "Status information"
+        },
+        "code": {
+          "description": "Status code"
+        }
+      },
+      "PromptCategory": {
+        "parent": {
+          "description": "Parent category"
+        },
+        "children": {
+          "description": "Child category"
+        },
+        "disable": {
+          "description": "Whether it can be selected"
+        },
+        "id": {
+          "description": "Unique identifier for the inspiration category"
+        },
+        "title": {
+          "description": "Inspiration category title"
+        }
+      },
+      "ChatRequest": {
+        "chatId": {
+          "description": "conversation ID"
+        },
+        "question": {
+          "description": "Question"
+        }
+      },
+      "String": {
+        "data": {
+          "description": "Data"
+        }
+      },
+      "ChatRequest$Context": {
+        "useMemory": {
+          "description": "Whether to use history"
+        },
+        "dimensionId": {
+          "description": "Product ID information"
+        },
+        "atChatId": {
+          "description": "at Other applications' dialogs"
+        },
+        "userContext": {
+          "description": "User-defined conversation field input information, corresponding to the start node configuration"
+        },
+        "dimension": {
+          "description": "Product information"
+        },
+        "atAppId": {
+          "description": "at other applications"
+        }
+      },
+      "PromptInfo$AppBuilderPromptVarDataDtoAdapter": {
+        "varType": {
+          "description": "Display format of prompt variable values"
+        },
+        "sourceInfo": {
+          "description": "Source information of prompt variable values"
+        },
+        "sourceType": {
+          "description": "The type of source for the prompt variable value"
+        },
+        "var": {
+          "description": "The prompt variable"
+        },
+        "multiple": {
+          "description": "Whether multiple selections are allowed"
+        },
+        "key": {
+          "description": "Unique key for prompt variable"
+        }
+      },
+      "PromptInfo$AppBuilderInspirationDtoAdapter": {
+        "auto": {
+          "description": "Whether to execute automatically"
+        },
+        "promptVarData": {
+          "description": "Prompt variable"
+        },
+        "name": {
+          "description": "Inspiration name"
+        },
+        "description": {
+          "description": "Description"
+        },
+        "id": {
+          "description": "Unique identifier for the inspiration"
+        },
+        "category": {
+          "description": "Category"
+        },
+        "prompt": {
+          "description": "Prompt"
+        },
+        "promptTemplate": {
+          "description": "Prompt template"
+        }
+      },
+      "UsrFeedbackDto": {
+        "instanceId": {
+          "description": "Instance ID"
+        },
+        "usrFeedback": {
+          "description": "User feedback -1 No feedback 0 Like 1 Dislike"
+        },
+        "usrFeedbackText": {
+          "description": "User feedback text"
+        },
+        "id": {
+          "description": "Feedback record ID"
+        }
+      },
+      "CreateAppChatRequest": {
+        "chat_id": {
+          "description": "Optional - ID of the current conversation, generated after the first conversation, which can be used for subsequent conversations"
+        },
+        "question": {
+          "description": "Question to ask the large model"
+        },
+        "app_id": {
+          "description": "ID of the app used for the conversation"
+        }
+      },
+      "CreateAppChatRequest$Context": {
+        "use_memory": {
+          "description": "Whether to use historical conversation records during the conversation. Enabling this will allow historical conversation data to influence the large model's responses"
+        },
+        "dimension_id": {
+          "description": "The question to ask the large model"
+        },
+        "at_chat_id": {
+          "description": "Reference to other application conversations"
+        },
+        "user_context": {
+          "description": "User-defined input information for conversation fields, corresponding to the start node configuration"
+        },
+        "dimension": {
+          "description": "Product information"
+        },
+        "at_app_id": {
+          "description": "Reference to other applications"
+        }
+      }
+    },
+    "resOkCode": {
+      "200": "The request was successfully processed and response data was returned.",
+      "201": "The request was successfully processed and resulted in the creation of a new resource.",
+      "204": "The request was successfully processed, but no content was returned.",
+      "205": "The request was successfully processed; please reset the current document view on the client side."
+    },
+    "resCode": {
+      "400": "Request error: the data sent by the client or the request format is incorrect.",
+      "403": "The request is valid, but the client does not have permission to access the resource.",
+      "404": "The requested resource does not exist, possibly due to an incorrect URL or the resource being deleted.",
+      "500": "Server internal error, please contact the administrator."
+    },
+    "wssApiData": {
+      "info": {
+        "title": "WebSocket Chat",
+        "description": "A real-time WebSocket chat service that allows users to send and receive messages."
+      },
+      "servers": {
+        "description": "WebSocket server for chat applications"
+      },
+      "paths": {
+        "/chat": {
+          "summary": "Send chat message.",
+          "description": "This interface sends a question message to the large model and starts a conversation. Both SSE and WebSocket streaming modes are supported.",
+          "First Request": {
+            "summary": "Establish WebSocket connection"
+          },
+          "Websocket Request": {
+            "summary": "Send chat message request",
+            "description": "Used to send a chat message request to the large model service, including the question, context, and memory usage parameters.",
+            "requestBody": {
+              "description": "Request message content, including chat parameters, question, and context, formatted as a JSON string.",
+              "content": {
+                "schema": {
+                  "requestId": {
+                    "description": "Unique identifier for the request"
+                  },
+                  "params": {
+                    "tenantId": {
+                      "description": "Tenant ID, used to identify the source of the request"
+                    },
+                    "data": {
+                      "app_id": {
+                        "description": "App ID associated with the request"
+                      },
+                      "question": {
+                        "description": "User's question"
+                      },
+                      "context": {
+                        "description": "Session information required to create the conversation",
+                        "use_memory": {
+                          "description": "Whether to use memory, which may affect the way content is generated"
+                        },
+                        "user_context": {
+                          "description": "User context information, such as user preferences or history"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Websocket responses": {
+            "description": "Request succeeded, returns the result processed by the large model. The result consists of multiple data stream messages, and finally forms the complete data stream content.",
+            "content": {
+              "schema": {
+                "status": {
+                  "description": "Current message status"
+                },
+                "answer": {
+                  "description": "Array of messages",
+                  "items": {
+                    "content": {
+                      "description": "Message content",
+                      "formId": {
+                        "description": "Form ID, if any"
+                      },
+                      "formVersion": {
+                        "description": "Form version"
+                      },
+                      "formArgs": {
+                        "description": "Form parameters"
+                      },
+                      "msg": {
+                        "description": "Message text content"
+                      },
+                      "formAppearance": {
+                        "description": "Form appearance settings"
+                      },
+                      "formData": {
+                        "description": "Form data"
+                      }
+                    },
+                    "type": {
+                      "description": "Message type"
+                    },
+                    "msgId": {
+                      "description": "Message ID"
+                    }
+                  }
+                },
+                "chat_id": {
+                  "description": "Unique identifier for the current chat"
+                },
+                "at_chat_id": {
+                  "description": "Mentioned chat ID, if any"
+                },
+                "instance_id": {
+                  "description": "Instance ID of the current chat"
+                },
+                "log_id": {
+                  "description": "Unique identifier for the current log"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "oldWssAPIData": {
+      "info": {
+        "title": "WebSocket Chat",
+        "description": "A real-time WebSocket chat service that allows users to send and receive messages."
+      },
+      "servers": {
+        "description": "WebSocket server for chat applications"
+      },
+      "paths": {
+        "/chat": {
+          "summary": "Send chat message.",
+          "description": "This interface sends a question message to the large model and starts a conversation. Both SSE and WebSocket streaming modes are supported.",
+          "First Request": {
+            "summary": "Establish WebSocket connection"
+          },
+          "Websocket Request": {
+            "summary": "Send chat message request",
+            "description": "After establishing the websocket connection, send the chat request via the websocket session and receive the chat response.",
+            "requestBody": {
+              "description": "After the websocket connection is established, send the chat request via the message structure in the response.",
+              "content": {
+                "schema": {
+                  "requestId": {
+                    "description": "Unique identifier for the request. Each stream in the websocket response will carry the requestId, which is used to distinguish which request the streaming message belongs to when reusing the session."
+                  },
+                  "method": {
+                    "description": "The name of the method to be used for the websocket request. Currently, only appChat is supported."
+                  },
+                  "params": {
+                    "data": {
+                      "app_id": {
+                        "description": "The app id used for the conversation"
+                      },
+                      "chat_id": {
+                        "description": "The id of the current conversation, generated after the first conversation, and can be used for continuous conversation afterwards"
+                      },
+                      "question": {
+                        "description": "The question to ask the large model"
+                      },
+                      "context": {
+                        "description": "Session information required to create the conversation",
+                        "use_memory": {
+                          "description": "Whether to use historical conversation records. When enabled, historical data will affect the model's answer"
+                        },
+                        "user_context": {
+                          "description": "User context information, such as user preferences or history"
+                        },
+                        "at_app_id": {
+                          "description": "Reference to another application"
+                        },
+                        "at_chat_id": {
+                          "description": "Reference to another application's conversation"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Websocket responses": {
+            "description": "Request succeeded, returns the result processed by the large model. The result consists of multiple data stream messages, and finally forms the complete data stream content.",
+            "content": {
+              "schema": {
+                "requestId": {
+                  "description": "Unique identifier for the request. Each stream in the websocket response will carry the requestId, which is used to distinguish which request the streaming message belongs to when reusing the session."
+                },
+                "code": {
+                  "description": "Status code of the request result. 0 means normal, other values indicate errors."
+                },
+                "msg": {
+                  "description": "Error message when the interface execution fails. When code is 0, msg is null."
+                },
+                "data": {
+                  "description": "The data returned by the interface in streaming mode. The specific structure depends on the called interface. In websocket failure or completion responses, data is null.",
+                  "status": {
+                    "description": "Current message status"
+                  },
+                  "answer": {
+                    "description": "Array of messages",
+                    "items": {
+                      "content": {
+                        "description": "Message content",
+                        "content": {
+                          "description": "The response object of the large model. The content depends on the value of the type field. In the first streaming data block of app_chat, content represents the definition of the input question; otherwise, it represents the output of the large model."
+                        },
+                        "type": {
+                          "description": "The type of the content field in the answer. The value can be QUESTION or MSG, representing the question and the model's answer respectively."
+                        },
+                        "msgId": {
+                          "description": "The id of the model's response message"
+                        }
+                      }
+                    }
+                  },
+                  "chat_id": {
+                    "description": "The id of the current conversation round. Q&A with the same chat_id belong to the same round. Previous Q&A in the same round become history for subsequent Q&A. When use_memory is enabled, it will affect the model's answer."
+                  },
+                  "at_chat_id": {
+                    "description": "The id of the referenced conversation round"
+                  },
+                  "instance_id": {
+                    "description": "The id of the current Q&A instance. One instance_id usually corresponds to one Q&A."
+                  },
+                  "log_id": {
+                    "description": "The id of the current Q&A record. Both user questions and model answers have a unique, incrementing logId."
+                  }
+                },
+                "completed": {
+                  "description": "Indicates whether the streaming response is finished. In websocket failure or completion responses, completed is true."
+                }
+              }
+            }
+          },
+          "parameters": {
+            "tenant_id": {
+              "description": "Unique identifier for the tenant"
+            }
+          }
+        }
+      }
+    },
+    "oldSseApiData": {
+      "status": {
+        "description": "Indicates the status of the large model response. The response status can be one of three states: READY, RUNNING, and ARCHIVED. READY status indicates that the large model has received the conversation question; RUNNING status indicates that the conversation is in progress, and in this state, the conversation model's output results will be returned in streaming mode; ARCHIVED status indicates that the streaming response has ended, and the returned data will contain the complete large model output."
+      },
+      "answer": {
+        "description": "Large model's answer",
+        "items": {
+          "content": {
+            "description": "The response object of the large model. The content depends on the value of the type field. In the first streaming data block of app_chat, content represents the definition of the input question; otherwise, it represents the output of the large model."
+          },
+          "type": {
+            "description": "The type of the content field in the answer. The value can be QUESTION or MSG, representing the question and the model's answer respectively."
+          },
+          "msgId": {
+            "description": "The id of the model's response message"
+          }
+        }
+      },
+      "chat_id": {
+        "description": "The id of the current conversation round. Q&A with the same chat_id belong to the same round. Previous Q&A in the same round become history for subsequent Q&A. When use_memory is enabled, it will affect the model's answer."
+      },
+      "at_chat_id": {
+        "description": "The id of the referenced conversation round"
+      },
+      "instance_id": {
+        "description": "The id of the current Q&A instance. One instance_id usually corresponds to one Q&A."
+      },
+      "log_id": {
+        "description": "The id of the current Q&A record. Both user questions and model answers have a unique, incrementing logId."
+      }
+    },
+    "errorCodeData": {
+      "0": "success",
+      "90000000": "Invalid parameter: {parameter info}.",
+      "90000001": "Resource not found: {resource info}.",
+      "90000002": "Internal server error, please contact the administrator.",
+      "90000003": "Operation forbidden.",
+      "90001001": "System error, failed to create process. Please retry or contact the administrator.",
+      "90001002": "No ongoing conversation, no need to terminate.",
+      "90001003": "Conversation is in progress and cannot be deleted.",
+      "90001011": "Configuration error, please check if the workflow orchestration is correct. Error reason: {error info}.",
+      "90001012": "Duplicate application property exists.",
+      "90001013": "Application name cannot be empty.",
+      "90001014": "Application name already exists.",
+      "90001015": "Application instance log is empty.",
+      "90002000": "File upload failed.",
+      "90002001": "File expired or corrupted.",
+      "90002002": "Failed to parse file content.",
+      "90002003": "Invalid file path.",
+      "90002900": "JSON parsing failed. Reason: {error info}.",
+      "90002901": "JSON encoding failed. Reason: {error info}.",
+      "90002902": "Failed to retrieve history.",
+      "90002903": "System error, failed to get application configuration. Please contact the administrator.",
+      "90002904": "Failed to get inspiration prompt variables. Please contact the administrator.",
+      "90002905": "Failed to parse history configuration.",
+      "90002906": "Please check the variables in the prompt template.",
+      "90002908": "Unsupported data type [type: {data type}].",
+      "90002909": "Task does not exist.",
+      "90002918": "Conversation request structure is incorrect.",
+      "90002919": "The application is not published and cannot be used for conversation.",
+      "90002920": "@Application conversation error. Please clear the cache and try again.",
+      "90002921": "Debug conversation failed. Please retry.",
+      "90002922": "Conversation response error. Please retry.",
+      "90002924": "Application does not exist or has been deleted.",
+      "90002925": "Conversation failed: application does not exist or has been deleted.",
+      "90002927": "Please enter your question.",
+      "90002928": "Instance id \"{specific instance}\" does not match any parent instance id.",
+      "90002929": "Instance id \"{specific instance}\" does not match any conversation.",
+      "90002930": "Sorry, there are too many users in the queue. Please try again later. Thank you.",
+      "90002933": "System error, failed to get application orchestration information. Please contact the administrator.",
+      "90002935": "System error, file format validation failed. Please contact the administrator.",
+      "90002936": "System error, model node failed to parse file. Please contact the administrator.",
+      "90002938": "System error, failed to get conversation history. Please contact the administrator.",
+      "90002939": "System error, failed to restart conversation. Please contact the administrator.",
+      "90002940": "System error, failed to get application information. Please contact the administrator.",
+      "90002946": "Audio file splitting failed. Please change the audio file or try again.",
+      "90002947": "Audio file summary content is empty. Please change the audio file or try again.",
+      "90002948": "Failed to extract audio file content. Please change the audio file or try again.",
+      "90002950": "System error, model service unavailable. Please check the model status or contact the administrator.",
+      "90002951": "System error, invalid parameters for large model call. Please contact the administrator.",
+      "90002952": "System error, failed to call large model service. Please contact the administrator.",
+      "90002953": "Conversation does not exist or has been deleted.",
+      "90002954": "System error, failed to terminate conversation. Please contact the administrator.",
+      "90002955": "System error, failed to continue conversation. Please retry or contact the administrator.",
+      "10007503": "System error, tool flow orchestration failed to run. Please contact the administrator.",
+      "10000003": "Invalid input parameter. The invalid parameter is {error info}.",
+      "10007511": "Error occurred while executing condition node.",
+      "10007521": "Process execution exception. Please retry.",
+      "90002956": "Tool invocation exception. Please check the tool and try again.",
+      "90002957": "Tool lookup exception. Please check the tool and try again.",
+      "90002958": "Network connection problem. Please check your network and try again.",
+      "90002959": "Duplicate plugin. Please change the plugin and try again.",
+      "90002960": "Error in node {error node}. Cause: tool {error tool} execution error, {error info}",
+      "90002961": "Error in node {error node}. Cause: {error info}",
+      "90002962": "Execution error. Cause: tool {error tool} execution error, {error info}",
+      "90002963": "Execution error. Cause: {error info}",
+      "90002965": "Parent node of form property does not exist.",
+      "90002973": "Invalid path format.",
+      "90002998": "License expired."
+    }
+  }
 }

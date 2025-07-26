@@ -6,7 +6,7 @@ export const apiListData = {
           type: 'object',
           properties: {
             msg: {
-              description: '状态信息',
+              description: 'north.schema.AppMetadata.msg.description',
               examples: ['success'],
               type: 'string',
             },
@@ -19,7 +19,7 @@ export const apiListData = {
             },
             code: {
               format: 'int32',
-              description: '状态码',
+              description: 'north.schema.AppMetadata.code.description',
               examples: ['0'],
               type: 'integer',
             },
@@ -38,7 +38,7 @@ export const apiListData = {
           },
           baselineCreateAt: {
             format: 'date-time',
-            description: '创建时间',
+            description: 'north.schema.AppBuilderAppDto.baselineCreateAt.description',
             examples: [''],
             type: 'string',
           },
@@ -46,66 +46,66 @@ export const apiListData = {
             $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.AppBuilderFlowGraphDto',
           },
           configFormProperties: {
-            description: '应用配置项',
+            description: 'north.schema.AppBuilderAppDto.configFormProperties.description',
             type: 'array',
             items: {
               $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.AppBuilderConfigFormPropertyDto',
             },
           },
           publishedUpdateLog: {
-            description: 'aipp 发布更新日志',
+            description: 'north.schema.AppBuilderAppDto.publishedUpdateLog.description',
             examples: [''],
             type: 'string',
           },
           appCategory: {
-            description: '应用类别',
+            description: 'north.schema.AppBuilderAppDto.appCategory.description',
             examples: [''],
             type: 'string',
           },
           updateAt: {
             format: 'date-time',
-            description: '更新时间',
+            description: 'north.schema.AppBuilderAppDto.updateAt.description',
             examples: [''],
             type: 'string',
           },
           type: {
-            description: '应用类型',
+            description: 'north.schema.AppBuilderAppDto.type.description',
             examples: [''],
             type: 'string',
           },
           publishedDescription: {
-            description: 'aipp 发布描述',
+            description: 'north.schema.AppBuilderAppDto.publishedDescription.description',
             examples: [''],
             type: 'string',
           },
           version: {
-            description: '版本',
+            description: 'north.schema.AppBuilderAppDto.version.description',
             examples: [''],
             type: 'string',
           },
           createAt: {
             format: 'date-time',
-            description: '创建时间',
+            description: 'north.schema.AppBuilderAppDto.createAt.description',
             examples: [''],
             type: 'string',
           },
           publishUrl: {
-            description: 'aipp 发布链接',
+            description: 'north.schema.AppBuilderAppDto.publishUrl.description',
             examples: [''],
             type: 'string',
           },
           createBy: {
-            description: '创建者',
+            description: 'north.schema.AppBuilderAppDto.createBy.description',
             examples: [''],
             type: 'string',
           },
           updateBy: {
-            description: '更新者',
+            description: 'north.schema.AppBuilderAppDto.updateBy.description',
             examples: [''],
             type: 'string',
           },
           name: {
-            description: '应用名称',
+            description: 'north.schema.AppBuilderAppDto.name.description',
             examples: [''],
             type: 'string',
           },
@@ -113,17 +113,17 @@ export const apiListData = {
             $ref: '#/components/schemas/java.util.Map_of_java.lang.String_and_java.lang.Object',
           },
           chatUrl: {
-            description: '聊天短链地址',
+            description: 'north.schema.AppBuilderAppDto.chatUrl.description',
             examples: [''],
             type: 'string',
           },
           id: {
-            description: '应用的唯一标识符',
+            description: 'north.schema.AppBuilderAppDto.id.description',
             examples: [''],
             type: 'string',
           },
           state: {
-            description: '应用状态',
+            description: 'north.schema.AppBuilderAppDto.state.description',
             examples: [''],
             type: 'string',
           },
@@ -137,7 +137,7 @@ export const apiListData = {
           type: 'object',
           properties: {
             msg: {
-              description: '状态信息',
+              description: 'north.schema.FileUploadInfo.msg.description',
               examples: ['success'],
               type: 'string',
             },
@@ -150,7 +150,7 @@ export const apiListData = {
             },
             code: {
               format: 'int32',
-              description: '状态码',
+              description: 'north.schema.FileUploadInfo.code.description',
               examples: ['0'],
               type: 'integer',
             },
@@ -180,29 +180,29 @@ export const apiListData = {
         type: 'object',
         properties: {
           parent: {
-            description: '父类别',
+            description: 'north.schema.PromptCategory.parent.description',
             examples: [''],
             type: 'string',
           },
           children: {
-            description: '子类别',
+            description: 'north.schema.PromptCategory.children.description',
             type: 'array',
             items: {
               $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.chat.PromptCategory',
             },
           },
           disable: {
-            description: '是否可被选择',
+            description: 'north.schema.PromptCategory.disable.description',
             examples: [''],
             type: 'boolean',
           },
           id: {
-            description: '灵感类别的唯一标识符',
+            description: 'north.schema.PromptCategory.id.description',
             examples: [''],
             type: 'string',
           },
           title: {
-            description: '灵感类别标题',
+            description: 'north.schema.PromptCategory.title.description',
             examples: [''],
             type: 'string',
           },
@@ -240,12 +240,12 @@ export const apiListData = {
         type: 'object',
         properties: {
           chatId: {
-            description: '会话id',
+            description: 'north.schema.ChatRequest.chatId.description',
             examples: [''],
             type: 'string',
           },
           question: {
-            description: '问题',
+            description: 'north.schema.ChatRequest.question.description',
             examples: [''],
             type: 'string',
           },
@@ -258,7 +258,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: ['success'],
             type: 'string',
           },
@@ -271,12 +271,12 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: ['0'],
             type: 'integer',
           },
           data: {
-            description: '数据',
+            description: 'north.schema.String.data.description',
             examples: [''],
             type: 'string',
           },
@@ -321,7 +321,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: ['success'],
             type: 'string',
           },
@@ -334,7 +334,7 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: ['0'],
             type: 'integer',
           },
@@ -362,7 +362,7 @@ export const apiListData = {
           type: 'object',
           properties: {
             msg: {
-              description: '状态信息',
+              description: 'north.schema.AppMetadata.msg.description',
               examples: ['success'],
               type: 'string',
             },
@@ -375,7 +375,7 @@ export const apiListData = {
             },
             code: {
               format: 'int32',
-              description: '状态码',
+              description: 'north.schema.AppMetadata.code.description',
               examples: ['0'],
               type: 'integer',
             },
@@ -389,7 +389,7 @@ export const apiListData = {
           type: 'object',
           properties: {
             msg: {
-              description: '状态信息',
+              description: 'north.schema.AppMetadata.msg.description',
               examples: ['success'],
               type: 'string',
             },
@@ -402,12 +402,12 @@ export const apiListData = {
             },
             code: {
               format: 'int32',
-              description: '状态码',
+              description: 'north.schema.AppMetadata.code.description',
               examples: ['0'],
               type: 'integer',
             },
             data: {
-              description: '数据',
+              description: 'north.schema.String.data.description',
               type: 'array',
               items: {
                 $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.chat.PromptCategory',
@@ -419,7 +419,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: ['success'],
             type: 'string',
           },
@@ -432,12 +432,12 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: ['0'],
             type: 'integer',
           },
           data: {
-            description: '数据',
+            description: 'north.schema.String.data.description',
             examples: [''],
             type: 'object',
           },
@@ -464,32 +464,32 @@ export const apiListData = {
         type: 'object',
         properties: {
           useMemory: {
-            description: '是否使用历史记录',
+            description: 'north.schema.ChatRequest$Context.useMemory.description',
             examples: [''],
             type: 'boolean',
           },
           dimensionId: {
-            description: '产品的id信息',
+            description: 'north.schema.ChatRequest$Context.dimensionId.description',
             examples: [''],
             type: 'string',
           },
           atChatId: {
-            description: 'at其它应用的对话',
+            description: 'north.schema.ChatRequest$Context.atChatId.description',
             examples: [''],
             type: 'string',
           },
           userContext: {
             $ref: '#/components/schemas/java.util.Map_of_java.lang.String_and_java.lang.Object',
-            description: '用户自定义对话字段的输入信息，与开始节点配置对应',
+            description: 'north.schema.ChatRequest$Context.userContext.description',
             type: 'object',
           },
           dimension: {
-            description: '产品的信息',
+            description: 'north.schema.ChatRequest$Context.dimension.description',
             examples: [''],
             type: 'string',
           },
           atAppId: {
-            description: 'at其它应用',
+            description: 'north.schema.ChatRequest$Context.atAppId.description',
             examples: [''],
             type: 'string',
           },
@@ -499,32 +499,32 @@ export const apiListData = {
         type: 'object',
         properties: {
           varType: {
-            description: '提示词变量值的展示形式',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.varType.description',
             examples: [''],
             type: 'string',
           },
           sourceInfo: {
-            description: '提示词变量值的来源信息',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.sourceInfo.description',
             examples: [''],
             type: 'string',
           },
           sourceType: {
-            description: '提示词变量值的来源类型',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.sourceType.description',
             examples: [''],
             type: 'string',
           },
           var: {
-            description: '提示词变量',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.var.description',
             examples: [''],
             type: 'string',
           },
           multiple: {
-            description: '是否多选',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.multiple.description',
             examples: [''],
             type: 'boolean',
           },
           key: {
-            description: '提示词变量的唯一key',
+            description: 'north.schema.PromptInfo$AppBuilderPromptVarDataDtoAdapter.key.description',
             examples: [''],
             type: 'string',
           },
@@ -580,44 +580,44 @@ export const apiListData = {
         type: 'object',
         properties: {
           auto: {
-            description: '是否自动执行',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.auto.description',
             examples: [''],
             type: 'boolean',
           },
           promptVarData: {
-            description: '提示词变量',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.promptVarData.description',
             type: 'array',
             items: {
               $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.chat.PromptInfo$AppBuilderPromptVarDataDtoAdapter',
             },
           },
           name: {
-            description: '灵感名称',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.name.description',
             examples: [''],
             type: 'string',
           },
           description: {
-            description: '简介',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.description.description',
             examples: [''],
             type: 'string',
           },
           id: {
-            description: '灵感的唯一标识符',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.id.description',
             examples: [''],
             type: 'string',
           },
           category: {
-            description: '分类',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.category.description',
             examples: [''],
             type: 'string',
           },
           prompt: {
-            description: '提示词',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.prompt.description',
             examples: [''],
             type: 'string',
           },
           promptTemplate: {
-            description: '提示词模板',
+            description: 'north.schema.PromptInfo$AppBuilderInspirationDtoAdapter.promptTemplate.description',
             examples: [''],
             type: 'string',
           },
@@ -647,7 +647,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: ['success'],
             type: 'string',
           },
@@ -660,7 +660,7 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: ['0'],
             type: 'integer',
           },
@@ -688,7 +688,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: [
               'success'
             ],
@@ -703,14 +703,14 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: [
               '0'
             ],
             type: 'integer'
           },
           data: {
-            description: '数据',
+            description: 'north.schema.String.data.description',
             type: 'array',
             items: {
               $ref: '#/components/schemas/modelengine.fit.jober.aipp.dto.aipplog.AippInstLogData'
@@ -780,7 +780,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           instanceId: {
-            description: '实例id',
+            description: 'north.schema.UsrFeedbackDto.instanceId.description',
             examples: [
               ''
             ],
@@ -788,14 +788,14 @@ export const apiListData = {
           },
           usrFeedback: {
             format: 'int32',
-            description: '用户反馈 -1 未反馈 0 点赞 1 点踩',
+            description: 'north.schema.UsrFeedbackDto.usrFeedback.description',
             examples: [
               ''
             ],
             type: 'integer'
           },
           usrFeedbackText: {
-            description: '用户反馈文本',
+            description: 'north.schema.UsrFeedbackDto.usrFeedbackText.description',
             examples: [
               ''
             ],
@@ -803,7 +803,7 @@ export const apiListData = {
           },
           id: {
             format: 'int64',
-            description: '反馈记录 id',
+            description: 'north.schema.UsrFeedbackDto.id.description',
             examples: [
               ''
             ],
@@ -815,7 +815,7 @@ export const apiListData = {
         type: 'object',
         properties: {
           msg: {
-            description: '状态信息',
+            description: 'north.schema.AppMetadata.msg.description',
             examples: [
               'success'
             ],
@@ -830,7 +830,7 @@ export const apiListData = {
           },
           code: {
             format: 'int32',
-            description: '状态码',
+            description: 'north.schema.AppMetadata.code.description',
             examples: [
               '0'
             ],
@@ -845,21 +845,21 @@ export const apiListData = {
         type: 'object',
         properties: {
           chat_id: {
-            description: '选填 当前对话的 id，在第一次对话后生成，后续可用该 id 连续对话',
+            description: 'north.schema.CreateAppChatRequest.chat_id.description',
             examples: [
               ''
             ],
             type: 'string'
           },
           question: {
-            description: '向大模型询问的问题',
+            description: 'north.schema.CreateAppChatRequest.question.description',
             examples: [
               ''
             ],
             type: 'string'
           },
           app_id: {
-            description: '用于对话的 app 的 id',
+            description: 'north.schema.CreateAppChatRequest.app_id.description',
             examples: [
               ''
             ],
@@ -874,21 +874,21 @@ export const apiListData = {
         type: 'object',
         properties: {
           use_memory: {
-            description: '对话时是否使用历史对话记录，开启后历史对话的数据会影响到大模型的回答',
+            description: 'north.schema.CreateAppChatRequest$Context.use_memory.description',
             examples: [
               ''
             ],
             type: 'boolean'
           },
           dimension_id: {
-            description: '产品的id信息',
+            description: 'north.schema.CreateAppChatRequest$Context.dimension_id.description',
             examples: [
               ''
             ],
             type: 'string'
           },
           at_chat_id: {
-            description: '引用其他应用对话',
+            description: 'north.schema.CreateAppChatRequest$Context.at_chat_id.description',
             examples: [
               ''
             ],
@@ -896,18 +896,18 @@ export const apiListData = {
           },
           user_context: {
             $ref: '#/components/schemas/java.util.Map_of_java.lang.String_and_java.lang.Object',
-            description: '用户自定义对话字段的输入信息，与开始节点配置对应',
+            description: 'north.schema.CreateAppChatRequest$Context.user_context.description',
             type: 'object',
           },
           dimension: {
-            description: '产品的信息',
+            description: 'north.schema.CreateAppChatRequest$Context.dimension.description',
             examples: [
               ''
             ],
             type: 'string'
           },
           at_app_id: {
-            description: '引用其他应用',
+            description: 'north.schema.CreateAppChatRequest$Context.at_app_id.description',
             examples: [
               ''
             ],
@@ -921,9 +921,9 @@ export const apiListData = {
   paths: {
     '/api/app/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}': {
       post: {
-        summary: '重新对话API',
+        summary: 'north.api.restartChat.summary',
         requestBody: {
-          description: '重新会话所需的附加信息，如是否使用多轮对话等',
+          description: 'north.api.restartChat.request.description',
           required: true,
           content: {
             'application/json': {
@@ -935,7 +935,7 @@ export const apiListData = {
         },
         operationId: 'POST /api/app/v1/tenants/{tenantId}/chats/instances/{currentInstanceId}',
         description:
-          '该接口可以重新发起指定会话，需要指定需要重新发起会话的实例id，同时可添加附加信息',
+          'north.api.restartChat.description',
         responses: {
           '200': {
             description: '',
@@ -952,23 +952,23 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.restartChat.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.restartChat.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '需要重新发起会话的实例的唯一标识符',
+              description: 'north.api.restartChat.parameters.currentInstanceId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'currentInstanceId',
-            description: '需要重新发起会话的实例的唯一标识符',
+            description: 'north.api.restartChat.parameters.currentInstanceId.description',
             required: true,
           },
         ],
@@ -977,9 +977,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/apps/{appId}/config': {
       get: {
-        summary: '查询应用配置详情',
+        summary: 'north.api.appConfig.summary',
         operationId: 'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/config',
-        description: '该接口可以通过待查询应用的唯一标识符来查询指定应用的配置详情。',
+        description: 'north.api.appConfig.description',
         responses: {
           '200': {
             description: '',
@@ -996,23 +996,23 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.appConfig.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.appConfig.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '待查询 app 的唯一标识符',
+              description: 'north.api.appConfig.parameters.appId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'appId',
-            description: '待查询 app 的唯一标识符',
+            description: 'north.api.appConfig.parameters.appId.description',
             required: true,
           },
         ],
@@ -1021,9 +1021,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/file': {
       post: {
-        summary: '上传文件',
+        summary: 'north.api.uploadFile.summary',
         operationId: 'POST /api/app/v1/tenants/{tenantId}/file',
-        description: '该接口可以往指定应用上传文件。',
+        description: 'north.api.uploadFile.description',
         responses: {
           '201': {
             description: '',
@@ -1061,9 +1061,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/chats/apps/{appId}': {
       post: {
-        summary: '新开会话API',
+        summary: 'north.api.chat.summary',
         requestBody: {
-          description: '会话信息，包含创建会话所需的数据',
+          description: 'north.api.chat.request.description',
           required: true,
           content: {
             'application/json': {
@@ -1075,7 +1075,7 @@ export const apiListData = {
         },
         operationId: 'POST /api/app/v1/tenants/{tenantId}/chats/apps/{appId}',
         description:
-          '该接口向大模型发送一个问题信息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。',
+          'north.api.chat.description',
         responses: {
           '200': {
             description: '',
@@ -1092,23 +1092,23 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.chat.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.chat.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用的唯一标识符',
+              description: 'north.api.chat.parameters.appId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'appId',
-            description: '应用的唯一标识符',
+            description: 'north.api.chat.parameters.appId.description',
             required: true,
           },
         ],
@@ -1117,10 +1117,10 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations': {
       get: {
-        summary: '获取灵感',
+        summary: 'north.api.getInspiration.summary',
         operationId:
           'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories/{categoryId}/inspirations',
-        description: '该接口可以获取指定应用的某一灵感类别下的所有灵感。',
+        description: 'north.api.getInspiration.description',
         responses: {
           '200': {
             description: '',
@@ -1137,34 +1137,34 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.getInspiration.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.getInspiration.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用的唯一标识符',
+              description: 'north.api.getInspiration.parameters.appId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'appId',
-            description: '应用的唯一标识符',
+            description: 'north.api.getInspiration.parameters.appId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '灵感类别的唯一标识符',
+              description: 'north.api.getInspiration.parameters.categoryId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'categoryId',
-            description: '灵感类别的唯一标识符',
+            description: 'north.api.getInspiration.parameters.categoryId.description',
             required: true,
           },
         ],
@@ -1262,9 +1262,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/chats': {
       get: {
-        summary: '查询会话历史',
+        summary: 'north.api.getChatHistory.summary',
         operationId: 'GET /api/app/v1/tenants/{tenantId}/chats',
-        description: '该接口用于查询指定租户的会话历史，并通过指定条件进行筛选。',
+        description: 'north.api.getChatHistory.description',
         responses: {
           '200': {
             description: '',
@@ -1281,67 +1281,67 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.getChatHistory.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.getChatHistory.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               format: 'int32',
-              description: '偏移量',
+              description: 'north.api.getChatHistory.parameters.offset.description',
               type: 'integer',
             },
             in: 'query',
             deprecated: false,
             name: 'offset',
-            description: '偏移量',
+            description: 'north.api.getChatHistory.parameters.offset.description',
             required: true,
           },
           {
             schema: {
               format: 'int32',
-              description: '每页条数限制',
+              description: 'north.api.getChatHistory.parameters.limit.description',
               type: 'integer',
             },
             in: 'query',
             deprecated: false,
             name: 'limit',
-            description: '每页条数限制',
+            description: 'north.api.getChatHistory.parameters.limit.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用的唯一标识符',
+              description: 'north.api.getChatHistory.parameters.appId.description',
             },
             in: 'query',
             deprecated: false,
             name: 'appId',
-            description: '应用的唯一标识符',
+            description: 'north.api.getChatHistory.parameters.appId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用状态',
+              description: 'north.api.getChatHistory.parameters.appState.description',
             },
             in: 'query',
             deprecated: false,
             name: 'appState',
-            description: '应用状态',
+            description: 'north.api.getChatHistory.parameters.appState.description',
             required: true,
           },
         ],
         tags: ['应用对话管理接口'],
       },
       delete: {
-        summary: '删除对话API',
+        summary: 'north.api.deleteChat.summary',
         operationId: 'DELETE /v1/tenants/{tenantId}/chats',
-        description: '该接口用于删除一个指定应用下一个或多个对话。',
+        description: 'north.api.deleteChat.description',
         responses: {
           '204': {
             description: '',
@@ -1358,34 +1358,34 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.deleteChat.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.deleteChat.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用的唯一标识符',
+              description: 'north.api.deleteChat.parameters.app_id.description',
             },
             in: 'query',
             deprecated: false,
             name: 'app_id',
-            description: '应用的唯一标识符',
+            description: 'north.api.deleteChat.parameters.app_id.description',
             required: false,
           },
           {
             schema: {
               type: 'string',
-              description: '要删除的聊天会话的唯一标识符，若没有指定，则全部删除',
+              description: 'north.api.deleteChat.parameters.chat_id.description',
             },
             in: 'query',
             deprecated: false,
             name: 'chat_id',
-            description: '要删除的聊天会话的唯一标识符，若没有指定，则全部删除',
+            description: 'north.api.deleteChat.parameters.chat_id.description',
             required: false,
           },
         ],
@@ -1394,9 +1394,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories': {
       get: {
-        summary: '获取灵感类别',
+        summary: 'north.api.getCategory.summary',
         operationId: 'GET /api/app/v1/tenants/{tenantId}/apps/{appId}/prompt/categories',
-        description: '该接口可以通过应用的唯一标识符获取该应用下的所有灵感类别。',
+        description: 'north.api.getCategory.description',
         responses: {
           '200': {
             description: '',
@@ -1413,23 +1413,23 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.getCategory.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.getCategory.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
               type: 'string',
-              description: '应用的唯一标识符',
+              description: 'north.api.getCategory.parameters.appId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'appId',
-            description: '应用的唯一标识符',
+            description: 'north.api.getCategory.parameters.appId.description',
             required: true,
           },
         ],
@@ -1438,9 +1438,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenantId}/apps': {
       get: {
-        summary: '查询用户应用列表',
+        summary: 'north.api.getAppList.summary',
         operationId: 'GET /api/app/v1/tenants/{tenantId}/apps',
-        description: '该接口可以使用指定条件筛选用户应用列表，如应用id、查询的应用名字和状态等.',
+        description: 'north.api.getAppList.description',
         responses: {
           '200': {
             description: '',
@@ -1457,99 +1457,99 @@ export const apiListData = {
           {
             schema: {
               type: 'string',
-              description: '租户的唯一标识符',
+              description: 'north.api.getAppList.parameters.tenantId.description',
             },
             in: 'path',
             deprecated: false,
             name: 'tenantId',
-            description: '租户的唯一标识符',
+            description: 'north.api.getAppList.parameters.tenantId.description',
             required: true,
           },
           {
             schema: {
-              description: '查询的id列表',
+              description: 'north.api.getAppList.parameters.ids.description',
               type: 'array',
               items: {
                 type: 'string',
-                description: '查询的id列表',
+                description: 'north.api.getAppList.parameters.ids.description',
               },
             },
             in: 'query',
             deprecated: false,
             name: 'ids',
-            description: '查询的id列表',
+            description: 'north.api.getAppList.parameters.ids.description',
             required: false,
           },
           {
             schema: {
               type: 'string',
-              description: '查询的名字',
+              description: 'north.api.getAppList.parameters.name.description',
             },
             in: 'query',
             deprecated: false,
             name: 'name',
-            description: '查询的名字',
+            description: 'north.api.getAppList.parameters.name.description',
             required: false,
           },
           {
             schema: {
               type: 'string',
-              description: '查询的状态',
+              description: 'north.api.getAppList.parameters.state.description',
             },
             in: 'query',
             deprecated: false,
             name: 'state',
-            description: '查询的状态',
+            description: 'north.api.getAppList.parameters.state.description',
             required: false,
           },
           {
             schema: {
-              description: '排除的名字',
+              description: 'north.api.getAppList.parameters.excludeNames.description',
               type: 'array',
               items: {
                 type: 'string',
-                description: '排除的名字',
+                description: 'north.api.getAppList.parameters.excludeNames.description',
               },
             },
             in: 'query',
             deprecated: false,
             name: 'excludeNames',
-            description: '排除的名字',
+            description: 'north.api.getAppList.parameters.excludeNames.description',
             required: false,
           },
           {
             schema: {
               format: 'int32',
-              description: '偏移量',
+              description: 'north.api.getAppList.parameters.offset.description',
               type: 'integer',
             },
             in: 'query',
             deprecated: false,
             name: 'offset',
-            description: '偏移量',
+            description: 'north.api.getAppList.parameters.offset.description',
             required: false,
           },
           {
             schema: {
               format: 'int32',
-              description: '每页查询条数',
+              description: 'north.api.getAppList.parameters.limit.description',
               type: 'integer',
             },
             in: 'query',
             deprecated: false,
             name: 'limit',
-            description: '每页查询条数',
+            description: 'north.api.getAppList.parameters.limit.description',
             required: false,
           },
           {
             schema: {
               type: 'string',
-              description: '查询类型',
+              description: 'north.api.getAppList.parameters.type.description',
             },
             in: 'query',
             deprecated: false,
             name: 'type',
-            description: '查询类型',
+            description: 'north.api.getAppList.parameters.type.description',
             required: false,
           },
         ],
@@ -1558,9 +1558,9 @@ export const apiListData = {
     },
     '/api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}': {
       get: {
-        summary: '查询会话历史记录',
+        summary: 'north.api.getChatHistoryById.summary',
         operationId: 'GET /api/app/v1/tenants/{tenant_id}/log/app/{app_id}/chat/{chat_id}',
-        description: '指定chatId查询实例历史记录（查询最近10个实例）。',
+        description: 'north.api.getChatHistoryById.description',
         responses: {
           '200': {
             description: '',
@@ -1609,9 +1609,9 @@ export const apiListData = {
     },
     '/api/app/v1/aipp/user/feedback': {
       post: {
-        summary: '创建用户反馈记录',
+        summary: 'north.api.createFeedback.summary',
         operationId: 'POST /api/app/v1/aipp/user/feedback',
-        description: '该接口用于创建用户对一个对话实例的反馈记录。',
+        description: 'north.api.createFeedback.description',
         responses: {
           '200': {
             description: '',
@@ -1641,9 +1641,9 @@ export const apiListData = {
     },
     '/api/app/v1/aipp/user/feedback/{instanceId}': {
       patch: {
-        summary: '更新用户反馈记录',
+        summary: 'north.api.updateFeedback.summary',
         operationId: 'PATCH /api/app/v1/aipp/user/feedback/{instanceId}',
-        description: '该接口用于更新用户对一个对话实例反馈记录。',
+        description: 'north.api.updateFeedback.description',
         responses: {
           '200': {
             description: '',
@@ -1682,9 +1682,9 @@ export const apiListData = {
         ]
       },
       get: {
-        summary: '查询用户反馈记录',
+        summary: 'north.api.getFeedback.summary',
         operationId: 'GET /api/app/v1/aipp/user/feedback/{instanceId}',
-        description: '该接口可以通过待查询实例的唯一标识符来查询实例的反馈记录。',
+        description: 'north.api.getFeedback.description',
         responses: {
           '200': {
             description: '',
@@ -1726,8 +1726,8 @@ export const apiListData = {
           }
         },
         operationId: 'POST /agent/v1/api/{tenant_id}/app_chat',
-        description: '会话接口，传递会话信息',
-        summary: '旧版会话接口',
+        description: 'north.api.oldChat.description',
+        summary: 'north.api.oldChat.summary',
         responses: {
           200: {
             description: "",
@@ -1746,7 +1746,7 @@ export const apiListData = {
               type: 'string',
             },
             name: 'tenant_id',
-            description: '租户的唯一标识符',
+            description: 'north.api.oldChat.parameters.tenant_id.description',
             in: 'path',
             required: true,
             deprecated: false
@@ -1912,29 +1912,29 @@ export const apiListData = {
 
 export const wssAPIData = {
   info: {
-    title: 'WebSocket 聊天',
-    description: '一个实时 WebSocket 聊天服务，允许用户发送和接收消息。',
+    title: 'north.wssApiData.info.title',
+    description: 'north.wssApiData.info.description',
     version: '1.0.0',
   },
   servers: [
     {
       url: '/api/app/v1/chat',
-      description: '用于聊天应用的 WebSocket 服务器',
+      description: 'north.wssApiData.servers.description',
     },
   ],
   paths: {
     '/chat': {
-      summary: '发送对话消息。',
+      summary: 'north.wssApiData.paths./chat.summary',
       description:
-        '该接口向大模型发送一个问题消息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。',
+        'north.wssApiData.paths./chat.description',
       'First Request': {
-        summary: '建立WebSocket连接',
+        summary: 'north.wssApiData.paths./chat.First Request.summary',
       },
       'Websocket Request': {
-        summary: '发送聊天消息请求',
-        description: '用于发送聊天消息请求到大模型服务，包含问题、上下文以及内存使用参数。',
+        summary: 'north.wssApiData.paths./chat.Websocket Request.summary',
+        description: 'north.wssApiData.paths./chat.Websocket Request.description',
         requestBody: {
-          description: '请求消息内容，包含聊天的参数、问题以及上下文，格式为json字符串。',
+          description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.description',
           content: {
             'application/json': {
               schema: {
@@ -1942,7 +1942,7 @@ export const wssAPIData = {
                 properties: {
                   requestId: {
                     type: 'string',
-                    description: '请求的唯一标识符',
+                    description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.requestId.description',
                     required: true,
                   },
                   params: {
@@ -1950,7 +1950,7 @@ export const wssAPIData = {
                     properties: {
                       tenantId: {
                         type: 'string',
-                        description: '租户 ID，用于标识请求的来源',
+                        description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.tenantId.description',
                         required: true,
                       },
                       data: {
@@ -1958,26 +1958,26 @@ export const wssAPIData = {
                         properties: {
                           app_id: {
                             type: 'string',
-                            description: '与请求关联的应用 ID',
+                            description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.data.app_id.description',
                             required: true,
                           },
                           question: {
                             type: 'string',
-                            description: '用户提问的问题',
+                            description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.data.question.description',
                             required: true,
                           },
                           context: {
                             type: 'object',
-                            description: '会话信息，包含创建会话所需的数据',
+                            description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.description',
                             properties: {
                               use_memory: {
                                 type: 'boolean',
-                                description: '是否使用记忆功能，可能影响生成内容的方式',
+                                description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.use_memory.description',
                                 required: false,
                               },
                               user_context: {
                                 type: 'object',
-                                description: '用户的上下文信息，例如用户偏好或历史记录',
+                                description: 'north.wssApiData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.user_context.description',
                                 additionalProperties: true,
                                 required: false,
                               },
@@ -1995,7 +1995,7 @@ export const wssAPIData = {
       },
       'Websocket responses': {
         description:
-          '请求成功，返回大模型处理后的结果，该结果是多个数据流消息，最后生成完整的数据流内容。',
+          'north.wssApiData.paths./chat.Websocket responses.description',
         content: {
           'application/json': {
             schema: {
@@ -2003,70 +2003,70 @@ export const wssAPIData = {
               properties: {
                 status: {
                   type: 'string',
-                  description: '当前消息的状态',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.status.description',
                 },
                 answer: {
                   type: 'array',
-                  description: '消息的数组',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.description',
                   items: {
                     type: 'object',
                     properties: {
                       content: {
                         type: 'object',
-                        description: '消息的内容',
+                        description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.description',
                         properties: {
                           formId: {
                             type: 'string',
-                            description: '表单 ID，如果有的话',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.formId.description',
                           },
                           formVersion: {
                             type: 'string',
-                            description: '表单版本',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.formVersion.description',
                           },
                           formArgs: {
                             type: 'string',
-                            description: '表单参数',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.formArgs.description',
                           },
                           msg: {
                             type: 'string',
-                            description: '消息文本内容',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.msg.description',
                           },
                           formAppearance: {
                             type: 'string',
-                            description: '表单外观设置',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.formAppearance.description',
                           },
                           formData: {
                             type: 'string',
-                            description: '表单数据',
+                            description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.content.formData.description',
                           },
                         },
                       },
                       type: {
                         type: 'string',
-                        description: '消息类型',
+                        description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.type.description',
                       },
                       msgId: {
                         type: 'string',
-                        description: '消息 ID',
+                        description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.answer.items.msgId.description',
                       },
                     },
                   },
                 },
                 chat_id: {
                   type: 'string',
-                  description: '当前聊天的唯一标识符',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.chat_id.description',
                 },
                 at_chat_id: {
                   type: 'string',
-                  description: '被 @ 的聊天 ID，如果有的话',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.at_chat_id.description',
                 },
                 instance_id: {
                   type: 'string',
-                  description: '当前聊天的实例 ID',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.instance_id.description',
                 },
                 log_id: {
                   type: 'string',
-                  description: '当前日志的唯一标识符',
+                  description: 'north.wssApiData.paths./chat.Websocket responses.content.schema.log_id.description',
                 },
               },
             },
@@ -2079,29 +2079,29 @@ export const wssAPIData = {
 
 export const oldWssAPIData = {
   info: {
-    title: 'WebSocket 聊天',
-    description: '一个实时 WebSocket 聊天服务，允许用户发送和接收消息。',
+    title: 'north.oldWssAPIData.info.title',
+    description: 'north.oldWssAPIData.info.description',
     version: '1.0.0',
   },
   servers: [
     {
       url: '/agent/v1/api/{tenant_id}/ws',
-      description: '用于聊天应用的 WebSocket 服务器',
+      description: 'north.oldWssAPIData.servers.description',
     },
   ],
   paths: {
     '/chat': {
-      summary: '发送对话消息。',
+      summary: 'north.oldWssAPIData.paths./chat.summary',
       description:
-        '该接口向大模型发送一个问题消息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。',
+        'north.oldWssAPIData.paths./chat.description',
       'First Request': {
-        summary: '建立WebSocket连接',
+        summary: 'north.oldWssAPIData.paths./chat.First Request.summary',
       },
       'Websocket Request': {
-        summary: '发送聊天消息请求',
-        description: '用于建立 websocket 连接后，通过 websocket 的 session 发送对话请求并接收对话的响应。',
+        summary: 'north.oldWssAPIData.paths./chat.Websocket Request.summary',
+        description: 'north.oldWssAPIData.paths./chat.Websocket Request.description',
         requestBody: {
-          description: 'websocket 连接建立后，通过响应结构的 message 发送对话请求。',
+          description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.description',
           content: {
             'application/json': {
               schema: {
@@ -2109,12 +2109,12 @@ export const oldWssAPIData = {
                 properties: {
                   requestId: {
                     type: 'string',
-                    description: '请求的唯一标识符用于表示请求的唯一 id，websocket 的返回的流中都会带有 requestId，用于在复用 session 的情况下区分返回的流式消息属于哪一次请求。',
+                    description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.requestId.description',
                     required: true,
                   },
                   method: {
                     type: 'string',
-                    description: '需要使用 websocket 请求的方法的名称。当前 method 仅支持 appChat。',
+                    description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.method.description',
                     required: true,
                   },
                   params: {
@@ -2125,42 +2125,42 @@ export const oldWssAPIData = {
                         properties: {
                           app_id: {
                             type: 'string',
-                            description: '用于对话的 app 的 id',
+                            description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.app_id.description',
                             required: true,
                           },
                           chat_id: {
                             type: 'string',
-                            description: '当前对话的 id，在第一次对话后生成，后续可用该 id 连续对话',
+                            description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.chat_id.description',
                             required: false,
                           },
                           question: {
                             type: 'string',
-                            description: '向大模型询问的问题',
+                            description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.question.description',
                             required: true,
                           },
                           context: {
                             type: 'object',
-                            description: '会话信息，包含创建会话所需的数据',
+                            description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.description',
                             properties: {
                               use_memory: {
                                 type: 'boolean',
-                                description: '对话时是否使用历史对话记录，开启后历史对话的数据会影响到大模型的回答',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.use_memory.description',
                                 required: false,
                               },
                               user_context: {
                                 type: 'object',
-                                description: '用户的上下文信息，例如用户偏好或历史记录',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.user_context.description',
                                 additionalProperties: true,
                                 required: false,
                               },
                               at_app_id: {
                                 type: 'string',
-                                description: '引用其他应用',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.at_app_id.description',
                                 required: false,
                               },
                               at_chat_id: {
                                 type: 'string',
-                                description: '引用其他应用对话',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket Request.requestBody.content.schema.params.data.context.at_chat_id.description',
                                 required: false,
                               }
                             },
@@ -2177,7 +2177,7 @@ export const oldWssAPIData = {
       },
       'Websocket responses': {
         description:
-          '请求成功，返回大模型处理后的结果，该结果是多个数据流消息，最后生成完整的数据流内容。',
+          'north.oldWssAPIData.paths./chat.Websocket responses.description',
         content: {
           'application/json': {
             schema: {
@@ -2185,45 +2185,45 @@ export const oldWssAPIData = {
               properties: {
                 requestId: {
                   type: 'string',
-                  description: '用于表示请求的唯一 id，websocket 的返回的流中都会带有 requestId，用于在复用 session 的情况下区分返回的流式消息属于哪一次请求'
+                  description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.requestId.description',
                 },
                 code: {
                   type: 'number',
-                  description: '表示请求结果的状态码，正常状态为0，出现异常时返回异常状态码'
+                  description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.code.description'
                 },
                 msg: {
                   type: 'string',
-                  description: '表示接口执行失败时的错误信息，code 为 0 时，msg 为 null'
+                  description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.msg.description'
                 },
                 data: {
                   type: 'object',
-                  description: '表示接口流式返回的数据，具体结构需要根据调用的不同的接口进行区分；在 websocket 的失败或者完成响应中，data 为 null',
+                  description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.description',
                   properties: {
                     status: {
                       type: 'string',
-                      description: '当前消息的状态',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.status.description',
                     },
                     answer: {
                       type: 'array',
-                      description: '消息的数组',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.answer.description',
                       items: {
                         type: 'object',
                         properties: {
                           content: {
                             type: 'object',
-                            description: '消息的内容',
+                            description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.answer.items.content.description',
                             properties: {
                               content: {
                                 type: 'string',
-                                description: '表示对话大模型响应结果的对象，其内容与 type 字段的值相关。app_chat 流式响应返回的第一个流式数据块中，content 表示输入的问题的定义，除此以外，content 表示大模型的输出',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.answer.items.content.content.description',
                               },
                               type: {
                                 type: 'string',
-                                description: '表示响应的流式块中 answer 字段的 content 的类型。type 的值为 QUESTION 或者 MSG，分别表示提问和大模型的回答',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.answer.items.content.type.description',
                               },
                               msgId: {
                                 type: 'string',
-                                description: '表示大模型响应消息的 id',
+                                description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.answer.items.content.msgId.description',
                               },
                             },
                           },
@@ -2232,25 +2232,25 @@ export const oldWssAPIData = {
                     },
                     chat_id: {
                       type: 'string',
-                      description: '表示当前对话轮的 id。带有相同 chat_id 的问答都属于同一对话轮次，同一对话轮次内先进行的问答会成为之后问答的历史，在开启了 use_memory 后，会对后续大模型的回答产生影响',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.chat_id.description',
                     },
                     at_chat_id: {
                       type: 'string',
-                      description: '表示引用的对话轮次的 id',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.at_chat_id.description',
                     },
                     instance_id: {
                       type: 'string',
-                      description: '表示当前问答实例的 id。一个 instance_id 通常会对应一问一答',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.instance_id.description',
                     },
                     log_id: {
                       type: 'string',
-                      description: '表示当前问答记录的 id，用户提问和大模型的回答都会对应唯一的、递增的 logId',
+                      description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.data.log_id.description',
                     },
                   }
                 },
                 completed: {
                   type: 'boolean',
-                  description: '表示流式响应是否结束的字段，在 websocket 的失败或者结束的响应中，completed 为 true'
+                  description: 'north.oldWssAPIData.paths./chat.Websocket responses.content.schema.completed.description'
                 }
               },
             },
@@ -2261,12 +2261,12 @@ export const oldWssAPIData = {
         {
           schema: {
             type: 'string',
-            description: '租户的唯一标识符',
+            description: 'north.oldWssAPIData.paths./chat.parameters.tenant_id.description',
           },
           in: 'path',
           deprecated: false,
           name: 'tenant_id',
-          description: '租户的唯一标识符',
+          description: 'north.oldWssAPIData.paths./chat.parameters.tenant_id.description',
           required: true,
         }
       ],
@@ -2278,44 +2278,44 @@ export const oldSseAPIData = {
   properties: {
     status: {
       type: 'string',
-      description: '表示大模型响应的状态，响应的状态可以是READY，RUNNING 和 ARCHIVED 三种状态之一。READY 状态表示大模型接收到对话问题；RUNNING 状态表示对话正在进行的状态，此状态下会流式地返回对话模型的输出结果；ARCHIVED 状态表示流式响应结束，返回的数据中会包含完整的大模型输出。'
+      description: 'north.oldSseApiData.status.description',
     },
     answer: {
       type: 'array',
-      description: '大模型的回答',
+      description: 'north.oldSseApiData.answer.description',
       items: {
         type: 'object',
         properties: {
           content: {
             type: 'string',
-            description: '表示对话大模型响应结果的对象，其内容与 type 字段的值相关。app_chat 流式响应返回的第一个流式数据块中，content 表示输入的问题的定义，除此以外，content 表示大模型的输出',
+            description: 'north.oldSseApiData.answer.items.content.description',
           },
           type: {
             type: 'string',
-            description: '表示响应的流式块中 answer 字段的 content 的类型。type 的值为 QUESTION 或者 MSG，分别表示提问和大模型的回答',
+            description: 'north.oldSseApiData.answer.items.type.description',
           },
           msgId: {
             type: 'string',
-            description: '表示大模型响应消息的 id',
+            description: 'north.oldSseApiData.answer.items.msgId.description',
           },
         },
       },
     },
     chat_id: {
       type: 'string',
-      description: '表示当前对话轮的 id。带有相同 chat_id 的问答都属于同一对话轮次，同一对话轮次内先进行的问答会成为之后问答的历史，在开启了 use_memory 后，会对后续大模型的回答产生影响',
+      description: 'north.oldSseApiData.chat_id.description',
     },
     at_chat_id: {
       type: 'string',
-      description: '表示引用的对话轮次的 id',
+      description: 'north.oldSseApiData.at_chat_id.description',
     },
     instance_id: {
       type: 'string',
-      description: '表示当前问答实例的 id。一个 instance_id 通常会对应一问一答',
+      description: 'north.oldSseApiData.instance_id.description',
     },
     log_id: {
       type: 'string',
-      description: '表示当前问答记录的 id，用户提问和大模型的回答都会对应唯一的、递增的 logId',
+      description: 'north.oldSseApiData.log_id.description',
     },
   }
 };
@@ -2323,71 +2323,71 @@ export const oldSseAPIData = {
 export const errorCodeData = [
   {
     code: 0,
-    message: 'success',
+    message: 'north.errorCodeData.0',
   },
   {
     code: 90000000,
-    message: '非法参数: {参数信息}。',
+    message: 'north.errorCodeData.90000000',
   },
   {
     code: 90000001,
-    message: '资源不存在: {资源信息}。',
+    message: 'north.errorCodeData.90000001',
   },
   {
     code: 90000002,
-    message: '服务器内部错误，请联系管理员。',
+    message: 'north.errorCodeData.90000002',
   },
   {
     code: 90000003,
-    message: '禁止操作。',
+    message: 'north.errorCodeData.90000003',
   },
   {
     code: 90001001,
-    message: '系统错误，创建流程失败，请重试或联系管理员。',
+    message: 'north.errorCodeData.90001001',
   },
   {
     code: 90001002,
-    message: '没有正在运行的对话，无需终止。',
+    message: 'north.errorCodeData.90001002',
   },
   {
     code: 90001003,
-    message: '对话正在进行中，无法删除。',
+    message: 'north.errorCodeData.90001003',
   },
   {
     code: 90001011,
-    message: '配置有误，请查看工作流编排是否正确，错误原因：{错误信息}。',
+    message: 'north.errorCodeData.90001011',
   },
   {
     code: 90001012,
-    message: '存在相同的应用属性。',
+    message: 'north.errorCodeData.90001012',
   },
   {
     code: 90001013,
-    message: '应用名称不能为空。',
+    message: 'north.errorCodeData.90001013',
   },
   {
     code: 90001014,
-    message: '应用名称已存在。',
+    message: 'north.errorCodeData.90001014',
   },
   {
     code: 90001015,
-    message: '应用实例日志为空。',
+    message: 'north.errorCodeData.90001015',
   },
   {
     code: 90002000,
-    message: '文件上传失败。',
+    message: 'north.errorCodeData.90002000',
   },
   {
     code: 90002001,
-    message: '文件过期或损坏。',
+    message: 'north.errorCodeData.90002001',
   },
   {
     code: 90002002,
-    message: '解析文件内容失败。',
+    message: 'north.errorCodeData.90002002',
   },
   {
     code: 90002003,
-    message: '无效文件路径。',
+    message: 'north.errorCodeData.90002003',
   },
   {
     code: 90002004,
@@ -2395,241 +2395,241 @@ export const errorCodeData = [
   },
   {
     code: 90002900,
-    message: 'Json解析失败，原因：{错误信息}。',
+    message: 'north.errorCodeData.90002900',
   },
   {
     code: 90002901,
-    message: 'Json编码失败，原因：{错误信息}。',
+    message: 'north.errorCodeData.90002901',
   },
   {
     code: 90002902,
-    message: '获取历史记录失败。',
+    message: 'north.errorCodeData.90002902',
   },
   {
     code: 90002903,
-    message: '系统错误，应用配置项获取失败，请联系管理员。',
+    message: 'north.errorCodeData.90002903',
   },
   {
     code: 90002904,
-    message: '灵感大全提示词变量获取失败，请联系管理员。',
+    message: 'north.errorCodeData.90002904',
   },
   {
     code: 90002905,
-    message: '解析历史记录配置失败。',
+    message: 'north.errorCodeData.90002905',
   },
   {
     code: 90002906,
-    message: '请检查提示词模板中的变量。',
+    message: 'north.errorCodeData.90002906',
   },
   {
     code: 90002908,
-    message: '未支持的数据类型 [类型：{数据类型}]。',
+    message: 'north.errorCodeData.90002908',
   },
   {
     code: 90002909,
-    message: '任务不存在。',
+    message: 'north.errorCodeData.90002909',
   },
   {
     code: 90002918,
-    message: '会话请求结构有误。',
+    message: 'north.errorCodeData.90002918',
   },
   {
     code: 90002919,
-    message: '该应用未发布，无法进行对话。',
+    message: 'north.errorCodeData.90002919',
   },
   {
     code: 90002920,
-    message: '@应用会话出错，请清理缓存后重新对话。',
+    message: 'north.errorCodeData.90002920',
   },
   {
     code: 90002921,
-    message: '调试对话失败，请重试。',
+    message: 'north.errorCodeData.90002921',
   },
   {
     code: 90002922,
-    message: '会话响应出错，请重试。',
+    message: 'north.errorCodeData.90002922',
   },
   {
     code: 90002924,
-    message: '应用不存在，或者已经被删除。',
+    message: 'north.errorCodeData.90002924',
   },
   {
     code: 90002925,
-    message: '对话失败：应用不存在，或者已经被删除。',
+    message: 'north.errorCodeData.90002925',
   },
   {
     code: 90002927,
-    message: '请输入您的问题。',
+    message: 'north.errorCodeData.90002927',
   },
   {
     code: 90002928,
-    message: '实例id“{具体实例}”无法匹配任意父实例id。',
+    message: 'north.errorCodeData.90002928',
   },
   {
     code: 90002929,
-    message: '实例id“{具体实例}”无法匹配任意对话。',
+    message: 'north.errorCodeData.90002929',
   },
   {
     code: 90002930,
-    message: '不好意思，当前用户排队较多，请稍后重试，谢谢。',
+    message: 'north.errorCodeData.90002930',
   },
   {
     code: 90002933,
-    message: '系统错误，获取应用编排信息失败，请联系管理员。',
+    message: 'north.errorCodeData.90002933',
   },
   {
     code: 90002935,
-    message: '系统错误，文件格式校验失败，请联系管理员。',
+    message: 'north.errorCodeData.90002935',
   },
   {
     code: 90002936,
-    message: '系统错误，模型节点解析文件失败，请联系管理员。',
+    message: 'north.errorCodeData.90002936',
   },
   {
     code: 90002938,
-    message: '系统错误，获取历史对话失败，请联系管理员。',
+    message: 'north.errorCodeData.90002938',
   },
   {
     code: 90002939,
-    message: '系统错误，重新对话失败，请联系管理员。',
+    message: 'north.errorCodeData.90002939',
   },
   {
     code: 90002940,
-    message: '系统错误，获取应用信息失败，请联系管理员。',
+    message: 'north.errorCodeData.90002940',
   },
   {
     code: 90002946,
-    message: '音频文件切分失败，请更换音频文件或重试处理。',
+    message: 'north.errorCodeData.90002946',
   },
   {
     code: 90002947,
-    message: '音频文件总结内容为空，请更换音频文件或重试处理。',
+    message: 'north.errorCodeData.90002947',
   },
   {
     code: 90002948,
-    message: '音频文件内容提取失败，请更换音频文件或重试处理。',
+    message: 'north.errorCodeData.90002948',
   },
   {
     code: 90002950,
-    message: '系统错误，模型服务不可用，请检查模型状态或联系管理员。',
+    message: 'north.errorCodeData.90002950',
   },
   {
     code: 90002951,
-    message: '系统错误，调用大模型参数错误，请联系管理员。',
+    message: 'north.errorCodeData.90002951',
   },
   {
     code: 90002952,
-    message: '系统错误，调用大模型服务失败，请联系管理员。',
+    message: 'north.errorCodeData.90002952',
   },
   {
     code: 90002953,
-    message: '对话不存在，或者已经被删除。',
+    message: 'north.errorCodeData.90002953',
   },
   {
     code: 90002954,
-    message: '系统错误，终止会话失败，请联系管理员。',
+    message: 'north.errorCodeData.90002954',
   },
   {
     code: 90002955,
-    message: '系统错误，继续会话失败，请重试或联系管理员。',
+    message: 'north.errorCodeData.90002955',
   },
   {
     code: 10007503,
-    message: '系统错误，工具流编排运行失败，请联系管理员。',
+    message: 'north.errorCodeData.10007503',
   },
   {
     code: 10000003,
-    message: '入参不合法，不合法参数是{错误信息}。',
+    message: 'north.errorCodeData.10000003',
   },
   {
     code: 10007511,
-    message: '条件节点执行出错。',
+    message: 'north.errorCodeData.10007511',
   },
   {
     code: 10007521,
-    message: '流程执行异常，请重试。',
+    message: 'north.errorCodeData.10007521',
   },
   {
     code: 90002956,
-    message: '工具调用异常，请检查工具后重试。',
+    message: 'north.errorCodeData.90002956',
   },
   {
     code: 90002957,
-    message: '查找工具异常，请检查工具后重试',
+    message: 'north.errorCodeData.90002957',
   },
   {
     code: 90002958,
-    message: '网络连接出现问题，请检查网络连接后重试。',
+    message: 'north.errorCodeData.90002958',
   },
   {
     code: 90002959,
-    message: '插件重复，请更换插件后重试。',
+    message: 'north.errorCodeData.90002959',
   },
   {
     code: 90002960,
-    message: '{错误节点}节点执行出错，出错原因：{错误工具}工具执行出错，{错误信息}',
+    message: 'north.errorCodeData.90002960',
   },
   {
     code: 90002961,
-    message: '{错误节点}节点执行出错，出错原因：{错误信息}',
+    message: 'north.errorCodeData.90002961',
   },
   {
     code: 90002962,
-    message: '执行出错，出错原因：{错误工具}工具执行出错，{错误信息}',
+    message: 'north.errorCodeData.90002962',
   },
   {
     code: 90002963,
-    message: '执行出错，出错原因：{错误信息}',
+    message: 'north.errorCodeData.90002963',
   },
   {
     code: 90002965,
-    message: '表单属性父节点不存在',
+    message: 'north.errorCodeData.90002965',
   },
   {
     code: 90002973,
-    message: '路径格式无效',
+    message: 'north.errorCodeData.90002973',
   },
   {
     code: 90002998,
-    message: '许可证过期。',
+    message: 'north.errorCodeData.90002998',
   },
 ];
 
 export const resCode = [
   {
     code: 400,
-    message: '请求错误，客户端发送的数据或请求格式不正确。',
+    message: 'north.resCode.400',
   },
   {
     code: 403,
-    message: '请求合法，但客户端没有权限访问该资源。',
+    message: 'north.resCode.403',
   },
   {
     code: 404,
-    message: '请求的资源不存在，可能是 URL 错误或资源已被删除。',
+    message: 'north.resCode.404',
   },
   {
     code: 500,
-    message: '服务器内部错误,请联系管理员。',
+    message: 'north.resCode.500',
   },
 ];
 
 export const resOKCode = [
   {
     code: 200,
-    message: '请求已成功处理并返回响应数据。',
+    message: 'north.resOkCode.200',
   },
   {
     code: 201,
-    message: '请求已成功处理并导致了新的资源创建。',
+    message: 'north.resOkCode.201',
   },
   {
     code: 204,
-    message: '请求已成功处理，但没有返回任何内容。',
+    message: 'north.resOkCode.204',
   },
   {
     code: 205,
-    message: '请求已成功处理，请客户端重置当前文档视图。',
+    message: 'north.resOkCode.205',
   },
 ];
 

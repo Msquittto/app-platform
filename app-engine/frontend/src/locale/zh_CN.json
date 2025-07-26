@@ -204,7 +204,7 @@
   "enterNameRule": "输入字符长度范围：1 - 64",
   "expandArrange": "展开编排区",
   "expandConfig": "展开配置区",
-  "collapseConfig":  "收起配置区",
+  "collapseConfig": "收起配置区",
   "flowChangeWarningContent": "工作流配置项已变更，请重新调试，调试成功后即可发布",
   "debugAlert": "工具流暂不支持调试历史记录",
   "consumer": "自定义",
@@ -901,12 +901,12 @@
   "testCode": "测试代码",
   "intelligentFormShowResult": "智能表单展示结果",
   "parameterDescription": "参数介绍：",
-  "notePlaceHolder" : "这是一个注释节点",
+  "notePlaceHolder": "这是一个注释节点",
   "notSupportedUpload": "不支持上传",
   "fileFormat": "格式的文件",
   "appInformation": "应用信息",
-  "similarityThresholdTips" : "0代表最高相关度，10代表最低相关度，即越接近0表示要求查询的知识相关度越高，查询到的知识越少，当值为0时表示查询的文本和知识库知识完全一致时才能被查到",
-  "chatAgentTips" : "正在创建智能体，请勿点击其他页面，否则将有可能创建失败！",
+  "similarityThresholdTips": "0代表最高相关度，10代表最低相关度，即越接近0表示要求查询的知识相关度越高，查询到的知识越少，当值为0时表示查询的文本和知识库知识完全一致时才能被查到",
+  "chatAgentTips": "正在创建智能体，请勿点击其他页面，否则将有可能创建失败！",
   "pluginCannotBeEmpty": "插件不能为空",
   "chooseToBeLoopParam": "设为循环参数",
   "loopRadioIsRequired": "需选择循环参数",
@@ -961,5 +961,724 @@
   "currentDraft": "当前草稿",
   "loading": "加载中",
   "noMore": "已显示全部",
-  "latest": "最新"
+  "latest": "最新",
+  "north": {
+    "api": {
+      "chat": {
+        "summary": "新开会话API",
+        "request": {
+          "description": "会话信息，包含创建会话所需的数据"
+        },
+        "description": "该接口向大模型发送一个问题信息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "appId": {
+            "description": "应用的唯一标识符"
+          }
+        }
+      },
+      "restartChat": {
+        "summary": "重新对话API",
+        "request": {
+          "description": "重新会话所需的附加信息，如是否使用多轮对话等"
+        },
+        "description": "该接口可以重新发起指定会话，需要指定需要重新发起会话的实例id，同时可添加附加信息",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "currentInstanceId": {
+            "description": "需要重新发起会话的实例的唯一标识符"
+          }
+        }
+      },
+      "appConfig": {
+        "summary": "查询应用配置详情",
+        "description": "该接口可以通过待查询应用的唯一标识符来查询指定应用的配置详情。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "appId": {
+            "description": "应用的唯一标识符"
+          }
+        }
+      },
+      "uploadFile": {
+        "summary": "上传文件",
+        "description": "该接口可以往指定应用上传文件。"
+      },
+      "getInspiration": {
+        "summary": "获取灵感",
+        "description": "该接口可以获取指定应用的某一灵感类别下的所有灵感。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "appId": {
+            "description": "待查询 app 的唯一标识符"
+          },
+          "categoryId": {
+            "description": "灵感类别的唯一标识符"
+          }
+        }
+      },
+      "getChatHistory": {
+        "summary": "查询会话历史",
+        "description": "该接口用于查询指定租户的会话历史，并通过指定条件进行筛选。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "offset": {
+            "description": "偏移量"
+          },
+          "limit": {
+            "description": "每页条数限制"
+          },
+          "appId": {
+            "description": "应用的唯一标识符"
+          },
+          "appState": {
+            "description": "应用状态"
+          }
+        }
+      },
+      "deleteChat": {
+        "summary": "删除对话API",
+        "description": "该接口用于删除一个指定应用下一个或多个对话。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "app_id": {
+            "description": "应用的唯一标识符"
+          },
+          "chat_id": {
+            "description": "要删除的聊天会话的唯一标识符，若没有指定，则全部删除"
+          }
+        }
+      },
+      "getCategory": {
+        "summary": "获取灵感类别",
+        "description": "该接口可以通过应用的唯一标识符获取该应用下的所有灵感类别。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "appId": {
+            "description": "应用的唯一标识符"
+          }
+        }
+      },
+      "getAppList": {
+        "summary": "查询用户应用列表",
+        "description": "该接口可以使用指定条件筛选用户应用列表，如应用id、查询的应用名字和状态等。",
+        "parameters": {
+          "tenantId": {
+            "description": "租户的唯一标识符"
+          },
+          "ids": {
+            "description": "查询的id列表"
+          },
+          "name": {
+            "description": "查询的名字"
+          },
+          "state": {
+            "description": "查询的状态"
+          },
+          "excludeNames": {
+            "description": "排除的名字"
+          },
+          "offset": {
+            "description": "偏移量"
+          },
+          "limit": {
+            "description": "每页查询条数"
+          },
+          "type": {
+            "description": "查询类型"
+          }
+        }
+      },
+      "getChatHistoryById": {
+        "summary": "查询会话历史记录",
+        "description": "指定chatId查询实例历史记录（查询最近10个实例）。"
+      },
+      "createFeedback": {
+        "summary": "创建用户反馈记录",
+        "description": "该接口用于创建用户对一个对话实例的反馈记录。"
+      },
+      "updateFeedback": {
+        "summary": "更新用户反馈记录",
+        "description": "该接口用于更新用户对一个对话实例反馈记录。"
+      },
+      "getFeedback": {
+        "summary": "查询用户反馈记录",
+        "description": "该接口可以通过待查询实例的唯一标识符来查询实例的反馈记录。"
+      },
+      "oldChat": {
+        "summary": "旧版会话接口",
+        "description": "会话接口，传递会话信息",
+        "parameters": {
+          "tenant_id": {
+            "description": "租户的唯一标识符"
+          }
+        }
+      }
+    },
+    "schema": {
+      "AppMetadata": {
+        "msg": {
+          "description": "状态信息"
+        },
+        "code": {
+          "description": "状态码"
+        }
+      },
+      "AppBuilderAppDto": {
+        "baselineCreateAt": {
+          "description": "创建时间"
+        },
+        "configFormProperties": {
+          "description": "应用配置项"
+        },
+        "publishedUpdateLog": {
+          "description": "aipp 发布更新日志"
+        },
+        "appCategory": {
+          "description": "应用类别"
+        },
+        "updateAt": {
+          "description": "更新时间"
+        },
+        "type": {
+          "description": "应用类型"
+        },
+        "publishedDescription": {
+          "description": "aipp 发布描述"
+        },
+        "version": {
+          "description": "版本"
+        },
+        "createAt": {
+          "description": "创建时间"
+        },
+        "publishUrl": {
+          "description": "aipp 发布链接"
+        },
+        "createBy": {
+          "description": "创建者"
+        },
+        "updateBy": {
+          "description": "更新者"
+        },
+        "name": {
+          "description": "应用名称"
+        },
+        "chatUrl": {
+          "description": "聊天短链地址"
+        },
+        "id": {
+          "description": "应用的唯一标识符"
+        },
+        "state": {
+          "description": "应用状态"
+        }
+      },
+      "FileUploadInfo": {
+        "msg": {
+          "description": "状态信息"
+        },
+        "code": {
+          "description": "状态码"
+        }
+      },
+      "PromptCategory": {
+        "parent": {
+          "description": "父类别"
+        },
+        "children": {
+          "description": "子类别"
+        },
+        "disable": {
+          "description": "是否可被选择"
+        },
+        "id": {
+          "description": "灵感类别的唯一标识符"
+        },
+        "title": {
+          "description": "灵感类别标题"
+        }
+      },
+      "ChatRequest": {
+        "chatId": {
+          "description": "会话id"
+        },
+        "question": {
+          "description": "问题"
+        }
+      },
+      "String": {
+        "data": {
+          "description": "数据"
+        }
+      },
+      "ChatRequest$Context": {
+        "useMemory": {
+          "description": "是否使用历史记录"
+        },
+        "dimensionId": {
+          "description": "产品的id信息"
+        },
+        "atChatId": {
+          "description": "at其它应用的对话"
+        },
+        "userContext": {
+          "description": "用户自定义对话字段的输入信息，与开始节点配置对应"
+        },
+        "dimension": {
+          "description": "产品的信息"
+        },
+        "atAppId": {
+          "description": "at其它应用"
+        }
+      },
+      "PromptInfo$AppBuilderPromptVarDataDtoAdapter": {
+        "varType": {
+          "description": "提示词变量值的展示形式"
+        },
+        "sourceInfo": {
+          "description": "提示词变量值的来源信息"
+        },
+        "sourceType": {
+          "description": "提示词变量值的来源类型"
+        },
+        "var": {
+          "description": "提示词变量"
+        },
+        "multiple": {
+          "description": "是否多选"
+        },
+        "key": {
+          "description": "提示词变量的唯一key"
+        }
+      },
+      "PromptInfo$AppBuilderInspirationDtoAdapter": {
+        "auto": {
+          "description": "是否自动执行"
+        },
+        "promptVarData": {
+          "description": "提示词变量"
+        },
+        "name": {
+          "description": "灵感名称"
+        },
+        "description": {
+          "description": "简介"
+        },
+        "id": {
+          "description": "灵感的唯一标识符"
+        },
+        "category": {
+          "description": "分类"
+        },
+        "prompt": {
+          "description": "提示词"
+        },
+        "promptTemplate": {
+          "description": "提示词模板"
+        }
+      },
+      "UsrFeedbackDto": {
+        "instanceId": {
+          "description": "实例id"
+        },
+        "usrFeedback": {
+          "description": "用户反馈 -1 未反馈 0 点赞 1 点踩"
+        },
+        "usrFeedbackText": {
+          "description": "用户反馈文本"
+        },
+        "id": {
+          "description": "反馈记录 id"
+        }
+      },
+      "CreateAppChatRequest": {
+        "chat_id": {
+          "description": "选填 当前对话的 id，在第一次对话后生成，后续可用该 id 连续对话"
+        },
+        "question": {
+          "description": "向大模型询问的问题"
+        },
+        "app_id": {
+          "description": "用于对话的 app 的 id"
+        }
+      },
+      "CreateAppChatRequest$Context": {
+        "use_memory": {
+          "description": "对话时是否使用历史对话记录，开启后历史对话的数据会影响到大模型的回答"
+        },
+        "dimension_id": {
+          "description": "向大模型询问的问题"
+        },
+        "at_chat_id": {
+          "description": "引用其他应用对话"
+        },
+        "user_context": {
+          "description": "用户自定义对话字段的输入信息，与开始节点配置对应"
+        },
+        "dimension": {
+          "description": "产品的信息"
+        },
+        "at_app_id": {
+          "description": "引用其他应用"
+        }
+      }
+    },
+    "resOkCode": {
+      "200": "请求已成功处理并返回响应数据。",
+      "201": "请求已成功处理并导致了新的资源创建。",
+      "204": "请求已成功处理，但没有返回任何内容。",
+      "205": "请求已成功处理，请客户端重置当前文档视图。"
+    },
+    "resCode": {
+      "400": "请求错误，客户端发送的数据或请求格式不正确。",
+      "403": "请求合法，但客户端没有权限访问该资源。",
+      "404": "请求的资源不存在，可能是 URL 错误或资源已被删除。",
+      "500": "服务器内部错误,请联系管理员。"
+    },
+    "wssApiData": {
+      "info": {
+        "title": "WebSocket 聊天",
+        "description": "一个实时 WebSocket 聊天服务，允许用户发送和接收消息。"
+      },
+      "servers": {
+        "description": "用于聊天应用的 WebSocket 服务器"
+      },
+      "paths": {
+        "/chat": {
+          "summary": "发送对话消息。",
+          "description": "该接口向大模型发送一个问题消息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。",
+          "First Request": {
+            "summary": "建立WebSocket连接"
+          },
+          "Websocket Request": {
+            "summary": "发送聊天消息请求",
+            "description": "用于发送聊天消息请求到大模型服务，包含问题、上下文以及内存使用参数。",
+            "requestBody": {
+              "description": "请求消息内容，包含聊天的参数、问题以及上下文，格式为json字符串。",
+              "content": {
+                "schema": {
+                  "requestId": {
+                    "description": "请求的唯一标识符"
+                  },
+                  "params": {
+                    "tenantId": {
+                      "description": "租户 ID，用于标识请求的来源"
+                    },
+                    "data": {
+                      "app_id": {
+                        "description": "与请求关联的应用 ID"
+                      },
+                      "question": {
+                        "description": "用户提问的问题"
+                      },
+                      "context": {
+                        "description": "会话信息，包含创建会话所需的数据",
+                        "use_memory": {
+                          "description": "是否使用记忆功能，可能影响生成内容的方式"
+                        },
+                        "user_context": {
+                          "description": "用户的上下文信息，例如用户偏好或历史记录"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Websocket responses": {
+            "description": "请求成功，返回大模型处理后的结果，该结果是多个数据流消息，最后生成完整的数据流内容。",
+            "content": {
+              "schema": {
+                "status": {
+                  "description": "当前消息的状态"
+                },
+                "answer": {
+                  "description": "消息的数组",
+                  "items": {
+                    "content": {
+                      "description": "消息的内容",
+                      "formId": {
+                        "description": "表单 ID，如果有的话"
+                      },
+                      "formVersion": {
+                        "description": "表单版本"
+                      },
+                      "formArgs": {
+                        "description": "表单参数"
+                      },
+                      "msg": {
+                        "description": "消息文本内容"
+                      },
+                      "formAppearance": {
+                        "description": "表单外观设置"
+                      },
+                      "formData": {
+                        "description": "表单数据"
+                      }
+                    },
+                    "type": {
+                      "description": "消息类型"
+                    },
+                    "msgId": {
+                      "description": "消息 ID"
+                    }
+                  }
+                },
+                "chat_id": {
+                  "description": "当前聊天的唯一标识符"
+                },
+                "at_chat_id": {
+                  "description": "被 @ 的聊天 ID，如果有的话"
+                },
+                "instance_id": {
+                  "description": "当前聊天的实例 ID"
+                },
+                "log_id": {
+                  "description": "当前日志的唯一标识符"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "oldWssAPIData": {
+      "info": {
+        "title": "WebSocket 聊天",
+        "description": "一个实时 WebSocket 聊天服务，允许用户发送和接收消息。"
+      },
+      "servers": {
+        "description": "用于聊天应用的 WebSocket 服务器"
+      },
+      "paths": {
+        "/chat": {
+          "summary": "发送对话消息。",
+          "description": "该接口向大模型发送一个问题消息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。",
+          "First Request": {
+            "summary": "建立WebSocket连接"
+          },
+          "Websocket Request": {
+            "summary": "发送聊天消息请求",
+            "description": "用于建立 websocket 连接后，通过 websocket 的 session 发送对话请求并接收对话的响应。",
+            "requestBody": {
+              "description": "websocket 连接建立后，通过响应结构的 message 发送对话请求。",
+              "content": {
+                "schema": {
+                  "requestId": {
+                    "description": "请求的唯一标识符用于表示请求的唯一 id，websocket 的返回的流中都会带有 requestId，用于在复用 session 的情况下区分返回的流式消息属于哪一次请求。"
+                  },
+                  "method": {
+                    "description": "需要使用 websocket 请求的方法的名称。当前 method 仅支持 appChat。"
+                  },
+                  "params": {
+                    "data": {
+                      "app_id": {
+                        "description": "用于对话的 app 的 id"
+                      },
+                      "chat_id": {
+                        "description": "当前对话的 id，在第一次对话后生成，后续可用该 id 连续对话"
+                      },
+                      "question": {
+                        "description": "向大模型询问的问题"
+                      },
+                      "context": {
+                        "description": "会话信息，包含创建会话所需的数据",
+                        "use_memory": {
+                          "description": "对话时是否使用历史对话记录，开启后历史对话的数据会影响到大模型的回答"
+                        },
+                        "user_context": {
+                          "description": "用户的上下文信息，例如用户偏好或历史记录"
+                        },
+                        "at_app_id": {
+                          "description": "引用其他应用"
+                        },
+                        "at_chat_id": {
+                          "description": "引用其他应用对话"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Websocket responses": {
+            "description": "请求成功，返回大模型处理后的结果，该结果是多个数据流消息，最后生成完整的数据流内容。",
+            "content": {
+              "schema": {
+                "requestId": {
+                  "description": "用于表示请求的唯一 id，websocket 的返回的流中都会带有 requestId，用于在复用 session 的情况下区分返回的流式消息属于哪一次请求"
+                },
+                "code": {
+                  "description": "表示请求结果的状态码，正常状态为0，出现异常时返回异常状态码"
+                },
+                "msg": {
+                  "description": "表示接口执行失败时的错误信息，code 为 0 时，msg 为 null"
+                },
+                "data": {
+                  "description": "表示接口流式返回的数据，具体结构需要根据调用的不同的接口进行区分；在 websocket 的失败或者完成响应中，data 为 null",
+                  "status": {
+                    "description": "当前消息的状态"
+                  },
+                  "answer": {
+                    "description": "消息的数组",
+                    "items": {
+                      "content": {
+                        "description": "消息的内容",
+                        "content": {
+                          "description": "表示对话大模型响应结果的对象，其内容与 type 字段的值相关。app_chat 流式响应返回的第一个流式数据块中，content 表示输入的问题的定义，除此以外，content 表示大模型的输出"
+                        },
+                        "type": {
+                          "description": "表示响应的流式块中 answer 字段的 content 的类型。type 的值为 QUESTION 或者 MSG，分别表示提问和大模型的回答"
+                        },
+                        "msgId": {
+                          "description": "表示大模型响应消息的 id"
+                        }
+                      }
+                    }
+                  },
+                  "chat_id": {
+                    "description": "表示当前对话轮的 id。带有相同 chat_id 的问答都属于同一对话轮次，同一对话轮次内先进行的问答会成为之后问答的历史，在开启了 use_memory 后，会对后续大模型的回答产生影响"
+                  },
+                  "at_chat_id": {
+                    "description": "表示引用的对话轮次的 id"
+                  },
+                  "instance_id": {
+                    "description": "表示当前问答实例的 id。一个 instance_id 通常会对应一问一答"
+                  },
+                  "log_id": {
+                    "description": "表示当前问答记录的 id，用户提问和大模型的回答都会对应唯一的、递增的 logId"
+                  }
+                },
+                "completed": {
+                  "description": "表示流式响应是否结束的字段，在 websocket 的失败或者结束的响应中，completed 为 true"
+                }
+              }
+            }
+          },
+          "parameters": {
+            "tenant_id": {
+              "description": "租户的唯一标识符"
+            }
+          }
+        }
+      }
+    },
+    "oldSseApiData": {
+      "status": {
+        "description": "表示大模型响应的状态，响应的状态可以是READY，RUNNING 和 ARCHIVED 三种状态之一。READY 状态表示大模型接收到对话问题；RUNNING 状态表示对话正在进行的状态，此状态下会流式地返回对话模型的输出结果；ARCHIVED 状态表示流式响应结束，返回的数据中会包含完整的大模型输出。"
+      },
+      "answer": {
+        "description": "大模型的回答",
+        "items": {
+          "content": {
+            "description": "表示对话大模型响应结果的对象，其内容与 type 字段的值相关。app_chat 流式响应返回的第一个流式数据块中，content 表示输入的问题的定义，除此以外，content 表示大模型的输出"
+          },
+          "type": {
+            "description": "表示响应的流式块中 answer 字段的 content 的类型。type 的值为 QUESTION 或者 MSG，分别表示提问和大模型的回答"
+          },
+          "msgId": {
+            "description": "表示大模型响应消息的 id"
+          }
+        }
+      },
+      "chat_id": {
+        "description": "表示当前对话轮的 id。带有相同 chat_id 的问答都属于同一对话轮次，同一对话轮次内先进行的问答会成为之后问答的历史，在开启了 use_memory 后，会对后续大模型的回答产生影响"
+      },
+      "at_chat_id": {
+        "description": "表示引用的对话轮次的 id"
+      },
+      "instance_id": {
+        "description": "表示当前问答实例的 id。一个 instance_id 通常会对应一问一答"
+      },
+      "log_id": {
+        "description": "表示当前问答记录的 id，用户提问和大模型的回答都会对应唯一的、递增的 logId"
+      }
+    },
+    "errorCodeData": {
+      "0": "success",
+      "90000000": "非法参数: {参数信息}。",
+      "90000001": "资源不存在: {资源信息}。",
+      "90000002": "服务器内部错误，请联系管理员。",
+      "90000003": "禁止操作。",
+      "90001001": "系统错误，创建流程失败，请重试或联系管理员。",
+      "90001002": "没有正在运行的对话，无需终止。",
+      "90001003": "对话正在进行中，无法删除。",
+      "90001011": "配置有误，请查看工作流编排是否正确，错误原因：{错误信息}。",
+      "90001012": "存在相同的应用属性。",
+      "90001013": "应用名称不能为空。",
+      "90001014": "应用名称已存在。",
+      "90001015": "应用实例日志为空。",
+      "90002000": "文件上传失败。",
+      "90002001": "文件过期或损坏。",
+      "90002002": "解析文件内容失败。",
+      "90002003": "无效文件路径。",
+      "90002900": "Json解析失败，原因：{错误信息}。",
+      "90002901": "Json编码失败，原因：{错误信息}。",
+      "90002902": "获取历史记录失败。",
+      "90002903": "系统错误，应用配置项获取失败，请联系管理员。",
+      "90002904": "灵感大全提示词变量获取失败，请联系管理员。",
+      "90002905": "解析历史记录配置失败。",
+      "90002906": "请检查提示词模板中的变量。",
+      "90002908": "未支持的数据类型 [类型：{数据类型}]。",
+      "90002909": "任务不存在。",
+      "90002918": "会话请求结构有误。",
+      "90002919": "该应用未发布，无法进行对话。",
+      "90002920": "@应用会话出错，请清理缓存后重新对话。",
+      "90002921": "调试对话失败，请重试。",
+      "90002922": "会话响应出错，请重试。",
+      "90002924": "应用不存在，或者已经被删除。",
+      "90002925": "对话失败：应用不存在，或者已经被删除。",
+      "90002927": "请输入您的问题。",
+      "90002928": "实例id“{具体实例}”无法匹配任意父实例id。",
+      "90002929": "实例id“{具体实例}”无法匹配任意对话。",
+      "90002930": "不好意思，当前用户排队较多，请稍后重试，谢谢。",
+      "90002933": "系统错误，获取应用编排信息失败，请联系管理员。",
+      "90002935": "系统错误，文件格式校验失败，请联系管理员。",
+      "90002936": "系统错误，模型节点解析文件失败，请联系管理员。",
+      "90002938": "系统错误，获取历史对话失败，请联系管理员。",
+      "90002939": "系统错误，重新对话失败，请联系管理员。",
+      "90002940": "系统错误，获取应用信息失败，请联系管理员。",
+      "90002946": "音频文件切分失败，请更换音频文件或重试处理。",
+      "90002947": "音频文件总结内容为空，请更换音频文件或重试处理。",
+      "90002948": "音频文件内容提取失败，请更换音频文件或重试处理。",
+      "90002950": "系统错误，模型服务不可用，请检查模型状态或联系管理员。",
+      "90002951": "系统错误，调用大模型参数错误，请联系管理员。",
+      "90002952": "系统错误，调用大模型服务失败，请联系管理员。",
+      "90002953": "对话不存在，或者已经被删除。",
+      "90002954": "系统错误，终止会话失败，请联系管理员。",
+      "90002955": "系统错误，继续会话失败，请重试或联系管理员。",
+      "10007503": "系统错误，工具流编排运行失败，请联系管理员。",
+      "10000003": "入参不合法，不合法参数是{错误信息}。",
+      "10007511": "条件节点执行出错。",
+      "10007521": "流程执行异常，请重试。",
+      "90002956": "工具调用异常，请检查工具后重试。",
+      "90002957": "查找工具异常，请检查工具后重试",
+      "90002958": "网络连接出现问题，请检查网络连接后重试。",
+      "90002959": "插件重复，请更换插件后重试。",
+      "90002960": "{错误节点}节点执行出错，出错原因：{错误工具}工具执行出错，{错误信息}",
+      "90002961": "{错误节点}节点执行出错，出错原因：{错误信息}",
+      "90002962": "执行出错，出错原因：{错误工具}工具执行出错，{错误信息}",
+      "90002963": "执行出错，出错原因：{错误信息}",
+      "90002965": "表单属性父节点不存在",
+      "90002973": "路径格式无效",
+      "90002998": "许可证过期。"
+    }
+  }
 }

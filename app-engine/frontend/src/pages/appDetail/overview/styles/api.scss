@@ -193,6 +193,9 @@
         padding-left: 16px;
         cursor: pointer;
         border-left: 2px solid #808080;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &.current-nav {
           border-left: 2px solid rgb(26, 26, 26);
           color: rgb(26, 26, 26);
@@ -202,6 +205,9 @@
         padding-left: 32px;
         border-left: 2px solid #808080;
         cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &.current-nav {
           color: rgb(26, 26, 26);
           border-left: 2px solid rgb(26, 26, 26);

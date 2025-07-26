@@ -8,7 +8,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { toClipboard } from '@/shared/utils/common';
-import { Drawer, Tabs } from 'antd';
+import { Drawer, Tabs, Tooltip } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { markedProcess } from '@/pages/chatPreview/utils/marked-process';
 import copyCodeIcon from '@/assets/images/ai/copy_code.png';
@@ -75,8 +75,11 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   let fitlerRes = ['Request Body', 'Response Body', 'Websocket responses', 'Websocket Request'];
   let dataList: any = [];
   let oldWssData: any = [];
-  const wssList = [`${t('newSession')}API`, '旧版会话接口'];
-  const needWssResList = [`${t('newSession')}API`, `${t('reconversation')}API`];
+  const wssList = [t('north.api.chat.summary'), t('north.api.oldChat.summary')];
+  const needWssResList = [
+    `${t('north.api.chat.summary')}`,
+    `${t('north.api.restartChat.summary')}`,
+  ];
 
   // 转换代码格式
   const tranlateCode = (content) => {
@@ -159,7 +162,9 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
             {param.description && (
               <div
                 className='param-content'
-                dangerouslySetInnerHTML={{ __html: markedProcess(displayAppId(param.description)) }}
+                dangerouslySetInnerHTML={{
+                  __html: markedProcess(displayAppId(t(param.description))),
+                }}
               ></div>
             )}
           </div>
@@ -179,7 +184,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
       if (item.code > 0) {
         let errorObj: any = {};
         errorObj.field = item.code;
-        errorObj.description = item.message;
+        errorObj.description = t(item.message);
         arrError.push(errorObj);
       }
     });
@@ -207,15 +212,15 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         let obj: any = {};
         let methods = apiDataPaths[method];
         obj.id =
-          methods.summary === `${t('newSession')}API`
+          methods.summary === `${t('north.api.chat.summary')}API`
             ? '_0'
-            : methods.summary === '旧版会话接口'
+            : methods.summary === t('north.api.oldChat.summary')
               ? '_1'
               : `_${uuidv4()}`;
         obj.method = methods.operationId.split(' ')[0];
         obj.url = `<font color=#d0cdcd>${methods.operationId.split(' ')[1]}</font>`;
-        obj.title = methods.summary;
-        obj.content = methods.description;
+        obj.title = t(methods.summary);
+        obj.content = t(methods.description);
         obj.operationId = methods.operationId;
         obj.children = [];
         obj.codes = [];
@@ -227,16 +232,16 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   // 组装wss数据
   const processWssData = (apiData, isNew) => {
     let wssObj: any = {};
-    wssObj.title = apiData.info.title;
+    wssObj.title = t(apiData.info.title);
     wssObj.url = `<font color=#d0cdcd>${apiData.servers[0].url}</font>`;
     wssObj.method = 'WSS';
     wssObj.id = `_${isNew ? 0 : 1}`;
-    wssObj.content = apiData.paths['/chat'].description;
+    wssObj.content = t(apiData.paths['/chat'].description);
     wssObj.children = [];
     wssObj.codes = [];
     wssObj.children.push({
       title: 'First Request',
-      content: apiData.paths['/chat']['First Request'].summary,
+      content: t(apiData.paths['/chat']['First Request'].summary),
     });
     if (!isNew) {
       const getRequestInfo = getRequest(
@@ -279,7 +284,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
       let getResponseCode;
       if (needWssResList.includes(obj.title)) {
         getResponseCode = resCodes;
-      } else if (obj.title === '旧版会话接口') {
+      } else if (obj.title === t('north.api.oldChat.summary')) {
         getResponseCode = processWssCodes(resOldSseData);
       } else {
         getResponseCode = res;
@@ -288,7 +293,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
     }
     const getRes = processSseRequestAndResponse(resRefField);
     const getDatas = [
-      ...(obj.title === '旧版会话接口'
+      ...(obj.title === t('north.api.oldChat.summary')
         ? oldTabsKey === '1'
           ? processWssRequestAndResponse(oldSseAPIData)
           : oldWssRes
@@ -296,7 +301,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
       ...getRes,
     ];
     let getArr;
-    if (needWssResList.includes(obj.title) || obj.title === '旧版会话接口') {
+    if (needWssResList.includes(obj.title) || obj.title === t('north.api.oldChat.summary')) {
       getArr = getDatas;
     } else {
       getArr = getRes;
@@ -313,7 +318,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
     if (!wssList.includes(el.title)) {
       return el;
     }
-    if (el.title === '旧版会话接口') {
+    if (el.title === t('north.api.oldChat.summary')) {
       return oldTabsKey === '1' ? el : oldWssData[0];
     } else {
       return tabsKey === '1' ? el : wssData[0];
@@ -324,7 +329,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   const getRequest = (item: any, operationId: any) => {
     item.forEach((its: any) => {
       its.query = its.in;
-      its.content = its.schema.description;
+      its.content = t(its.schema.description);
       its.field = `<div class=api-drawer-title >${its.name}</div>`;
       its.type = `<font color=#d0cdcd>${its.schema?.type}</font>`;
       its.operationId = operationId;
@@ -340,7 +345,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
       resOKCode.forEach((key) => {
         statusObj.field = `<div class=api-drawer-title>${item}</div>`;
         if (Number(item) === key.code) {
-          statusObj.description = key.message;
+          statusObj.description = t(key.message);
         }
       });
     });
@@ -348,7 +353,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
     resCode.forEach((key) => {
       let statusCodeObj: any = {};
       statusCodeObj.field = `<div class=api-drawer-title>${key.code}</div>`;
-      statusCodeObj.description = key.message;
+      statusCodeObj.description = t(key.message);
       statusCodeArr.push(statusCodeObj);
     });
     let obj = { field: '<div class=param-query>HttpStatus</div>', children: statusCodeArr };
@@ -397,7 +402,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         }
       }
       if (properties[key].description) {
-        obj.description = properties[key].description;
+        obj.description = t(properties[key].description);
       }
       resArr.push(obj);
     });
@@ -413,7 +418,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
     res.forEach((item, index) => {
       let val: any = '';
       if (properties[item].description) {
-        val = properties[item].description;
+        val = t(properties[item].description);
       }
       if (properties[item].$ref || properties[item]['items']) {
         let propertiesStr = properties[item].$ref || properties[item]['items'].$ref;
@@ -543,7 +548,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         wssObj.field = pathsData[item].summary;
       }
       if (pathsData[item]['description']) {
-        wssObj.description = pathsData[item].description;
+        wssObj.description = t(pathsData[item].description);
       }
       if (pathsData[item]['requestBody']) {
         wssObj.children = [];
@@ -557,7 +562,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         isNew ? (reqCodes = processWssCodes(reqData)) : (oldReqCodes = processWssCodes(reqData));
         obj.children.push({
           title: 'Websocket Request',
-          content: pathsData[item]['description'],
+          content: t(pathsData[item]['description']),
           children: isNew ? wssReq : oldWssReq,
         });
         obj.codes.push({
@@ -577,7 +582,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         isNew ? (resCodes = processWssCodes(resData)) : (oldResCodes = processWssCodes(resData));
         obj.children.push({
           title: 'Websocket responses',
-          content: pathsData[item]['description'],
+          content: t(pathsData[item]['description']),
           children: isNew ? wssRes : oldWssRes,
         });
         obj.codes.push({
@@ -600,7 +605,7 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         obj.type = `<font color=#d0cdcd>${properties[key].type}</font>`;
       }
       if (properties[key].description) {
-        obj.description = properties[key].description;
+        obj.description = t(properties[key].description);
       }
       if (wssFilter.includes(properties[key].type)) {
         let propertiesData = {};
@@ -737,23 +742,26 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
         <div className='nav-item'>API{t('list')}</div>
         {documentContentData.map((item: any) => {
           return (
-            <div
-              key={item.id}
-              id={`${item.id}-link`}
-              className={`nav-item-second ${currentNav === `#${item.id}` ? 'current-nav' : ''}`}
-              onClick={(e) => handleAnchorClick(e, `#${item.id}`)}
-            >
-              {item.title}
-            </div>
+            <Tooltip title={item.title} placement='left' key={item.id}>
+              <div
+                id={`${item.id}-link`}
+                className={`nav-item-second ${currentNav === `#${item.id}` ? 'current-nav' : ''}`}
+                onClick={(e) => handleAnchorClick(e, `#${item.id}`)}
+              >
+                {item.title}
+              </div>
+            </Tooltip>
           );
         })}
-        <div
-          id='error-link'
-          className={`nav-item ${currentNav === '#error' ? 'current-nav' : ''}`}
-          onClick={(e) => handleAnchorClick(e, '#error')}
-        >
-          {t('errorCodes')}
-        </div>
+        <Tooltip title={t('errorCodes')} placement='left'>
+          <div
+            id='error-link'
+            className={`nav-item ${currentNav === '#error' ? 'current-nav' : ''}`}
+            onClick={(e) => handleAnchorClick(e, '#error')}
+          >
+            {t('errorCodes')}
+          </div>
+        </Tooltip>
       </div>
       <div className='document-markdown' ref={documentRef}>
         <div id='first'>
