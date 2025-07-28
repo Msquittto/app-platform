@@ -46,7 +46,7 @@ public class UserFeedbackController extends AbstractController {
      *
      * @param usrFeedbackDto 表示用户反馈消息体的 {@link UsrFeedbackDto}。
      */
-    @PostMapping(value = "/feedback", summary = "创建用户反馈记录",
+    @PostMapping(path = "/feedback", summary = "创建用户反馈记录",
             description = "该接口用于创建用户对一个对话实例的反馈记录。")
     public Rsp<Void> createUsrFeedback(@RequestBody UsrFeedbackDto usrFeedbackDto) {
         this.usrFeedbackService.create(usrFeedbackDto);
@@ -59,7 +59,7 @@ public class UserFeedbackController extends AbstractController {
      * @param usrFeedbackDto 表示用户反馈消息体的 {@link UsrFeedbackDto}。
      * @param instanceId 表示对话实例 Id 的 {@link String}。
      */
-    @PatchMapping(value = "/feedback/{instanceId}", summary = "更新用户反馈记录",
+    @PatchMapping(path = "/feedback/{instanceId}", summary = "更新用户反馈记录",
             description = "该接口用于更新用户对一个对话实例反馈记录。")
     public Rsp<Void> updateUsrFeedback(@PathVariable("instanceId") String instanceId,
             @RequestBody UsrFeedbackDto usrFeedbackDto) {
@@ -73,7 +73,7 @@ public class UserFeedbackController extends AbstractController {
      * @param instanceId 表示对话实例 Id 的 {@link String}。
      * @return 表示反馈记录的 {@link UsrFeedbackDto}。
      */
-    @GetMapping(value = "/feedback/{instanceId}", summary = "查询用户反馈记录",
+    @GetMapping(path = "/feedback/{instanceId}", summary = "查询用户反馈记录",
             description = "该接口可以通过待查询实例的唯一标识符来查询实例的反馈记录。")
     public Rsp<UsrFeedbackDto> getAllAnswerByInstanceId(@PathVariable("instanceId") String instanceId) {
         return Rsp.ok(this.usrFeedbackService.getUsrFeedbackByInstanceId(instanceId));
