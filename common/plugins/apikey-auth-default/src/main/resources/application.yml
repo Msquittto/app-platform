@@ -2,3 +2,6 @@ fit:
   beans:
     packages:
       - 'modelengine.jade.apikey'
+
+apiKey: 'Jade'
+userName: 'Jade'

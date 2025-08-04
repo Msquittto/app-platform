@@ -14,6 +14,7 @@ import modelengine.fit.http.server.HttpServerFilterChain;
 import modelengine.fitframework.annotation.Component;
 import modelengine.fitframework.annotation.Order;
 import modelengine.fitframework.annotation.Scope;
+import modelengine.fitframework.annotation.Value;
 import modelengine.fitframework.inspection.Validation;
 import modelengine.fitframework.log.Logger;
 import modelengine.jade.apikey.ApikeyAuthService;
@@ -35,6 +36,12 @@ public class NorthFilter implements HttpServerFilter {
     private static final Logger log = Logger.get(NorthFilter.class);
 
     private final ApikeyAuthService apikeyAuthService;
+
+    @Value("${apiKey}")
+    private String apiKey;
+
+    @Value("${userName}")
+    private String userName;
 
     /**
      * 用 apikey 鉴权服务 {@link ApikeyAuthService} 构造 {@link NorthFilter}。
@@ -69,7 +76,7 @@ public class NorthFilter implements HttpServerFilter {
     public void doFilter(HttpClassicServerRequest request, HttpClassicServerResponse response,
             HttpServerFilterChain chain) {
 
-        if (!this.apikeyAuthService.authApikeyInfo("Jade")) {
+        if (!this.apikeyAuthService.authApikeyInfo(this.apiKey)) {
             // 认证失败，返回 401 错误
             response.statusCode(HttpResponseStatus.UNAUTHORIZED.statusCode());
             log.error("Authentication failed: Token is null or invalid.");
@@ -77,7 +84,7 @@ public class NorthFilter implements HttpServerFilter {
             return;
         }
 
-        UserContext operationContext = new UserContext("Jade",
+        UserContext operationContext = new UserContext(this.userName,
                 HttpRequestUtils.getUserIp(request),
                 HttpRequestUtils.getAcceptLanguages(request));
         UserContextHolder.apply(operationContext, () -> chain.doFilter(request, response));
