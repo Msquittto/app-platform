@@ -3,5 +3,5 @@ fit:
     packages:
       - 'modelengine.jade.apikey'
 
-apiKey: 'Jade'
+apikey: 'Jade'
 userName: 'Jade'

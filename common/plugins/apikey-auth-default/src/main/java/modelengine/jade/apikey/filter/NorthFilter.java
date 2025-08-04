@@ -36,20 +36,21 @@ public class NorthFilter implements HttpServerFilter {
     private static final Logger log = Logger.get(NorthFilter.class);
 
     private final ApikeyAuthService apikeyAuthService;
-
-    @Value("${apiKey}")
-    private String apiKey;
-
-    @Value("${userName}")
-    private String userName;
+    private final String apikey;
+    private final String userName;
 
     /**
      * 用 apikey 鉴权服务 {@link ApikeyAuthService} 构造 {@link NorthFilter}。
      *
      * @param apikeyAuthService 表示 apikey 鉴权服务的 {@link ApikeyAuthService}。
+     * @param apikey 表示默认 apikey 的 {@link String}。
+     * @param userName 表示默认用户名的 {@link String}。
      */
-    public NorthFilter(ApikeyAuthService apikeyAuthService) {
+    public NorthFilter(ApikeyAuthService apikeyAuthService, @Value("${apikey}") String apikey,
+            @Value("${userName}") String userName) {
         this.apikeyAuthService = Validation.notNull(apikeyAuthService, "The auth service cannot be null.");
+        this.apikey = apikey;
+        this.userName = userName;
     }
 
     @Override
@@ -76,7 +77,7 @@ public class NorthFilter implements HttpServerFilter {
     public void doFilter(HttpClassicServerRequest request, HttpClassicServerResponse response,
             HttpServerFilterChain chain) {
 
-        if (!this.apikeyAuthService.authApikeyInfo(this.apiKey)) {
+        if (!this.apikeyAuthService.authApikeyInfo(this.apikey)) {
             // 认证失败，返回 401 错误
             response.statusCode(HttpResponseStatus.UNAUTHORIZED.statusCode());
             log.error("Authentication failed: Token is null or invalid.");
