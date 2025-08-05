@@ -51,10 +51,6 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
   const [tabsKey, setTabsKey] = useState('1');
   const [oldTabsKey, setOldTabsKey] = useState('1');
   const documentRef = useRef<any>(null);
-  let websocketUrl = [
-    '<font color=#d0cdcd>/api/app/v1/tenants/{tenantId}/chats/apps/{appId}</font>',
-    '<font color=#d0cdcd>/api/app/v1/chat</font>',
-  ];
   let oldWebsocketUrl = [
     '<font color=#d0cdcd>/agent/v1/api/{tenant_id}/app_chat</font>',
     '<font color=#d0cdcd>/agent/v1/api/{tenant_id}/ws</font>',
@@ -824,16 +820,6 @@ const DocumentDrawer = ({ drawerOpen, url, setDrawerOpen }) => {
                 className='content-description'
                 dangerouslySetInnerHTML={{ __html: markedProcess(tranlateCode(item.content)) }}
               ></div>
-              {websocketUrl.includes(item.url) && (
-                <div>
-                  <Tabs
-                    defaultActiveKey='1'
-                    onChange={onChangeTabs}
-                    items={items}
-                    activeKey={tabsKey}
-                  />
-                </div>
-              )}
               {oldWebsocketUrl.includes(item.url) && (
                 <div>
                   <Tabs

@@ -969,7 +969,7 @@
         "request": {
           "description": "会话信息，包含创建会话所需的数据"
         },
-        "description": "该接口向大模型发送一个问题信息，并开启一个对话。支持 SSE 和 Websocket 两种流式调用方式。",
+        "description": "该接口向大模型发送一个问题信息，并开启一个对话。支持 SSE 流式调用方式。",
         "parameters": {
           "tenantId": {
             "description": "租户的唯一标识符"

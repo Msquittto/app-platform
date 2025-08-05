@@ -969,7 +969,7 @@
         "request": {
           "description": "Session information, including data required to create a session"
         },
-        "description": "This interface sends a question to the large model and initiates a conversation. Supports two streaming call methods: SSE and WebSocket.",
+        "description": "This interface sends a question to the large model and initiates a conversation. Supports streaming call methods: SSE.",
         "parameters": {
           "tenantId": {
             "description": "The tenant's unique identifier"
