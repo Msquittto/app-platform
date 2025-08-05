@@ -198,7 +198,7 @@ const AppOverview: React.FC = () => {
         </div>
         <div className='detail-card'>
           <PublicCard url={detail.chatUrl} type='URL' detail={detail}  />
-          <PublicCard url={`/${process.env.PACKAGE_MODE === 'spa' ? `agent/v1/api/${tenantId}` : 'api/jober'}`} type='API' auth={readOnly} detail={detail} />
+          <PublicCard url={`${process.env.PACKAGE_MODE === 'spa' ? '' : '/api/jober'}`} type='API' auth={readOnly} detail={detail} />
         </div>
       </div>
       {/* 删除弹窗 */}

@@ -57,7 +57,7 @@ const PublicCard = ({ type, url, detail, auth = false }) => {
 
   return (
     <div className='detail-card-item'>
-      {url ? (
+      {url !== null ? (
         <div className='item-detail'>
           <div className='item-top'>
             {type === 'URL' ? (
