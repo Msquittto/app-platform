@@ -17,6 +17,9 @@ export const markedProcess = (content) => {
       tool: [],
       step: []
     },
+    escapeHtml: (html: string) => {
+      return html;
+    },
   };
   const clean = xss(content, config);
   return marked(clean, {
